@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>مرکز ارتباط با مشتریان | صفحه اصلی</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- bootstrap rtl -->
+  <link rel="stylesheet" href="{{asset('dist/css/bootstrap-rtl.min.css')}}">
+  <!-- template rtl version -->
+  <link rel="stylesheet" href="{{asset('dist/css/custom-style.css')}}">
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    {{-- header nav --}}
+    @include('main.header')
+
+    {{-- sidebar --}}
+    @include('main.sidebar')
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">صفحه سریع</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-left">
+              <li class="breadcrumb-item"><a href="#">خانه</a></li>
+              <li class="breadcrumb-item active">صفحه سریع</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title mb-2 text-bold">عنوان کارت</h5>
+
+                <p class="card-text">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                </p>
+
+                <a href="#" class="card-link">لینک کارت</a>
+                <a href="#" class="card-link mr-2">لینک صفحه</a>
+              </div>
+            </div>
+
+            <div class="card card-primary card-outline">
+              <div class="card-body">
+                <h5 class="card-title mb-2 text-bold">عنوان کارت</h5>
+
+                <p class="card-text">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                </p>
+                <a href="#" class="card-link">لینک کارت</a>
+                <a href="#" class="card-link mr-2">لینک صفحه</a>
+              </div>
+            </div><!-- /.card -->
+          </div>
+          <!-- /.col-md-6 -->
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="m-0">ویژه</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title mb-2 text-bold">عنوان کارت ویژه</h6>
+
+                <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
+                <a href="#" class="btn btn-primary">برو به صفحه ایکس</a>
+              </div>
+            </div>
+
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="m-0">ویژه</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title mb-2 text-bold">عنوان کارت ویژه</h6>
+
+                <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                <a href="#" class="btn btn-primary">برو به صفحه ایکس</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>CopyLeft &copy; 2023 <a href="#"></a></strong>
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+</body>
+</html>
