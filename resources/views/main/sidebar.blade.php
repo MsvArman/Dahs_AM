@@ -26,24 +26,24 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
-                صفحات شروع
-                <i class="right fa fa-angle-left"></i>
+                    مدیریت
+                    <i class="right fa fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{ route('usermanagement') }}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>صفحه فعال</p>
+                    <p>مدیریت کاربران</p>
                 </a>
                 </li>
                 <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('createuser') }}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>صفحه غیر فعال</p>
+                    <p>افزودن کاربر</p>
                 </a>
                 </li>
             </ul>

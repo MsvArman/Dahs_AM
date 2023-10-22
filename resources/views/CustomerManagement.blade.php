@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>مرکز ارتباط با مشتریان | مدیریت کاربران</title>
+  <title>مرکز ارتباط با مشتریان | مدیریت مشتریان</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,12 +40,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>مدیریت کاربران</h1>
+            <h1>مدیریت مشتریان</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="#">خانه</a></li>
-              <li class="breadcrumb-item active">مدیریت کاربران</li>
+              <li class="breadcrumb-item active">مدیریت مشتریان</li>
             </ol>
           </div>
           
@@ -62,7 +62,7 @@
             <div class="card">
               
               <div class="card-header">
-                <h3 class="card-title">مدیریت کاربران</h3>
+                <h3 class="card-title">مدیریت مشتریان</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 250px;">
@@ -82,15 +82,17 @@
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tr>
+                    <th>کدملی</th>
                     <th>نام و نام خانوادگی</th>
-                    <th>سمت</th>
                     <th>شماره همراه</th>
                     <th>شماره ثابت</th>
-                    <th>خط داخلی</th>
+                    <th>ایمیل</th>
+                    <th>سرمایه گذاری در</th>
+                    <th>میزان سرمایه</th>
                     <th>اقدامات</th>
 
                   </tr>
-                  @foreach ($users as $user)
+                  {{-- @foreach ($users as $user)
                     <tr>
                       <td>{{$user->name}}</td>
                       <td>{{$user->role}}</td>
@@ -99,12 +101,29 @@
                       <td>{{$user->phone2}}</td>
                       <td>
                         <div class="btn-group">
-                          <a href="{{ route('ur_show') }}?id={{$user->id}}"><button type="button" class="btn btn-warning">ویرایش کاربر</button></a>
-                          <a href="{{ route('dr') }}?id={{$user->id}}"><button type="button" class="btn btn-danger">حذف کاربر</button></a>
+                          <a href="#"><button type="button" class="btn btn-warning">ویرایش کاربر</button></a>
+                          <a href="#"><button type="button" class="btn btn-danger">حذف کاربر</button></a>
                         </div>
                       </td>
                     </tr>
-                  @endforeach
+                  @endforeach --}}
+
+                  <tr>
+                    <td>01234567890</td>
+                    <td>تست تست</td>
+                    <td>09123456789</td>
+                    <td>02112345678</td>
+                    <td>test@test.test</td>
+                    <td>سبد</td>
+                    <td>ریال1,000,000</td>
+                    <td>
+                      <div class="btn-group">
+                        <a href="#"><button type="button" class="btn btn-warning">ویرایش کاربر</button></a>
+                        <a href="#"><button type="button" class="btn btn-danger">حذف کاربر</button></a>
+                      </div>
+                    </td>
+                  </tr>
+
                 </table>
               </div>
               <!-- /.card-body -->
