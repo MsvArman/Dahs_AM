@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>مرکز ارتباط با مشتریان | مدیریت مشتریان</title>
+  <title>مرکز ارتباط با مشتریان | تاریخچه مکالمات</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,12 +40,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>مدیریت مشتریان</h1>
+            <h1>تاریخچه مکالمات</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="#">خانه</a></li>
-              <li class="breadcrumb-item active">مدیریت مشتریان</li>
+              <li class="breadcrumb-item active">تاریخچه مکالمات</li>
             </ol>
           </div>
           
@@ -62,12 +62,11 @@
             <div class="card">
               
               <div class="card-header">
-                <a href="{{ route('createcustomer') }}"><button type="button" class="btn btn-warning btn-sm d-flex flex-row">
-                  <i class="fa fa-plus mx-1"></i>
-                  <p class="mb-0 ">افزودن مشتری</p>
-                </button></a>
+                <h3 class="card-title">تاریخچه مکالمات</h3>
+
                 <div class="card-tools">
                   <div class="input-group input-group-sm w-100">
+                    {{-- <a href="{{ route('') }}"><button type="button" class="btn btn-success btn-sm mx-4">افزودن مکالمه</button></a> --}}
                     <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
 
                     <div class="input-group-append">
@@ -83,57 +82,54 @@
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tr>
-                    <th>کدملی</th>
-                    <th>نام و نام خانوادگی</th>
-                    <th>شماره همراه</th>
-                    <th>شماره ثابت</th>
-                    <th>ایمیل</th>
-                    <th>سرمایه گذاری در</th>
-                    <th>میزان سرمایه</th>
+                    <th>شناسه</th>
+                    <th>شماره مشتری</th>
+                    <th>شماره اپراتور</th>
+                    <th>تماس</th>
+                    <th>وضعیت</th>
+                    <th>تاریخ تماس</th>
+                    <th>تاریخ پایان</th>
                     <th>اقدامات</th>
 
                   </tr>
 
                   @foreach ($users as $user)
                     <tr>
-                      <td>{{$user->NationalCode}}</td>
-                      <td>{{$user->name}}</td>
-                      <td>{{$user->phone}}</td>
-                      <td>{{$user->number}}</td>
-                      <td>{{$user->email}}</td>
-                      <td>{{$user->Investingin}}</td>
-                      <td>{{$user->Amountofcapital}}</td>
+                      <td>{{$user->callid}}</td>
+                      <td>{{$user->mobilecustomer}}</td>
+                      <td>{{$user->mobileoperator}}</td>
+                      <td>{{$user->call}}</td>
+                      <td>{{$user->status}}</td>
+                      <td>{{$user->startcall}}</td>
+                      <td>{{$user->endcall}}</td>
                       <td>
-
                         <div class="d-flex">
 
-                          <a href="{{ route('ucr_show') }}?id={{$user->id}}"><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                            <i class="fa fa-edit mx-1"></i>
-                            <p class="mb-0 ">ویرایش مشتری</p>
-                          </button></a>
-                          <a href="{{ route('dcr') }}?id={{$user->id}}"><button class="btn btn-sm btn-danger text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                            <i class="fa fa-trash mx-1"></i>
-                            <p class="mb-0 ">حذف مشتری</p>
-                          </button></a>
-
+                            <button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                                <i class="fa fa-play mx-2"></i>
+                                <p class="mb-0 ">پخش صوت</p>
+                          </button>
+                          <a href="{{ route('pc') }}?mobilecustomer={{$user->mobilecustomer}}"><button class="btn btn-sm btn-warning text m-1 d-flex flex-column align-items-center justify-content-center text-center">  
+                            <p class="mb-0 ">بیشتر...</p>
+                        </button></a>
                         </div>
-
                       </td>
                     </tr>
                   @endforeach
-{{-- 
-                  <tr>
-                    <td>01234567890</td>
-                    <td>تست تست</td>
+
+                  {{-- <tr>
+                    <td>تست</td>
                     <td>09123456789</td>
-                    <td>02112345678</td>
-                    <td>test@test.test</td>
-                    <td>سبد</td>
-                    <td>ریال1,000,000</td>
+                    <td>09120000000</td>
+                    <td>ورودی</td>
+                    <td>پایان یافته</td>
+                    <td>1402-07-30 12:28</td>
+                    <td>1402-07-30 12:29</td>
                     <td>
                       <div class="btn-group">
-                        <a href="#"><button type="button" class="btn btn-warning">ویرایش مشتری</button></a>
-                        <a href="#"><button type="button" class="btn btn-danger">حذف مشتری</button></a>
+                        <a href="#"><button type="button" class="btn btn-warning">ویرایش تماس</button></a>
+                        <a href="#"><button type="button" class="btn btn-danger">
+                            <i class="fa fa-play"></i> فایل صوت </button></a>
                       </div>
                     </td>
                   </tr> --}}

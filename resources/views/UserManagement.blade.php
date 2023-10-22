@@ -62,11 +62,13 @@
             <div class="card">
               
               <div class="card-header">
-                <h3 class="card-title">مدیریت کاربران</h3>
+                <a href="{{ route('createuser') }}"><button type="button" class="btn btn-warning btn-sm d-flex flex-row">
+                  <i class="fa fa-plus mx-1"></i>
+                  <p class="mb-0 ">افزودن کاربر</p>
+                </button></a>
 
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 250px;">
-                    <a href="{{ route('createuser') }}"><button type="button" class="btn btn-success btn-sm">افزودن کاربر</button></a>
+                  <div class="input-group input-group-sm w-100">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
 
                     <div class="input-group-append">
@@ -98,10 +100,20 @@
                       <td>{{$user->phone}}</td>
                       <td>{{$user->phone2}}</td>
                       <td>
-                        <div class="btn-group">
-                          <a href="{{ route('ur_show') }}?id={{$user->id}}"><button type="button" class="btn btn-warning">ویرایش کاربر</button></a>
-                          <a href="{{ route('dr') }}?id={{$user->id}}"><button type="button" class="btn btn-danger">حذف کاربر</button></a>
+
+                        <div class="d-flex">
+
+                          <a href="{{ route('ur_show') }}?id={{$user->id}}"><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                            <i class="fa fa-edit mx-1"></i>
+                            <p class="mb-0 ">ویرایش کاربر</p>
+                          </button></a>
+                          <a href="{{ route('dr') }}?id={{$user->id}}"><button class="btn btn-sm btn-danger text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                            <i class="fa fa-trash mx-1"></i>
+                            <p class="mb-0 ">حذف کاربر</p>
+                          </button></a>
+
                         </div>
+
                       </td>
                     </tr>
                   @endforeach

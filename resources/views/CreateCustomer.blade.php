@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>مرکز ارتباط با مشتریان | ویرایش کاربر</title>
+  <title>مرکز ارتباط با مشتریان | افزودن مشتری</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,12 +40,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>ویرایش کاربر</h1>
+            <h1>افزودن مشتری</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="#">خانه</a></li>
-              <li class="breadcrumb-item active">ویرایش کاربر</li>
+              <li class="breadcrumb-item active">افزودن مشتری</li>
             </ol>
           </div>
           
@@ -58,49 +58,50 @@
       <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">ویرایش کاربر</h3>
+              <h3 class="card-title">افزودن مشتری</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('ur') }}" method="post" role="form">
+            <form action="{{ route('ccr') }}" method="post" role="form">
               <div class="card-body">
+
+                <div class="form-group">
+                  <label for="NationalCode">کدملی</label>
+                  <input type="number" class="form-control" name="NationalCode" id="NationalCode" placeholder="کدملی را وارد کنید">
+                </div>
+
                 <div class="form-group">
                   <label for="name">نام و نام خانوادگی</label>
-                  <input type="text" class="form-control" name="name" id="name" placeholder="نام و نام خانوادگی را وارد کنید" value="{{$user->name}}">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="نام و نام خانوادگی را وارد کنید">
                 </div>
 
                 <div class="form-group">
-                  <label >سمت</label>
-                  <select name="role" id="role" class="form-control">
-                    <option>اپراتور</option>
-                    <option>کاربر</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="email">ایمیل</label>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="ایمیل را وارد کنید" value="{{$user->email}}">
+                  <label for="phone">شماره همراه</label>
+                  <input type="number" class="form-control" name="phone" id="phone" placeholder="شماره همراه را وارد کنید">
               </div>
 
                 <div class="form-group">
-                    <label for="mobile">شماره همراه</label>
-                    <input type="number" class="form-control" name="mobile" id="mobile" placeholder="شماره همراه را وارد کنید" value="{{$user->mobile}}">
+                  <label for="number">شماره ثابت</label>
+                  <input type="number" class="form-control" name="number" id="number" placeholder="شماره ثابت را وارد کنید">
+              </div>
+
+                <div class="form-group">
+                  <label for="email">ایمیل</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="ایمیل را وارد کنید">
+              </div>
+
+                <div class="form-group">
+                    <label for="Investingin">سرمایه گذاری در</label>
+                    <select name="Investingin" id="Investingin" class="form-control">
+                      <option>صندوق</option>
+  
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">شماره ثابت</label>
-                    <input type="number" class="form-control" name="phone" id="phone" placeholder="شماره ثابت را وارد کنید" value="{{$user->phone}}">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone2">خط داخلی</label>
-                    <input type="number" class="form-control" name="phone2" id="phone2" placeholder="خط داخلی را وارد کنید" value="{{$user->phone2}}">
-                </div>
-
-                {{-- <div class="form-group">
-                  <label for="Password">رمزعبور</label>
-                  <input type="password" class="form-control" name="Password" id="Password" placeholder="پسورد را وارد کنید">
-                </div> --}}
+                  <label for="Amountofcapital">میزان سرمایه</label>
+                  <input type="text" class="form-control" name="Amountofcapital" id="Amountofcapital" placeholder="میزان سرمایه گذاری را وارد کنید">
+              </div>
 
               </div>
               <!-- /.card-body -->
@@ -108,9 +109,8 @@
  
               <!-- Equivalent to... -->
               <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-              <input type="hidden" name="id" value="{{ $user->id }}" />
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">بروزرسانی کاربر</button>
+                <button type="submit" class="btn btn-primary">ثبت مشتری</button>
               </div>
             </form>
           </div>

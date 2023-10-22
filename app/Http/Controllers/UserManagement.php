@@ -63,7 +63,8 @@ class UserManagement extends Controller
 
     public function Show_User(Request $request){
 
-        $user = users::find($request->get("id"))->get();
+
+        $user = users::find($request->get("id"));
         return view("UpdateUser", compact("user"));
 
     }
@@ -72,7 +73,8 @@ class UserManagement extends Controller
     public function Update_User(Request $request){
 
         try {
-
+            
+            $user = users::find($request->get("id"));
             $user->update([
                 "name" => $request->get("name"),
                 "email" => $request->get("email"),

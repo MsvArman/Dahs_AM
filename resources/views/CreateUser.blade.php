@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>مرکز ارتباط با مشتریان | ویرایش کاربر</title>
+  <title>مرکز ارتباط با مشتریان | افزودن کاربر</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,12 +40,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>ویرایش کاربر</h1>
+            <h1>افزودن کاربر</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="#">خانه</a></li>
-              <li class="breadcrumb-item active">ویرایش کاربر</li>
+              <li class="breadcrumb-item active">افزودن کاربر</li>
             </ol>
           </div>
           
@@ -58,7 +58,7 @@
       <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">ویرایش کاربر</h3>
+              <h3 class="card-title">افزودن کاربر</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -70,8 +70,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="role">سمت</label>
-                    <input type="text" class="form-control" name="role" id="role" placeholder="سمت را وارد کنید">
+
+                  <label >سمت</label>
+                  <select name="role" id="role" class="form-control">
+                    <option>اپراتور</option>
+                    <option>کاربر</option>
+
+                  </select>
+
                 </div>
 
                 <div class="form-group">
@@ -128,16 +134,17 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- Slimscroll -->
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="{{asset('plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 <!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
+<script src="{{asset('plugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="{{asset('dist/js/demo.js')}}"></script>
+
 </body>
 </html>

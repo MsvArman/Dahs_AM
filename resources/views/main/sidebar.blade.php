@@ -29,34 +29,59 @@
             <a href="#" class="nav-link ">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
-                    مدیریت
+                   مدیریت کاربران
                     <i class="right fa fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                 <a href="{{ route('usermanagement') }}" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
+                    <i class="fa fa-users nav-icon"></i>
                     <p>مدیریت کاربران</p>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a href="{{ route('createuser') }}" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
+                    <i class="fa fa-plus nav-icon"></i>
                     <p>افزودن کاربر</p>
                 </a>
                 </li>
             </ul>
             </li>
-            <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-th"></i>
-                <p>
-                لینک ساده
-                <span class="right badge badge-danger">جدید</span>
-                </p>
-            </a>
+
+
+            <li class="nav-item has-treeview menu-open">
+                <a href="#" class="nav-link ">
+                    <i class="nav-icon fa fa-dashboard"></i>
+                    <p>
+                        مدیریت مشتریان
+                        <i class="right fa fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{ route('customermanagement') }}" class="nav-link">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>مدیریت مشتریان</p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{{ route('createcustomer') }}" class="nav-link">
+                        <i class="fa fa-plus nav-icon"></i>
+                        <p>افزودن مشتری</p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('callhistory')}}" class="nav-link">
+                            <i class="nav-icon fa fa-repeat"></i>
+                            <p>
+                            تاریخچه مکالمات
+                            </p>
+                        </a>
+                    </li>
+                </ul>
             </li>
+
         </ul>
         </nav>
         <!-- /.sidebar-menu -->
