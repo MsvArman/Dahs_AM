@@ -41,9 +41,8 @@ Route::post('/Update_Customer', [App\Http\Controllers\CustomerManagement::class,
 Route::get('/callhistory', [App\Http\Controllers\CallHistory::class, 'Show_Calls'])->name('callhistory');
 Route::get('/profilecustomer', [App\Http\Controllers\CallHistory::class, 'Profile_Customer'])->name('pc');
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::post("/submit_message", [MessageController::class , "submit_message"])->name("submit_message");
+
+// Route::get("/reports", [])
