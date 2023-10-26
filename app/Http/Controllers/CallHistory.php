@@ -29,11 +29,21 @@ class CallHistory extends Controller
 
         $calls = CallHistorydb::where('NationalCode', $NationalCode)->get();
 
-        $count = count($calls);
-        $end = $calls[$count - 1];
-        // return $end;
-        return view("ProfileCustomer", compact("user","calls","NationalCode","end"));
+        if($calls){
+            $count = count($calls);
 
+            if($count == 0){
+                // oke
+            }else{
+                $end = $calls[$count - 1];
+                return view("ProfileCustomer", compact("user","calls","NationalCode","end"));
+            }
+            
+        }
+        
+        // return $end;
+        
+        return view("ProfileCustomer", compact("user","calls","NationalCode"));
 
 
         // اپدیت کردن کدملی در دیتابیس مکلمات 
@@ -46,9 +56,13 @@ class CallHistory extends Controller
         try {
             
             $user = CallHistorydb::find($request->get("id"));
-            $user->update([
-                "comment" => $request->get("comment"),
-            ]);
+
+            if($request->get("id")){
+                $user->update([
+                    "comment" => $request->get("comment"),
+                ]);
+            }
+            
     
             return redirect()->route("callhistory");
 

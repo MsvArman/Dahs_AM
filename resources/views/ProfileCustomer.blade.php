@@ -233,7 +233,10 @@
                     
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" placeholder="نتیجه کارشناسی خود را در کادر ورودی ثبت کنید">
-                      <input type="hidden" name="id" value="{{ $end->id }}" />
+                      @if (isset($end))
+                      <input type="hidden" name="id" value="{{$end}}"/>
+                      @endif
+                      
                       <span class="input-group-append">
                         <button type="submit" class="btn btn-info btn-flat" >ثبت</button>
                       </span>
