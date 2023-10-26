@@ -112,22 +112,33 @@ $name = "";
                       @else
                       <i class="bi bi-telephone-inbound text-success"></i>
                       @endif</td>
-                      <td>{{ $user->endcall . $user->startcall}}</td>
+                      <td>{{ $user->time  ." | ".  $user->startcall}}</td>
+                      
                       <td>
                         <div class="d-flex">
 
-                            <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                                {{-- <i class="fa fa-play mx-2"></i> --}}
-                                <i class="fa fa-play mx-2"></i>
-                                <audio src="https://192.168.10.10/Api/DownloadRecording.php?file=/var/spool/asterisk/monitor/2023/10/24/out-09981498389-unknown-20231024-084908-1698151742.656.wav" id="Audio"></audio>
-                                {{-- play --}}
+                          <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+
+                            <i class="fa fa-play mx-2"></i>
+                            <audio src="https://192.168.10.10/Api/DownloadRecording.php?file={{$user->voice}}" id="Audio"></audio>
+
                           </button>
+
+                          <a href=""><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                            <i class="fa fa-phone mx-2"></i>
+                            </button>
+                          </a>
+
                           <a href="{{ route('pc') }}?NationalCode={{$user->NationalCode}}"><button class="btn btn-sm btn-warning text m-1 d-flex flex-column align-items-center justify-content-center text-center">  
                             <i class="fa fa-ellipsis-v mx-2"></i>
-                        </button></a>
-                        <a href=""><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                          <i class="fa fa-phone mx-2"></i>
-                        </button></a>
+                            </button>
+                          </a>
+
+                          {{-- <a href="#"><button class="btn btn-sm btn-info text m-1 d-flex flex-column align-items-center justify-content-center text-center">  
+                            <i class="fa fa-ticket" aria-hidden="true"></i>
+                            </button>
+                          </a> --}}
+
                         </div>
                       </td>
                     </tr>

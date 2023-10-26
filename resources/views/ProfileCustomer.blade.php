@@ -134,7 +134,7 @@
               @csrf
  
               <!-- Equivalent to... -->
-              <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+              {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> --}}
               {{-- <input type="hidden" name="id" value="{{ $user->id }}" /> #چکککک --}} 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">بروزرسانی مشتری</button>
@@ -147,7 +147,7 @@
 
             <div class="card bg-primary-gradient">
               <div class="card-header">
-                <h3 class="card-title">باکس اولیه</h3>
+                <h3 class="card-title">رویدادها</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -206,18 +206,19 @@
                         </div>
                         <!-- /.direct-chat-text -->
                       </div>
-
-                      <div class="direct-chat-msg right">
-                        <div class="direct-chat-info clearfix">
+                      @if ($call->comment)
+                        <div class="direct-chat-msg right">
+                          <div class="direct-chat-info clearfix">
+                          </div>
+                          <!-- /.direct-chat-info -->
+                          <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
+                          <!-- /.direct-chat-img -->
+                          <div class="direct-chat-text">
+                            {{$call->comment}}
+                          </div>
+                          <!-- /.direct-chat-text -->
                         </div>
-                        <!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                          {{$call->comment ? $call->comment : "نظر کارشناس پیدا نشد!"}}
-                        </div>
-                        <!-- /.direct-chat-text -->
-                      </div>
+                      @endif
                     @endforeach
                     
 
@@ -227,16 +228,17 @@
                 
                 <!-- /.card-footer -->
                 <div class="card-footer" style="display: block;">
-                  <form action="#" method="post">
-
-
+                  <form action="{{ route('updatecomment')}}" method="post">
+                    @csrf
+                    
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" placeholder="نتیجه کارشناسی خود را در کادر ورودی ثبت کنید">
+                      <input type="hidden" name="id" value="{{ $end->id }}" />
                       <span class="input-group-append">
-                        <button type="button" class="btn btn-info btn-flat" >ثبت</button>
+                        <button type="submit" class="btn btn-info btn-flat" >ثبت</button>
                       </span>
                     </div>
-                    {{-- <input type="hidden" name="id" value="{{ $user->id }}" /> --}}
+                    
 
                   </form>
                 </div>

@@ -12,7 +12,10 @@ class CallHistory extends Controller
     
     public function Show_Calls(){
 
-        $users = CallHistorydb::all();
+        // $users = CallHistorydb::all()->sortBy("id");
+        $users = CallHistorydb::orderBy('id')->get();
+
+        
         return view("HistoryCall", compact("users"));
 
 
@@ -26,12 +29,15 @@ class CallHistory extends Controller
 
         $calls = CallHistorydb::where('NationalCode', $NationalCode)->get();
 
-        return view("ProfileCustomer", compact("user","calls","NationalCode"));
+        $count = count($calls);
+        $end = $calls[$count - 1];
+        // return $end;
+        return view("ProfileCustomer", compact("user","calls","NationalCode","end"));
 
 
 
         // اپدیت کردن کدملی در دیتابیس مکلمات 
-        // return $user;
+        
 
     }
 

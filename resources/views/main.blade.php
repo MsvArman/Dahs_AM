@@ -157,6 +157,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini ">
 <div class="wrapper">
 
+    @include('sweetalert::alert')
     {{-- header nav --}}
     @include('main.header')
 
@@ -257,8 +258,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="modal-body">
                     <table id="dialer_table">
+                      <form action="{{ route('caller')}}" method="post">
                         <tr>
-                            <td id="dialer_input_td" colspan="3"><input type="number" placeholder=""></td>
+                            <td id="dialer_input_td" colspan="3"><input name="number" type="number" placeholder=""></td>
                         </tr>
                         <tr class="dialer_num_tr">
                           <td class="dialer_num" onclick="dialerClick('dial', 3)">3</td>
@@ -285,8 +287,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           </td>
                         </tr>
                         <tr>
-                            <td colspan="3"><a href="#" type="button" id="dialer_call_btn_td">تماس</a></td>
+                            <td colspan="3"><button type="submit" id="dialer_call_btn_td">تماس</button></td>
                         </tr>
+                        @csrf
+                        <input type="hidden" name="ext" value="{{ auth()->user()->mobile }}" />
+                      </form>
                     </table>
                 </div>
             </div>
