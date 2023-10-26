@@ -21,9 +21,26 @@
   <!-- template rtl version -->
   <link rel="stylesheet" href="{{asset('dist/css/custom-style.css')}}">
 
+  <style>
+    body{
+    direction: rtl;
+    width: 100%;
+    height:100% !important;
+    min-height: 100% !important;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    }
+    main{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    }
+  </style>
+
 </head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<body class="hold-transition sidebar-mini ">
+  <div class="wrapper">
 
 
     {{-- header nav --}}
@@ -55,7 +72,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid row d-flex justify-content-center text-center">
+      <main class="container-fluid row d-flex justify-content-center text-center">
         <div class="card card-primary col-12 col-md-4 p-0">
             <div class="card-header">
               <h3 class="card-title">پروفایل مشتری
@@ -126,56 +143,26 @@
             
           </div>
 
-          <div class="card col-12 col-md-7 mx-3">
-            <div class="card-body card-widget" style="height: 60%">
-              <div class="row">
-                <div class="col-12">
-                  <div class="card">
-                    
-                    <div class="card-header">
-                      <h3 class="card-title">تاریخچه مکالمات</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0">
-                      <table class="table table-hover">
-                        <tr>
-                          <th>شناسه</th>
-                          <th>شماره مشتری</th>
-                          <th>شماره اپراتور</th>
-                          <th>تاریخ تماس</th>
-                          <th>اقدامات</th>
-      
-                        </tr>
-      
-                        @foreach ($calls as $call)
-                          <tr>
-                            <td>{{$call->callid}}</td>
-                            <td>{{$call->mobilecustomer}}</td>
-                            <td>{{$call->mobileoperator}}</td>
-                            <td>{{ $call->endcall . $call->startcall}}</td>
-                            <td>
-                              <div class="d-flex">
-                                <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+          <div class=" col-12 col-md-7 mx-4">
 
-                                    <i class="fa fa-play mx-2"></i>
-                                    <audio src="https://192.168.10.10/Api/DownloadRecording.php?file=/var/spool/asterisk/monitor/2023/10/24/out-09981498389-unknown-20231024-084908-1698151742.656.wav" id="Audio"></audio>
-                                    {{-- play --}}
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                        @endforeach
-      
-                      </table>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                  <!-- /.card -->
+            <div class="card bg-primary-gradient">
+              <div class="card-header">
+                <h3 class="card-title">باکس اولیه</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
                 </div>
-              </div><!-- /.row -->
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body" style="display: block;">
+                محتوای باکس
+              </div>
+              <!-- /.card-body -->
             </div>
 
-            <div class="col-md-12 ">
+            <div>
               <!-- Box Comment -->
               <div class="card card-widget">
                 <div class="card-header">
@@ -202,26 +189,37 @@
                       <span class="direct-chat-timestamp float-right"></span>
                     </div>
 
-
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-info clearfix">
+                    @foreach ($calls as $call)
+                      <div class="direct-chat-msg">
+                        <div class="direct-chat-info clearfix">
+                        </div>
+                        <!-- /.direct-chat-info -->
+                        <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                          <audio controls>
+                            <source
+                              src="{{$call->voice}}"
+                              type="audio/wav"
+                            />
+                          </audio>
+                        </div>
+                        <!-- /.direct-chat-text -->
                       </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را</div>
-                      <!-- /.direct-chat-text -->
-                    </div>
 
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
+                      <div class="direct-chat-msg right">
+                        <div class="direct-chat-info clearfix">
+                        </div>
+                        <!-- /.direct-chat-info -->
+                        <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                          {{$call->comment ? $call->comment : "نظر کارشناس پیدا نشد!"}}
+                        </div>
+                        <!-- /.direct-chat-text -->
                       </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را</div>
-                      <!-- /.direct-chat-text -->
-                    </div>
+                    @endforeach
+                    
 
                   </div>
 
@@ -238,6 +236,7 @@
                         <button type="button" class="btn btn-info btn-flat" >ثبت</button>
                       </span>
                     </div>
+                    {{-- <input type="hidden" name="id" value="{{ $user->id }}" /> --}}
 
                   </form>
                 </div>
@@ -248,20 +247,32 @@
             
 
           </div>
-        </div><!-- /.container-fluid -->
+        </main><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    {{-- <strong>CopyLeft &copy; 2018 <a href="http://github.com/hesammousavi/">حسام موسوی</a>.</strong> --}}
-  </footer>
-
+  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
   </aside>
   <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer fixed-bottom z-1">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      {{-- Anything you want --}}
+    </div>
+    <!-- Default to the left -->
+    {{-- <strong>CopyLeft &copy; 2018 <a href="">ArmanMsv</a>.</strong> --}}
+  </footer>
+
 </div>
 <!-- ./wrapper -->
 
