@@ -21,12 +21,16 @@ class CallHistory extends Controller
 
     public function Profile_Customer(Request $request){
 
-        $mobile = $request->get("mobilecustomer");
-        $user = customers::where('phone', $mobile)->orWhere('number', $mobile)->get();
+        $NationalCode = $request->get("NationalCode");
+        $user = customers::where('NationalCode', $NationalCode)->first();
 
-        $calls = CallHistorydb::where('mobilecustomer', $mobile)->get();
+        $calls = CallHistorydb::where('NationalCode', $NationalCode)->get();
 
-        return view("ProfileCustomer", compact("user","calls"));
+        return view("ProfileCustomer", compact("user","calls","NationalCode"));
+
+
+
+        // اپدیت کردن کدملی در دیتابیس مکلمات 
         // return $user;
 
     }

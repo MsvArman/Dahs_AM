@@ -1,3 +1,8 @@
+<?php
+
+$name = "";
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +20,7 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <!-- bootstrap rtl -->
   <link rel="stylesheet" href="{{asset('dist/css/bootstrap-rtl.min.css')}}">
@@ -83,12 +89,13 @@
                 <table class="table table-hover">
                   <tr>
                     <th>شناسه</th>
+                    <th>نام و نام خانوادگی </th>
+                    <th>کدملی مشتری</th>
                     <th>شماره مشتری</th>
                     <th>شماره اپراتور</th>
                     <th>تماس</th>
-                    <th>وضعیت</th>
+                    {{-- <th>وضعیت</th> --}}
                     <th>تاریخ تماس</th>
-                    <th>تاریخ پایان</th>
                     <th>اقدامات</th>
 
                   </tr>
@@ -96,43 +103,35 @@
                   @foreach ($users as $user)
                     <tr>
                       <td>{{$user->callid}}</td>
+                      <td>{{$name}}</td>
+                      <td>{{$user->NationalCode}}</td>
                       <td>{{$user->mobilecustomer}}</td>
                       <td>{{$user->mobileoperator}}</td>
-                      <td>{{$user->call}}</td>
-                      <td>{{$user->status}}</td>
-                      <td>{{$user->startcall}}</td>
-                      <td>{{$user->endcall}}</td>
+                      <td>@if ($user->call == 'outcall')
+                        <i class="bi bi-telephone-outbound text-danger"></i>
+                      @else
+                      <i class="bi bi-telephone-inbound text-success"></i>
+                      @endif</td>
+                      <td>{{ $user->endcall . $user->startcall}}</td>
                       <td>
                         <div class="d-flex">
 
-                            <button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                            <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                                {{-- <i class="fa fa-play mx-2"></i> --}}
                                 <i class="fa fa-play mx-2"></i>
-                                <p class="mb-0 ">پخش صوت</p>
+                                <audio src="https://192.168.10.10/Api/DownloadRecording.php?file=/var/spool/asterisk/monitor/2023/10/24/out-09981498389-unknown-20231024-084908-1698151742.656.wav" id="Audio"></audio>
+                                {{-- play --}}
                           </button>
-                          <a href="{{ route('pc') }}?mobilecustomer={{$user->mobilecustomer}}"><button class="btn btn-sm btn-warning text m-1 d-flex flex-column align-items-center justify-content-center text-center">  
-                            <p class="mb-0 ">بیشتر...</p>
+                          <a href="{{ route('pc') }}?NationalCode={{$user->NationalCode}}"><button class="btn btn-sm btn-warning text m-1 d-flex flex-column align-items-center justify-content-center text-center">  
+                            <i class="fa fa-ellipsis-v mx-2"></i>
+                        </button></a>
+                        <a href=""><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                          <i class="fa fa-phone mx-2"></i>
                         </button></a>
                         </div>
                       </td>
                     </tr>
                   @endforeach
-
-                  {{-- <tr>
-                    <td>تست</td>
-                    <td>09123456789</td>
-                    <td>09120000000</td>
-                    <td>ورودی</td>
-                    <td>پایان یافته</td>
-                    <td>1402-07-30 12:28</td>
-                    <td>1402-07-30 12:29</td>
-                    <td>
-                      <div class="btn-group">
-                        <a href="#"><button type="button" class="btn btn-warning">ویرایش تماس</button></a>
-                        <a href="#"><button type="button" class="btn btn-danger">
-                            <i class="fa fa-play"></i> فایل صوت </button></a>
-                      </div>
-                    </td>
-                  </tr> --}}
 
                 </table>
               </div>
@@ -159,6 +158,14 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
+
+
+<script>
+  function PlayAudio() {
+    document.getElementById("Audio").play();
+  }
+</script>
+
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

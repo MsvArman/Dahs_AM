@@ -59,8 +59,12 @@
         <div class="card card-primary col-12 col-md-4 p-0">
             <div class="card-header">
               <h3 class="card-title">پروفایل مشتری
-                {{-- if not find --}}
-                {{-- <button type="button" class="btn btn-block btn-warning btn-sm">مشتری مورد نظر ثبت نشده است.</button> --}}
+
+                @if ($user)
+                    
+                @else
+                  <button type="button" class="btn btn-block btn-warning btn-sm">مشتری مورد نظر ثبت نشده است.</button>
+                @endif
 
               </h3>
             </div>
@@ -71,27 +75,28 @@
 
                 <div class="form-group">
                   <label for="NationalCode">کدملی</label>
-                  <input type="number" class="form-control text-center" name="NationalCode" id="NationalCode" placeholder="کدملی را وارد کنید" value="{{$user[0]->NationalCode}}">
+                  {{-- @if ($user) @else  @endif --}}
+                  <input type="number" class="form-control text-center " name="NationalCode" id="NationalCode" placeholder="کدملی را وارد کنید" value="{{ $user ? $user->NationalCode : $NationalCode}}">
                 </div>
 
                 <div class="form-group">
                   <label for="name">نام و نام خانوادگی</label>
-                  <input type="text" class="form-control text-center" name="name" id="name" placeholder="نام و نام خانوادگی را وارد کنید" value="{{$user[0]->name}}">
+                  <input type="text" class="form-control text-center" name="name" id="name" placeholder="نام و نام خانوادگی را وارد کنید" value="{{ $user ? $user->name : "" }}">
                 </div>
 
                 <div class="form-group">
                   <label for="phone">شماره همراه</label>
-                  <input type="number" class="form-control text-center" name="phone" id="phone" placeholder="شماره همراه را وارد کنید" value="{{$user[0]->phone}}">
+                  <input type="number" class="form-control text-center" name="phone" id="phone" placeholder="شماره همراه را وارد کنید" value="{{$user ? $user->phone : ""}}">
               </div>
 
                 <div class="form-group">
                   <label for="number">شماره ثابت</label>
-                  <input type="number" class="form-control text-center" name="number" id="number" placeholder="شماره ثابت را وارد کنید" value="{{$user[0]->number}}">
+                  <input type="number" class="form-control text-center" name="number" id="number" placeholder="شماره ثابت را وارد کنید" value="{{$user ? $user->number : ""}}">
               </div>
 
                 <div class="form-group">
                   <label for="email">ایمیل</label>
-                  <input type="email" class="form-control text-center" name="email" id="email" placeholder="ایمیل را وارد کنید" value="{{$user[0]->email}}">
+                  <input type="email" class="form-control text-center" name="email" id="email" placeholder="ایمیل را وارد کنید" value="{{$user ? $user->email : ""}}">
               </div>
 
                 <div class="form-group">
@@ -104,7 +109,7 @@
 
                 <div class="form-group">
                   <label for="Amountofcapital">میزان سرمایه</label>
-                  <input type="text" class="form-control" name="Amountofcapital" id="Amountofcapital" placeholder="میزان سرمایه گذاری را وارد کنید" value="{{$user[0]->Amountofcapital}}">
+                  <input type="text" class="form-control" name="Amountofcapital" id="Amountofcapital" placeholder="میزان سرمایه گذاری را وارد کنید" value="{{$user ? $user->Amountofcapital :"" }}">
               </div>
 
               </div>
@@ -113,7 +118,7 @@
  
               <!-- Equivalent to... -->
               <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-              {{-- <input type="hidden" name="id" value="{{ $call->id }}" /> --}}
+              {{-- <input type="hidden" name="id" value="{{ $user->id }}" /> #چکککک --}} 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">بروزرسانی مشتری</button>
               </div>
@@ -122,7 +127,7 @@
           </div>
 
           <div class="card col-12 col-md-7 mx-3">
-            <div class="card-body w-100 " style="height: 500px">
+            <div class="card-body card-widget" style="height: 60%">
               <div class="row">
                 <div class="col-12">
                   <div class="card">
@@ -137,10 +142,7 @@
                           <th>شناسه</th>
                           <th>شماره مشتری</th>
                           <th>شماره اپراتور</th>
-                          <th>تماس</th>
-                          <th>وضعیت</th>
                           <th>تاریخ تماس</th>
-                          <th>تاریخ پایان</th>
                           <th>اقدامات</th>
       
                         </tr>
@@ -150,23 +152,20 @@
                             <td>{{$call->callid}}</td>
                             <td>{{$call->mobilecustomer}}</td>
                             <td>{{$call->mobileoperator}}</td>
-                            <td>{{$call->call}}</td>
-                            <td>{{$call->status}}</td>
-                            <td>{{$call->startcall}}</td>
-                            <td>{{$call->endcall}}</td>
-
+                            <td>{{ $call->endcall . $call->startcall}}</td>
                             <td>
                               <div class="d-flex">
-                                <button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                                  <i class="fa fa-play mx-2"></i>
-                                  <p class="mb-0 ">پخش صوت</p>
-                              </button>
+                                <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
 
+                                    <i class="fa fa-play mx-2"></i>
+                                    <audio src="https://192.168.10.10/Api/DownloadRecording.php?file=/var/spool/asterisk/monitor/2023/10/24/out-09981498389-unknown-20231024-084908-1698151742.656.wav" id="Audio"></audio>
+                                    {{-- play --}}
+                                </button>
                               </div>
                             </td>
                           </tr>
                         @endforeach
-
+      
                       </table>
                     </div>
                     <!-- /.card-body -->
@@ -175,6 +174,79 @@
                 </div>
               </div><!-- /.row -->
             </div>
+
+            <div class="col-md-12 ">
+              <!-- Box Comment -->
+              <div class="card card-widget">
+                <div class="card-header">
+                  <div class="user-block">
+                    
+                    <b><a href="#">تیکت</a></b>
+                    {{-- <span class="description">تست</span> --}}
+                  </div>
+                  <!-- /.user-block -->
+                  <div class="card-tools">
+
+                    <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+
+                  </div>
+                  <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body" style="display: block;">
+  
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name float-left"></span>
+                      <span class="direct-chat-timestamp float-right"></span>
+                    </div>
+
+
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                      </div>
+                      <!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را</div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                      </div>
+                      <!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را</div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+
+                  </div>
+
+                </div>
+                
+                <!-- /.card-footer -->
+                <div class="card-footer" style="display: block;">
+                  <form action="#" method="post">
+
+
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="نتیجه کارشناسی خود را در کادر ورودی ثبت کنید">
+                      <span class="input-group-append">
+                        <button type="button" class="btn btn-info btn-flat" >ثبت</button>
+                      </span>
+                    </div>
+
+                  </form>
+                </div>
+                <!-- /.card-footer -->
+              </div>
+              <!-- /.card -->
+            </div>
+            
+
           </div>
         </div><!-- /.container-fluid -->
     </section>

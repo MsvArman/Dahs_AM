@@ -35,7 +35,7 @@ Route::get('/createcustomer', function () {return view('CreateCustomer');})->nam
 Route::post('/Create_Customer', [App\Http\Controllers\CustomerManagement::class, 'Create_Customer'])->name('ccr');
 Route::get('/Del_Customer', [App\Http\Controllers\CustomerManagement::class, 'destroy'])->name('dcr');
 Route::get('/updatecustomer', [App\Http\Controllers\CustomerManagement::class, 'Show_Customer'])->name('ucr_show');
-Route::post('/Update_User', [App\Http\Controllers\CustomerManagement::class, 'Update_Customer'])->name('ucr');
+Route::post('/Update_Customer', [App\Http\Controllers\CustomerManagement::class, 'Update_Customer'])->name('ucr');
 
 Route::get('/callhistory', [App\Http\Controllers\CallHistory::class, 'Show_Calls'])->name('callhistory');
 Route::get('/profilecustomer', [App\Http\Controllers\CallHistory::class, 'Profile_Customer'])->name('pc');

@@ -62,7 +62,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('ur') }}" method="post" role="form">
+            <form action="{{ route('ucr') }}" method="post" role="form">
               <div class="card-body">
                 <div class="form-group">
                   <label for="name">نام و نام خانوادگی</label>
