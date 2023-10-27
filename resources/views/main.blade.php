@@ -15,6 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+
+  <link rel="stylesheet" href="{{asset('dist/css/customcss.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -39,115 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     flex-grow: 1;
     }
 
-     #dialer_table {
-            width: 100%;
-            font-size: 1.5em;
-            
-        }
 
-        #dialer_table tr td {
-            text-align: center;
-            height: 50px;
-            width: 33%;
-        }
-
-        #dialer_table #dialer_input_td {
-            border-bottom: 1px solid #fafafa;
-        }
-
-        #dialer_table #dialer_input_td input {
-            width: 100%;
-            border: none;
-            font-size: 1.6em;
-        }
-
-        /* Remove arrows from type number input : Chrome, Safari, Edge, Opera */
-        #dialer_table #dialer_input_td input::-webkit-outer-spin-button,
-        #dialer_table #dialer_input_td input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        /* Remove arrows from type number input : Firefox */
-        #dialer_table #dialer_input_td input[type=number] {
-            -moz-appearance: textfield;
-        }
-
-        #dialer_table #dialer_input_td input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: #cccccc;
-            opacity: 1; /* Firefox */
-        }
-
-        #dialer_table #dialer_input_td input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: #cccccc;
-        }
-
-        #dialer_table #dialer_input_td input::-ms-input-placeholder { /* Microsoft Edge */
-            color: #cccccc;
-        }
-
-        #dialer_table #dialer_call_btn_td {
-            color: #ffffff;
-            background-color: green;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            text-decoration: none;
-            padding: 5px 32px;
-            text-align: center;
-            display: inline-block;
-            margin: 10px 2px 4px 2px;
-            transition: all 300ms ease;
-            -moz-transition: all 300ms ease;
-            --webkit-transition: all 300ms ease;
-        }
-
-        #dialer_table #dialer_call_btn_td:hover {
-            background-color: #009d00;
-        }
-
-        #dialer_table .dialer_num_tr td {
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none; /* Safari */
-            -khtml-user-select: none; /* Konqueror HTML */
-            -moz-user-select: none; /* Old versions of Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-        }
-
-        #dialer_table .dialer_num_tr td:nth-child(1) {
-            border-right: 1px solid #fafafa;
-        }
-
-        #dialer_table .dialer_num_tr td:nth-child(3) {
-            border-left: 1px solid #fafafa;
-        }
-
-        #dialer_table .dialer_num_tr:nth-child(1) td,
-        #dialer_table .dialer_num_tr:nth-child(2) td,
-        #dialer_table .dialer_num_tr:nth-child(3) td,
-        #dialer_table .dialer_num_tr:nth-child(4) td {
-            border-bottom: 1px solid #fafafa;
-        }
-
-        #dialer_table .dialer_num_tr .dialer_num {
-            color: #0B559F;
-            cursor: pointer;
-        }
-
-        #dialer_table .dialer_num_tr .dialer_num:hover {
-            background-color: #fafafa;
-        }
-
-        #dialer_table .dialer_num_tr:nth-child(0) td {
-            border-top: 1px solid #fafafa;
-        }
-
-        #dialer_table .dialer_del_td img {
-            cursor: pointer;
-            
-            
-        }
   </style>
 
 
@@ -157,12 +51,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini ">
 <div class="wrapper">
 
-    @include('sweetalert::alert')
     {{-- header nav --}}
     @include('main.header')
 
     {{-- sidebar --}}
     @include('main.sidebar')
+    
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -191,10 +85,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title mb-2 text-bold">عنوان کارت</h5>
+                <h5 class="card-title mb-2 text-bold">عنوان تست</h5>
 
                 <p class="card-text">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                  تست                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+                  تست
+
                 </p>
 
                 <a href="#" class="card-link">لینک کارت</a>
@@ -247,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       
 
     </main>
-    <div class="modal fade " style="z-index: 9999" id="dialer_modal" tabindex="-1" aria-labelledby="dialer_modal_label" aria-hidden="true">
+    {{-- <div class="modal fade " style="z-index: 9999" id="dialer_modal" tabindex="-1" aria-labelledby="dialer_modal_label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -296,7 +202,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -322,13 +228,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </footer>
 </div>
 <!-- ./wrapper -->
-<div type="button" class="btn btn-primary text-light" style="position: fixed;left:.7% ; bottom: 4%" data-toggle="modal" data-target="#dialer_modal">
+{{-- <div type="button" class="btn btn-primary text-light" style="position: fixed;left:.7% ; bottom: 4%" data-toggle="modal" data-target="#dialer_modal">
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
         <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
       </svg>
-</div>
+</div> --}}
 <!-- REQUIRED SCRIPTS -->
-
+@include('main.caller')
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
@@ -336,7 +242,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 
-<script>
+{{-- <script>
     function dialerClick(type, value) {
        let input = $('#dialer_input_td input');
        let input_val = $('#dialer_input_td input').val();
@@ -348,6 +254,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
            input.val("");
        }
    }
-</script>
+</script> --}}
 </body>
 </html>

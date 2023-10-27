@@ -12,12 +12,12 @@ class caller extends Controller
         $number = $request->get("number");
         $ext = $request->get("ext");
         $id = time();
-
+        $ip = '176.65.253.69';
 
         $curl = curl_init();
         
         curl_setopt_array($curl, array(
-          CURLOPT_URL => 'http://176.65.253.69/Api/ApiDial.php?number='.$number.'&ext='.$ext.'&id='.$id.'&codemeli='.$id,
+          CURLOPT_URL => 'http://'.$ip.'/Api/ApiDial.php?number='.$number.'&ext='.$ext.'&id='.$id.'&codemeli='.$id,
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => '',
           CURLOPT_MAXREDIRS => 10,
@@ -41,7 +41,7 @@ class caller extends Controller
 
         }
        
-        return redirect()->route("main");
+        return redirect()->back();
      
     }
 }

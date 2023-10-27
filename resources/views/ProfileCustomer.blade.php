@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="{{asset('dist/css/bootstrap-rtl.min.css')}}">
   <!-- template rtl version -->
   <link rel="stylesheet" href="{{asset('dist/css/custom-style.css')}}">
+  <link rel="stylesheet" href="{{asset('dist/css/customcss.css')}}">
+
 
   <style>
     body{
@@ -280,6 +282,7 @@
 
 </div>
 <!-- ./wrapper -->
+@include('main.caller')
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -292,6 +295,6 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+{{-- <script src="../../dist/js/demo.js"></script> --}}
 </body>
 </html>
