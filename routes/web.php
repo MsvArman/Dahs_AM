@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ReportsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserManagement;
 use App\Http\Controllers\CustomerManagement;
@@ -46,3 +47,6 @@ Route::post('/updatecomment', [App\Http\Controllers\CallHistory::class, 'Comment
 
 Route::post('/caller', [App\Http\Controllers\caller::class, 'caller'])->name('caller');
 Route::post("/submit_message", [MessageController::class , "submit_message"])->name("submit_message");
+
+Route::get("/reports", [ReportsController::class, "show"])->name("reports_show")->middleware("auth");
+Route::post("/give_report", [ReportsController::class, "give_report"])->name("give_report")->middleware("auth");

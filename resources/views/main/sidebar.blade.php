@@ -82,6 +82,14 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('reports_show')}}" class="nav-link">
+                            <i class="nav-icon fa fa-repeat"></i>
+                            <p>
+                            گزارش گیری
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </li>
 
