@@ -16,10 +16,11 @@
         <!-- Sidebar user panel (optional) -->
         {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
+                <img src="" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">حسام موسوی</a>
+                
+                <a href="#" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div> --}}
 
@@ -29,13 +30,13 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link ">
+            {{-- <a href="#" class="nav-link ">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
                    مدیریت کاربران
                     <i class="right fa fa-angle-left"></i>
                 </p>
-            </a>
+            </a> --}}
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                 <a href="{{ route('usermanagement') }}" class="nav-link">
@@ -54,13 +55,13 @@
 
 
             <li class="nav-item has-treeview menu-open">
-                <a href="#" class="nav-link ">
+                {{-- <a href="#" class="nav-link ">
                     <i class="nav-icon fa fa-dashboard"></i>
                     <p>
                         مدیریت مشتریان
                         <i class="right fa fa-angle-left"></i>
                     </p>
-                </a>
+                </a> --}}
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                     <a href="{{ route('customermanagement') }}" class="nav-link">
@@ -68,12 +69,12 @@
                         <p>مدیریت مشتریان</p>
                     </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                     <a href="{{ route('createcustomer') }}" class="nav-link">
                         <i class="fa fa-plus nav-icon"></i>
                         <p>افزودن مشتری</p>
                     </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a href="{{ route('callhistory')}}" class="nav-link">
                             <i class="nav-icon fa fa-repeat"></i>

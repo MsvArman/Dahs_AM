@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\users;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class login extends Controller
 {
@@ -20,10 +21,13 @@ class login extends Controller
                 // return ["login_success", $user->id, auth()->user()];
                 return redirect()->route("main");
             }
-            return ["warn_password"];
+            Alert::error('ارور', 'رمز وارد شده اشتباه است');
+            return redirect()->route("login");
 
         }else{
-            return ["warn_email"];
+
+            Alert::error('ارور', 'ایمیل وارد شده اشتباه است');
+            return redirect()->route("login");
         }
 
 

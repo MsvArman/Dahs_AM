@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{asset('dist/css/customcss.css')}}">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
@@ -98,10 +100,10 @@
                                             <th>کدملی</th>
                                             <th>نام و نام خانوادگی</th>
                                             <th>شماره همراه</th>
-                                            <th>شماره ثابت</th>
+                                            {{-- <th>شماره ثابت</th> --}}
                                             <th>ایمیل</th>
-                                            <th>سرمایه گذاری در</th>
-                                            <th>میزان سرمایه</th>
+                                            {{-- <th>سرمایه گذاری در</th>
+                                            <th>میزان سرمایه</th> --}}
                                             <th>اقدامات</th>
 
                                         </tr>
@@ -111,10 +113,10 @@
                                                 <td>{{ $user->NationalCode }}</td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->phone }}</td>
-                                                <td>{{ $user->number }}</td>
+                                                {{-- <td>{{ $user->number }}</td> --}}
                                                 <td>{{ $user->email }}</td>
-                                                <td>{{ $user->Investingin }}</td>
-                                                <td>{{ $user->Amountofcapital }}</td>
+                                                {{-- <td>{{ $user->Investingin }}</td> --}}
+                                                {{-- <td>{{ $user->Amountofcapital }}</td> --}}
                                                 <td>
 
                                                     <div class="d-flex">
@@ -283,6 +285,7 @@
     </div>
 
     <!-- ./wrapper -->
+    @include('main.caller')
 
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -295,7 +298,7 @@
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
+    {{-- <script src="../../dist/js/demo.js"></script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
