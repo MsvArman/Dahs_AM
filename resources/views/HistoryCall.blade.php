@@ -11,13 +11,15 @@ $name = "";
   <title>مرکز ارتباط با مشتریان | تاریخچه مکالمات</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta http-equiv="refresh" content="11">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('dist/css/customcss.css')}}">
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -88,10 +90,11 @@ $name = "";
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tr>
-                    <th>شناسه</th>
-                    <th>نام و نام خانوادگی </th>
+                    {{-- <th>شناسه</th> --}}
+                    {{-- <th>نام و نام خانوادگی </th> --}}
                     <th>کدملی مشتری</th>
                     <th>شماره مشتری</th>
+                    {{-- <th>نام اپراتور</th> --}}
                     <th>شماره اپراتور</th>
                     <th>تماس</th>
                     {{-- <th>وضعیت</th> --}}
@@ -102,32 +105,46 @@ $name = "";
 
                   @foreach ($users as $user)
                     <tr>
-                      <td>{{$user->callid}}</td>
-                      <td>{{$name}}</td>
+                      {{-- <td>{{$user->callid}}</td> --}}
+                      {{-- <td>/</td> --}}
                       <td>{{$user->NationalCode}}</td>
                       <td>{{$user->mobilecustomer}}</td>
+                      {{-- <td>{{$user->mobileoperator}}</td> --}}
                       <td>{{$user->mobileoperator}}</td>
+
                       <td>@if ($user->call == 'outcall')
                         <i class="bi bi-telephone-outbound text-danger"></i>
                       @else
                       <i class="bi bi-telephone-inbound text-success"></i>
                       @endif</td>
-                      <td>{{ $user->endcall . $user->startcall}}</td>
+                      <td>{{ $user->startcall}}</td>
+                      
                       <td>
                         <div class="d-flex">
 
-                            <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                                {{-- <i class="fa fa-play mx-2"></i> --}}
-                                <i class="fa fa-play mx-2"></i>
-                                <audio src="https://192.168.10.10/Api/DownloadRecording.php?file=/var/spool/asterisk/monitor/2023/10/24/out-09981498389-unknown-20231024-084908-1698151742.656.wav" id="Audio"></audio>
-                                {{-- play --}}
+                          <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+
+                            <i class="fa fa-play mx-2"></i>
+                            <audio src="https://176.65.253.69/Api/DownloadRecording.php?file={{$user->voice}}" id="Audio"></audio>
+
                           </button>
+
+                          <a href=""><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                            <i class="fa fa-phone mx-2"></i>
+                            </button>
+                          </a>
+
                           <a href="{{ route('pc') }}?NationalCode={{$user->NationalCode}}"><button class="btn btn-sm btn-warning text m-1 d-flex flex-column align-items-center justify-content-center text-center">  
                             <i class="fa fa-ellipsis-v mx-2"></i>
-                        </button></a>
-                        <a href=""><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                          <i class="fa fa-phone mx-2"></i>
-                        </button></a>
+                            </button>
+                          </a>
+
+                          {{-- <a href="#"><button class="btn btn-sm btn-info text m-1 d-flex flex-column align-items-center justify-content-center text-center">  
+                            <i class="fa fa-ticket" aria-hidden="true"></i>
+                            </button>
+                          </a> --}}
+
+
                         </div>
                       </td>
                     </tr>
@@ -153,6 +170,8 @@ $name = "";
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
+@include('main.caller')
+
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
@@ -164,6 +183,15 @@ $name = "";
   function PlayAudio() {
     document.getElementById("Audio").play();
   }
+
+
+  // axios.post(`{{ url('updatecalls') }}`, {})
+  //   .then(response => {
+  //     console.log(response.data);
+  //   }).catch(error => {
+  //   console.log(error)
+  // });
+
 </script>
 
 <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -176,6 +204,6 @@ $name = "";
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+{{-- <script src="../../dist/js/demo.js"></script> --}}
 </body>
 </html>

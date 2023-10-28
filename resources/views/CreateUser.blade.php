@@ -102,7 +102,7 @@
 
                 <div class="form-group">
                   <label for="Password">رمزعبور</label>
-                  <input type="password" class="form-control" name="Password" id="Password" placeholder="پسورد را وارد کنید">
+                  <input type="password" class="form-control" name="password" id="Password" placeholder="پسورد را وارد کنید">
                 </div>
 
               </div>
@@ -110,7 +110,7 @@
               @csrf
  
               <!-- Equivalent to... -->
-              <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">ثبت کاربر</button>
               </div>
@@ -144,7 +144,7 @@
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('dist/js/demo.js')}}"></script>
+{{-- <script src="{{asset('dist/js/demo.js')}}"></script> --}}
 
 </body>
 </html>

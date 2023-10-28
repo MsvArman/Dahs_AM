@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="{{asset('dist/css/bootstrap-rtl.min.css')}}">
   <!-- template rtl version -->
   <link rel="stylesheet" href="{{asset('dist/css/custom-style.css')}}">
+  <link rel="stylesheet" href="{{asset('dist/css/customcss.css')}}">
+
 
   <style>
     body{
@@ -87,7 +89,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('ucr') }}" method="post" role="form">
+            <form action="{{ $user ? route('ucr') : route('ccr') }}" method="post" role="form">
               <div class="card-body">
 
                 <div class="form-group">
@@ -134,8 +136,11 @@
               @csrf
  
               <!-- Equivalent to... -->
-              <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-              {{-- <input type="hidden" name="id" value="{{ $user->id }}" /> #چکککک --}} 
+              {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> --}}
+              @if ($user)
+              <input type="hidden" name="id" value="{{ $user->id }}" />
+              @endif
+              
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">بروزرسانی مشتری</button>
               </div>
@@ -147,7 +152,7 @@
 
             <div class="card bg-primary-gradient">
               <div class="card-header">
-                <h3 class="card-title">باکس اولیه</h3>
+                <h3 class="card-title">رویدادها</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -199,25 +204,26 @@
                         <div class="direct-chat-text">
                           <audio controls>
                             <source
-                              src="{{$call->voice}}"
+                              src="https://176.65.253.69/Api/DownloadRecording.php?file={{$call->voice}}"
                               type="audio/wav"
                             />
                           </audio>
                         </div>
                         <!-- /.direct-chat-text -->
                       </div>
-
-                      <div class="direct-chat-msg right">
-                        <div class="direct-chat-info clearfix">
+                      @if ($call->comment)
+                        <div class="direct-chat-msg right">
+                          <div class="direct-chat-info clearfix">
+                          </div>
+                          <!-- /.direct-chat-info -->
+                          <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
+                          <!-- /.direct-chat-img -->
+                          <div class="direct-chat-text">
+                            {{$call->comment}}
+                          </div>
+                          <!-- /.direct-chat-text -->
                         </div>
-                        <!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Message User Image">
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                          {{$call->comment ? $call->comment : "نظر کارشناس پیدا نشد!"}}
-                        </div>
-                        <!-- /.direct-chat-text -->
-                      </div>
+                      @endif
                     @endforeach
                     
 
@@ -227,16 +233,20 @@
                 
                 <!-- /.card-footer -->
                 <div class="card-footer" style="display: block;">
-                  <form action="#" method="post">
-
-
+                  <form action="{{ route('updatecomment')}}" method="post">
+                    @csrf
+                    
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" placeholder="نتیجه کارشناسی خود را در کادر ورودی ثبت کنید">
+                      @if (isset($end))
+                      <input type="hidden" name="id" value="{{$end}}"/>
+                      @endif
+                      
                       <span class="input-group-append">
-                        <button type="button" class="btn btn-info btn-flat" >ثبت</button>
+                        <button type="submit" class="btn btn-info btn-flat" >ثبت</button>
                       </span>
                     </div>
-                    {{-- <input type="hidden" name="id" value="{{ $user->id }}" /> --}}
+                    
 
                   </form>
                 </div>
@@ -275,6 +285,7 @@
 
 </div>
 <!-- ./wrapper -->
+@include('main.caller')
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -287,6 +298,6 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+{{-- <script src="../../dist/js/demo.js"></script> --}}
 </body>
 </html>
