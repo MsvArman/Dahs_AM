@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ReportsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserManagement;
 use App\Http\Controllers\CustomerManagement;
@@ -53,3 +54,5 @@ Route::get('/roles', [App\Http\Controllers\RoleController::class, 'Show_Roles'])
 Route::post('/createrole', [App\Http\Controllers\RoleController::class, 'Create_Role'])->name('createrole');
 Route::post('/delrole', [App\Http\Controllers\RoleController::class, 'Del_Role'])->name('delrole');
 
+Route::get("/reports", [ReportsController::class, "show"])->name("reports_show")->middleware("auth");
+Route::post("/give_report", [ReportsController::class, "give_report"])->name("give_report")->middleware("auth");
