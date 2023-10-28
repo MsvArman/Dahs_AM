@@ -62,8 +62,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('ucr') }}" method="post" role="form">
-              <div class="card-body">
+            <form action="{{ route('ur') }}" method="post" role="form">           <div class="card-body">
                 <div class="form-group">
                   <label for="name">نام و نام خانوادگی</label>
                   <input type="text" class="form-control" name="name" id="name" placeholder="نام و نام خانوادگی را وارد کنید" value="{{$user->name}}">

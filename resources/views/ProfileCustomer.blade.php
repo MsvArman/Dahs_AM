@@ -39,12 +39,21 @@
         .direct-chat-text.voice,
         .direct-chat-text.voice {
             background-color: #007bff !important;
+            width: fit-content;
+            float: left;
+            padding-top: 7px;
+            padding-bottom: 0px;
+            margin-left: 10px;
         }
 
         .direct-chat-text.answer,
         .direct-chat-text.answer {
             background-color: #ff9900 !important;
             color: white;
+            width: fit-content;
+            max-width: 50%;
+            text-align: right;
+            margin-right: 10px;
         }
 
 
@@ -187,7 +196,7 @@
 
                     <div class=" col-12 col-md-7 mx-4">
 
-                        <div class="card bg-primary-gradient">
+                        {{-- <div class="card bg-primary-gradient">
                             <div class="card-header">
                                 <h3 class="card-title">رویدادها</h3>
 
@@ -203,7 +212,7 @@
                                 محتوای باکس
                             </div>
                             <!-- /.card-body -->
-                        </div>
+                        </div> --}}
 
                         <div>
                             <!-- Box Comment -->
@@ -224,6 +233,28 @@
                                     </div>
                                     <!-- /.card-tools -->
                                 </div>
+
+                                <!-- /.card-footer -->
+                                <div class="card-footer" style="display: block;">
+                                    <form action="{{ route('addTicket') }}" method="post">
+                                        @csrf
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="text"
+                                                placeholder="نتیجه کارشناسی خود را در کادر ورودی ثبت کنید">
+                                            @if (isset($end))
+                                                <input type="hidden" name="id" value="{{ $end }}" />
+                                            @endif
+                                            <input type="hidden" name="NationalCode"
+                                                value="{{ $user ? $user->NationalCode : '' }}">
+                                            <span class="input-group-append">
+                                                <button type="submit" class="btn btn-info btn-flat">ثبت</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.card-footer -->
+
+                                
                                 <!-- /.card-header -->
                                 <div class="card-body" style="display: block;">
 
@@ -236,42 +267,49 @@
                                         @foreach ($tickets as $ticket)
                                             @if ($ticket->voice == null)
                                                 <!-- Message to the right -->
-                                                <div class="direct-chat-msg right">
+                                                <div class="direct-chat-msg right mb-4">
                                                     <div class="direct-chat-info clearfix">
                                                         <span
                                                             class="direct-chat-name float-right">{{ $ticket->operator_name }}</span>
-                                                        <span
-                                                            class="direct-chat-timestamp float-left">{{ verta(intval($ticket->time) + 12600) }}</span>
                                                     </div>
                                                     <!-- /.direct-chat-info -->
                                                     <img class="direct-chat-img"
                                                         src="{{ asset('dist/img/AdminLTELogo.png') }}"
                                                         alt="message user image">
                                                     <!-- /.direct-chat-img -->
-                                                    <div class="direct-chat-text answer border-0">
-                                                        {{ $ticket->comment }}
+                                                    <div class="d-flex align-items-end">
+                                                        <div class="direct-chat-text answer border-0">
+                                                            {{ $ticket->comment }}
+                                                        </div>
+                                                        <div style="font-size: 13px; color: #bbb; margin-right: 10px;">
+                                                            {{ verta(intval($ticket->time) + 12600) }}
+                                                        </div>
                                                     </div>
                                                     <!-- /.direct-chat-text -->
                                                 </div>
                                                 <!-- /.direct-chat-msg -->
                                             @else
-                                                <div class="direct-chat-msg">
+                                                <div class="direct-chat-msg mb-4">
                                                     <div class="direct-chat-info clearfix">
                                                         <span
                                                             class="direct-chat-name float-left">{{ $user ? $user->name : '' }}</span>
-                                                        <span
-                                                            class="direct-chat-timestamp float-right">{{ verta(intval($ticket->time) + 12600) }}</span>
+
                                                     </div>
                                                     <!-- /.direct-chat-info -->
                                                     <img class="direct-chat-img"
                                                         src="{{ asset('dist/img/AdminLTELogo.png') }}"
                                                         alt="Message User Image">
                                                     <!-- /.direct-chat-img -->
-                                                    <div class="direct-chat-text voice">
-                                                        <audio controls>
-                                                            <source src="https://{{ $ticket->voice }}"
-                                                                type="audio/wav" />
-                                                        </audio>
+                                                    <div class="d-flex align-items-end flex-row-reverse float-left">
+                                                        <div class="direct-chat-text voice">
+                                                            <audio controls>
+                                                                <source src="https://{{ $ticket->voice }}"
+                                                                    type="audio/wav" />
+                                                            </audio>
+                                                        </div>
+                                                        <div style="font-size: 13px; color: #bbb; margin-left: 10px;">
+                                                            {{ verta(intval($ticket->time) + 12600) }}
+                                                        </div>
                                                     </div>
                                                     <!-- /.direct-chat-text -->
                                                 </div>
@@ -299,25 +337,7 @@
 
                                 </div>
 
-                                <!-- /.card-footer -->
-                                <div class="card-footer" style="display: block;">
-                                    <form action="{{ route('addTicket') }}" method="post">
-                                        @csrf
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="text"
-                                                placeholder="نتیجه کارشناسی خود را در کادر ورودی ثبت کنید">
-                                            @if (isset($end))
-                                                <input type="hidden" name="id" value="{{ $end }}" />
-                                            @endif
-                                            <input type="hidden" name="NationalCode"
-                                                value="{{ $user ? $user->NationalCode : '' }}">
-                                            <span class="input-group-append">
-                                                <button type="submit" class="btn btn-info btn-flat">ثبت</button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- /.card-footer -->
+
                             </div>
                             <!-- /.card -->
                         </div>

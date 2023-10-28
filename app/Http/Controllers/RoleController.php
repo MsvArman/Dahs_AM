@@ -23,28 +23,25 @@ class RoleController extends Controller
 
     public function Create_Role(Request $request){
 
-        // dd($request->get("role"));
-        $role = $request->get("role");
-        $roles = role::create([
-            "role" => $role
-        ]);
-
-        // try {
 
 
-        //     // $roles->update([
-        //     //     "role" => $role,
-        //     // ]);
+        try {
+
+            $role = $request->get("role");
+
+            $roles = role::create([
+                "role" => $role
+            ]);
 
 
-        //     Alert::success('موفق', 'سمت مورد نظر با موفقیت ساخته شد');
-        //     return redirect()->back();
+            Alert::success('موفق', 'سمت مورد نظر با موفقیت ساخته شد');
+            return redirect()->back();
 
-        // } catch (\Exception $ex) {
-        //     Alert::error('ناموفق', 'سمت مورد نظر ساخته نشد!');
-        //     return redirect()->back();
+        } catch (\Exception $ex) {
+            Alert::error('ناموفق', 'سمت مورد نظر ساخته نشد!');
+            return redirect()->back();
 
-        // }
+        }
 
 
     }
@@ -56,15 +53,14 @@ class RoleController extends Controller
         try {
 
             role::where('role', $request->get("role"))->delete();
-            Alert::success('موفق', 'سمت مورد نظر با موفقیت ساخته شد');
+            Alert::success('موفق', 'سمت مورد نظر با موفقیت حذف شد');            return redirect()->back();
+
+} catch (\Exception $ex) {
+            DB::rollBack();
+            Alert::error("نا موفق", $ex->getMessage());
             return redirect()->back();
-
-        } catch (\Throwable $th) {
-
-            Alert::error('ناموفق', 'سمت مورد نظر ساخته نشد!');
-            return redirect()->back();
-
         }
+        
 
     }
 

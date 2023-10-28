@@ -80,7 +80,6 @@ class CustomerManagement extends Controller
     public function Update_Customer(Request $request){
 
         try {
-
             $user = customers::find($request->get("id"));
             $user->update([
                 "NationalCode" => $request->get("NationalCode"),

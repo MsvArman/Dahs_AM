@@ -140,9 +140,6 @@ $name = '';
 
 
     <script>
-
-
-
         // axios.post(`{{ url('updatecalls') }}`, {})
         //   .then(response => {
         //     console.log(response.data);
@@ -186,51 +183,51 @@ $name = '';
                             icon_phone = '<i class="bi bi-telephone-inbound text-success"></i>';
                         }
 
-                        if(element.mobileoperator == ""){
+                        if (element.mobileoperator == "") {
                             var bg_danger_style = "background-color: rgb(255, 0, 0, 0.2);";
                         }
-                        $("#table-users").append(`
+                        if (element.operator_name == null) {
+                            $("#table-users").append(`
+                                <tr class="table-users-tr" style="${bg_danger_style}">
+                                    <td>${element.NationalCode}</td>
+                                    <td>${element.mobilecustomer}</td>
+                                    <td>${element.mobileoperator}</td>
 
+                                    <td>
+                                        ${icon_phone}
+                                    </td>
+                                    <td>${element.startcall}</td>
 
-                            <tr class="table-users-tr" style="${bg_danger_style}">
-                                <td>${element.NationalCode}</td>
-                                <td>${element.mobilecustomer}</td>
-                                <td>${element.mobileoperator}</td>
+                                    <td>
+                                        <div class="d-flex">
 
-                                <td>
-                                    ${icon_phone}
-                                </td>
-                                <td>${element.startcall}</td>
+                                            <button onclick="PlayAudio()"
+                                                class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
 
-                                <td>
-                                    <div class="d-flex">
+                                                <i class="fa fa-play mx-2"></i>
+                                                <audio
+                                                src="https://${ element.voice }"
+                                                    id="Audio"></audio>
 
-                                        <button onclick="PlayAudio()"
-                                            class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-
-                                            <i class="fa fa-play mx-2"></i>
-                                            <audio
-                                                src="https://192.168.10.10/Api/DownloadRecording.php?file=${element.voice}"
-                                                id="Audio"></audio>
-
-                                        </button>
-
-                                        <a href=""><button
-                                                class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
-                                                <i class="fa fa-phone mx-2"></i>
                                             </button>
-                                        </a>
 
-                                        <a
-                                            href="{{ url('profilecustomer') }}?NationalCode=${element.NationalCode}"><button
-                                                class="btn btn-sm btn-warning text m-1 d-flex flex-column align-items-center justify-content-center text-center">
-                                                <i class="fa fa-ellipsis-v mx-2"></i>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        `)
+                                            <a href=""><button
+                                                    class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
+                                                    <i class="fa fa-phone mx-2"></i>
+                                                </button>
+                                            </a>
+
+                                            <a
+                                                href="{{ url('profilecustomer') }}?NationalCode=${element.NationalCode}"><button
+                                                    class="btn btn-sm btn-warning text m-1 d-flex flex-column align-items-center justify-content-center text-center">
+                                                    <i class="fa fa-ellipsis-v mx-2"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            `)
+                        }
                     });
 
 
@@ -247,7 +244,7 @@ $name = '';
 
         setInterval(function() {
             reloadData();
-        }, 5000000)
+        }, 5000)
 
 
 

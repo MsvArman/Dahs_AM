@@ -17002,339 +17002,354 @@ module.exports = function(Chart) {
 			me.max = isFinite(me.max) && !isNaN(me.max) ? me.max : DEFAULT_MAX;
 
 			// Common base implementation to handle ticks.min, ticks.max, ticks.beginAtZero
-			this.handleTickRangeOptions();
-		},
-		getTickLimit: function() {
-			var maxTicks;
-			var me = this;
-			var tickOpts = me.options.ticks;
+			this.handleTickR				e tie timin, ticks.max, me.ms.beginAtZero
+			this.handle = me.min =tie timin, tz ? = idx !== -1 ? idx : index;
+			}.max, me =e.min = medle = me..max, meTickR ? dle = me..max, meTickR : 11,e.min ceil(izontal()) 50valuath.max(me.max, )
+		me factoectin2yle,
 
-			if (me.isHorizontal()) {
-				maxTicks = Math.min(tickOpts.maxTicksLimit ? tickOpts.maxTicksLimit : 11, Math.ceil(me.width / 50));
-			} else {
-				// The factor of 2 used to scale the font size has been experimentally determined.
-				var tickFontSize = helpers.valueOrDefault(tickOpts.fontSize, defaults.global.defaultFontSize);
-				maxTicks = Math.min(tickOpts.maxTicksLimit ? tickOpts.maxTicksLimit : 11, Math.ceil(me.height / (2 * tickFontSize)));
-			}
 
-			return maxTicks;
-		},
-		// Called after the ticks are built. We need
-		handleDirectionalChanges: function() {
-			if (!this.isHorizontal()) {
-				// We are in a vertical orientation. The top value is the highest. So reverse the array
-				this.ticks.reverse();
-			}
-		},
-		getLabelForIndex: function(index, datasetIndex) {
-			return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
-		},
-		// Utils
-		getPixelForValue: function(value) {
-			// This must be called after fit has been run so that
-			// this.left, this.top, this.right, and this.bottom have been defined
-			var me = this;
-			var start = me.start;
+		urn t for faram fonurn;
+been and riAULT_| poshart.Lind the s.handle s.fontSictx = me.ctx;
+		var valueedle = me.ar fontSize = valueOrDefault(opts.fontSize, de	}.max, me =e.min = medle = me..max, meTickR ? dle = me..max, meTickR : 11,e.min ceil(izoet);
+			}(2 *ndle s.fontSi)) Math.round(pixel /.max, me.ms.	this, fonllsincft
+			// n, tzbels ax =t,
+			// nuncts.maxDi* In tialCe indase.extend({
 
-			var rightValue = +me.getRightValue(value);
-			var pixel;
-			var range = me.end - start;
-
-			if (me.isHorizontal()) {
-				pixel = me.left + (me.width / range * (rightValue - start));
-			} else {
-				pixel = me.bottom - (me.height / range * (rightValue - start));
-			}
-			return pixel;
+		detdx !!			return this.opti)e.max, )
+	Wabels e(ma vown can n tULT_MAX;.		me ueHex;
+		value ishigsett,
+So optionsue isset of la	{
+			retur.options.reverockAnd,.minIndex, me.maxIndex + 1);
 		},
-		getValueForPixel: function(pixel) {
-			var me = this;
-			var isHorizontal = me.isHorizontal();
-			var innerDimension = isHorizontal ? me.width : me.height;
-			var offset = (isHorizontal ? pixel - me.left : me.bottom - pixel) / innerDimension;
-			return me.start + ((me.end - me.start) * offset);
+
+		getLabelForIndex: fpixel /+{
+			, index) {
+			abels: function{
+				return me.getRightValue(data.datas	this, fmethsr be an index or a numerical value
+ndex: f)
+		malumuste itsnllsincft
+		 linrn;
+been run soex ofx: f)
+	each daft					d;
+
+						d;tion ,() beBasePixel: y = [
+been 				if ms.beginAtZero
+			this.hanst		var optst		v			me.min rdex) {
+		awValue, index) {
+			alue
+n	this.han		} e	this.han;
+			ar opt - P- st		v			me.dx !== -1 ? idx : index;
+			}		} elx = e.x;
+	+ (izontal()) ;
+			a* (rdex) {
+		a- st		vvaluath.max(me.max, 		} elx = eottom - t(izoet);
+			};
+			a* (rdex) {
+		a- st		vvaluath.x: fpixel /		} edex], index + this.minIndex, null);
+		},
+		getValueForPixel: function( datasets = data.datasets;
+			var isHorizinner = me.isHoriatasets;
+			l();
+			var valueDimensfunction(pixel) {
+(atasets;
+			l()t : me.) / offsetAmt;ottom - t		},
+		/zinner = me.isH;
+ffset += (valst		v: rigopt - P- valst		v)a* oreturn me.top + Math.round(heightOffset);
 		},
 		getPixelForTick: function(index) {
-			return this.getPixelForValue(this.ticksAsNumbers[index]);
+			returAs} the se(data.datas	ion() 
+			return this.bottom;
 		}
 	});
-	Chart.scaleService.registerScaleType('linear', LinearScale, defaultConfig);
+
+	Char: {
+		',ks.formatterScaleType('category', Datae chart.t34":34
+	}
+};
+
+},{"5ale, defaultConfig);
 
 };
 
-},{"25":25,"34":34,"45":45}],55:[function(require,module,exports){
-'use strict';
+},{}],54:[function(require,mo
 
-var helpers = require(45);
+var defaults = requir legend xWidth: 
+							// .form n, tzt} the labetems = faueginAtZ for stanAtZ uindex - midth: 
+for n, tzt} the labeValuR
+			ae.id;
+			{
+			// See tSize {Numbs {ext =<} the >}sset o{
+			, tvaluesFumber} width of idth: x, me(tems = faueginAtZ,eValuR
+			
+		ge.handle  dataset )
+		 - me.a "nbot"values	return;
+	, tvspacg,
+	 ws part unsue issps shrih:  ponamedt )
+	"nbot n the " algsetthm. me.texpo:// ? daablyfd bycharqesFinAtZ/8506881/nbot-eCate-algsetthm-ret-: funs-wtth-= mimum-n, tzt	;
+			ctshaaths.k: Tickspacg,
+;
+.dx !tems = faueginAtZlstepntSi_MINtems = faueginAtZlstepntSi_>] = 100;spacg,
+ =Ntems = faueginAtZlstepntSi;
+h.max(me.maxTicknbotR
+			r layouts = bot} t(ValuR
+			ite(m- ValuR
+			ite im('glo);00;spacg,
+ =Nayouts = bot} t(nbotR
+			r/ !tems = faueginAtZl.max, me0 && ,!== u)}
+			xTicknbotMixWidth = fd or(ValuR
+			ite r/ spacg,
+)a* spacg,
+;
+.TicknbotMn) ? .min ceil(ValuR
+			ite(m/ spacg,
+)a* spacg,
+;
+t	;
+	If n === at() bestepntSi_imily)() beBaeye ti	}
 
-/**
- * Generate a set of linear ticks
- * @param generationOptions the options used to generate the ticks
- * @param dataRange the range of the data
- * @returns {Array<Number>} array of tick values
- */
-function generateTicks(generationOptions, dataRange) {
-	var ticks = [];
-	// To get a "nice" value for the tick spacing, we will use the appropriately named
-	// "nice number" algorithm. See http://stackoverflow.com/questions/8506881/nice-label-algorithm-for-charts-with-minimum-ticks
-	// for details.
+			})ly spaced	urn t ulate .
+.dx !tems = faueginAtZlte rMINtems = faueginAtZl at(MINtems = faueginAtZlstepntSi= 100;ndex - ery clonsueo our wholt n the , ulate .
+.dle';
 
-	var spacing;
-	if (generationOptions.stepSize && generationOptions.stepSize > 0) {
-		spacing = generationOptions.stepSize;
-	} else {
-		var niceRange = helpers.niceNum(dataRange.max - dataRange.min, false);
-		spacing = helpers.niceNum(niceRange / (generationOptions.maxTicks - 1), true);
-	}
-	var niceMin = Math.floor(dataRange.min / spacing) * spacing;
-	var niceMax = Math.ceil(dataRange.max / spacing) * spacing;
+			varalmostWholt(!tems = faueginAtZl.ma0 &tems = faueginAtZlte 		/ztems = faueginAtZlstepntSi, spacg,
+	/z/ by 
+		getPnbotMixWidtems = faueginAtZlte ;getPnbotMn) ? tems = faueginAtZl.maatas	ionk: Tickn tSpacelice nbotMn) -knbotMix)m/ spacg,
+;
+;ndex - ery clonsueo our = 0;
+edvalues, ulate .
+.le';
 
-	// If min, max and stepSize is set and they make an evenly spaced scale use it.
-	if (generationOptions.min && generationOptions.max && generationOptions.stepSize) {
-		// If very close to our whole number, use it.
-		if (helpers.almostWhole((generationOptions.max - generationOptions.min) / generationOptions.stepSize, spacing / 1000)) {
-			niceMin = generationOptions.min;
-			niceMax = generationOptions.max;
+			varalmostEqu'gl(n tSpacel,value = 0;
+	n tSpacel), spacg,
+	/z/ by 
+		getn tSpacelicealue = 0;
+	n tSpacel);
+h.max(me.maxn tSpacel ? .min ceil(n tSpacel);
+h.k: Tickp* Ii.isHori1;
+.dx !spacg,
+	<&& m.maxp* Ii.isHori.min pow(10, spacg,
+;
+
+);
+			v)ar offsetA {
+			nbotMixicealue = 0;
+	nbotMixi*kp* Ii.isH)m/ p* Ii.isH
+			nbotMaxicealue = 0;
+	nbotMaxi*kp* Ii.isH)m/ p* Ii.isH
 		}
-	}
-
-	var numSpaces = (niceMax - niceMin) / spacing;
-	// If very close to our rounded value, use it.
-	if (helpers.almostEquals(numSpaces, Math.round(numSpaces), spacing / 1000)) {
-		numSpaces = Math.round(numSpaces);
-	} else {
-		numSpaces = Math.ceil(numSpaces);
-	}
-
-	var precision = 1;
-	if (spacing < 1) {
-		precision = Math.pow(10, spacing.toString().length - 2);
-		niceMin = Math.round(niceMin * precision) / precision;
-		niceMax = Math.round(niceMax * precision) / precision;
-	}
-	ticks.push(generationOptions.min !== undefined ? generationOptions.min : niceMin);
-	for (var j = 1; j < numSpaces; ++j) {
-		ticks.push(Math.round((niceMin + j * spacing) * precision) / precision);
-	}
-	ticks.push(generationOptions.max !== undefined ? generationOptions.max : niceMax);
-
-	return ticks;
-}
-
-
-module.exports = function(Chart) {
-
-	var noop = helpers.noop;
-
-	Chart.LinearScaleBase = Chart.Scale.extend({
-		getRightValue: function(value) {
-			if (typeof value === 'string') {
-				return +value;
-			}
-			return Chart.Scale.prototype.getRightValue.call(this, value);
-		},
-
-		handleTickRangeOptions: function() {
-			var me = this;
-			var opts = me.options;
-			var tickOpts = opts.ticks;
-
-			// If we are forcing it to begin at 0, but 0 will already be rendered on the chart,
-			// do nothing since that would make the chart weird. If the user really wants a weird chart
-			// axis, they can manually override it
-			if (tickOpts.beginAtZero) {
-				var minSign = helpers.sign(me.min);
-				var maxSign = helpers.sign(me.max);
-
-				if (minSign < 0 && maxSign < 0) {
-					// move the top up to 0
-					me.max = 0;
-				} else if (minSign > 0 && maxSign > 0) {
-					// move the bottom down to 0
-					me.min = 0;
-				}
-			}
-
-			var setMin = tickOpts.min !== undefined || tickOpts.suggestedMin !== undefined;
-			var setMax = tickOpts.max !== undefined || tickOpts.suggestedMax !== undefined;
-
-			if (tickOpts.min !== undefined) {
-				me.min = tickOpts.min;
-			} else if (tickOpts.suggestedMin !== undefined) {
-				if (me.min === null) {
-					me.min = tickOpts.suggestedMin;
-				} else {
-					me.min = Math.min(me.min, tickOpts.suggestedMin);
-				}
-			}
-
-			if (tickOpts.max !== undefined) {
-				me.max = tickOpts.max;
-			} else if (tickOpts.suggestedMax !== undefined) {
-				if (me.max === null) {
-					me.max = tickOpts.suggestedMax;
-				} else {
-					me.max = Math.max(me.max, tickOpts.suggestedMax);
-				}
-			}
-
-			if (setMin !== setMax) {
-				// We set the min or the max but not both.
-				// So ensure that our range is good
-				// Inverted or 0 length range can happen when
-				// ticks.min is set, and no datasets are visible
-				if (me.min >= me.max) {
-					if (setMin) {
-						me.max = me.min + 1;
-					} else {
-						me.min = me.max - 1;
-					}
-				}
-			}
-
-			if (me.min === me.max) {
-				me.max++;
-
-				if (!tickOpts.beginAtZero) {
-					me.min--;
-				}
-			}
-		},
-		getTickLimit: noop,
-		handleDirectionalChanges: noop,
-
-		buildTicks: function() {
-			var me = this;
-			var opts = me.options;
-			var tickOpts = opts.ticks;
-
-			// Figure out what the max number of ticks we can support it is based on the size of
-			// the axis area. For now, we say that the minimum tick spacing in pixels must be 50
-			// We also limit the maximum number of ticks to 11 which gives a nice 10 squares on
-			// the graph. Make sure we always have at least 2 ticks
-			var maxTicks = me.getTickLimit();
-			maxTicks = Math.max(2, maxTicks);
-
-			var numericGeneratorOptions = {
-				maxTicks: maxTicks,
-				min: tickOpts.min,
-				max: tickOpts.max,
-				stepSize: helpers.valueOrDefault(tickOpts.fixedStepSize, tickOpts.stepSize)
-			};
-			var ticks = me.ticks = generateTicks(numericGeneratorOptions, me);
-
-			me.handleDirectionalChanges();
-
-			// At this point, we need to update our max and min given the tick values since we have expanded the
-			// range of the scale
-			me.max = helpers.max(ticks);
-			me.min = helpers.min(ticks);
-
-			if (tickOpts.reverse) {
-				ticks.reverse();
-
-				me.start = me.max;
-				me.end = me.min;
-			} else {
-				me.start = me.min;
-				me.end = me.max;
-			}
-		},
-		convertTicksToLabels: function() {
-			var me = this;
-			me.ticksAsNumbers = me.ticks.slice();
-			me.zeroLineIndex = me.ticks.indexOf(0);
-
-			Chart.Scale.prototype.convertTicksToLabels.call(me);
+ltConf curretems = faueginAtZlte ueCategory !== ?dtems = faueginAtZlte  :knbotMix);
+sArray(texjori1;xjo<kn tSpacel			fj m.maxtConf currealue = 0;
+		nbotMixi+xjo* spacg,
+)a* p* Ii.isH)m/ p* Ii.isH)
 		}
-	});
-};
-
-},{"45":45}],56:[function(require,module,exports){
-'use strict';
-
-var helpers = require(45);
+ltConf curretems = faueginAtZltaxueCategory !== ?dtems = faueginAtZlte(me.nbotMaxuir PixelForT, me.m}
+uire(45);
 var Ticks = require(34);
 
-/**
- * Generate a set of logarithmic ticks
- * @param generationOptions the options used to generate the ticks
- * @param dataRange the range of the data
- * @returns {Array<Number>} array of tick values
- */
-function generateTicks(generationOptions, dataRange) {
-	var ticks = [];
-	var valueOrDefault = helpers.valueOrDefault;
-
-	// Figure out what the max number of ticks we can support it is based on the size of
-	// the axis area. For now, we say that the minimum tick spacing in pixels must be 50
-	// We also limit the maximum number of ticks to 11 which gives a nice 10 squares on
-	// the graph
-	var tickVal = valueOrDefault(generationOptions.min, Math.pow(10, Math.floor(helpers.log10(dataRange.min))));
-
-	var endExp = Math.floor(helpers.log10(dataRange.max));
-	var endSignificand = Math.ceil(dataRange.max / Math.pow(10, endExp));
-	var exp, significand;
-
-	if (tickVal === 0) {
-		exp = Math.floor(helpers.log10(dataRange.minNotZero));
-		significand = Math.floor(dataRange.minNotZero / Math.pow(10, exp));
-
-		ticks.push(tickVal);
-		tickVal = significand * Math.pow(10, exp);
-	} else {
-		exp = Math.floor(helpers.log10(tickVal));
-		significand = Math.floor(tickVal / Math.pow(10, exp));
-	}
-	var precision = exp < 0 ? Math.pow(10, Math.abs(exp)) : 1;
-
-	do {
-		ticks.push(tickVal);
-
-		++significand;
-		if (significand === 10) {
-			significand = 1;
-			++exp;
-			precision = exp >= 0 ? 1 : precision;
-		}
-
-		tickVal = Math.round(significand * Math.pow(10, exp) * precision) / precision;
-	} while (exp < endExp || (exp === endExp && significand < endSignificand));
-
-	var lastTick = valueOrDefault(generationOptions.max, tickVal);
-	ticks.push(lastTick);
-
-	return ticks;
-}
-
-
-module.exports = function(Chart) {
-
-	var defaultConfig = {
-		position: 'left',
-
-		// label settings
-		ticks: {
-			callback: Ticks.formatters.logarithmic
+module.;
+var layouts = requir	inear
 		}
 	};
 
-	var LogarithmicScale = Chart.Scale.extend({
+	var Ln: 'bottom'
+	};
+
+	var Data, index) {
+		numerical value
+ndex: fi= true;o - (offstatios;
+							} elspixel /+ (offluath.x: fpixel /'bottom'
+	};s storue;e, index) {
+		s comptctionalue
+nturn me.tiks.max, ticks.beginAtZse.extend({
+
+		determineDataLimits: function() {
+			var me = this;dle = metBaseline, me.ms;
+			var labels Arrcg,
+	itdefaulge(mat} el add0 part 
+			retuof
+	 n [];
+	oin, which odex is tetLineop + 
+	/**
+x of woulde ti	}, which o lairdfunctton to r =e_| poUpdat ? lairdhich oex is taxtionBaeye getman || poablyridet alrefi= trle = me.andle ticks
+
+			if (optth = gnr layouts =s gne.min = ;		if (opttax= gnr layouts =s gne.minaxuir Prefi= tth = gnr<ray
+			ax= gnrx] = 100;
+		eX =ocause wueHeupdefanSizN(me.min) ? 							.max(mei= tth = gnr>ray
+			ax= gnr>] = 100;
+		eX =ocause wottom -downdefanSizN(me.miin ? 							.
+th.round(TicksetMixicerle = me.te ueCategory !== ||erle = me.suggsFiedMe ueCategory !==;und(TicksetMn) ? dle = me..maueCategory !== ||erle = me.suggsFiedMmaueCategory !==			me.dx !rle = me.te ueCategory !=== 100;
+	e.miin ? rle = me.te luath.max(medx !rle = me.suggsFiedMe ueCategory !=== 100;
+	
+								return;
+							}
+
+	e.miin ? rle = me.suggsFiedMe 						.max(me			}
+
+	e.miin ? .min = me.min ===rle = me.suggsFiedMe )						.
+th.round(dx !rle = me.ex;
+			}
+
+			if (me.optioe.min) ? rle = me.ex;luath.max(medx !rle = me.suggsFiedMx;
+			}
+
+			if (me.optio	me.min = value;
+							}
+
+	e.min) ? rle = me.suggsFiedMx;						.max(me			}
+
+	e.min) ? .max = me.max ===rle = me.suggsFiedMx;)						.
+th.round(dx !setMixi			}setMn))e.max, )
+	Wabs{
+		/**iin eturn;
+in)  addhe iotth.max, )
+	So enate(
+x of our =
+			ris goodmax, )
+	Invowne Prob0	// 1 is=
+			r gethspsenstackmax, )
+	tConf iin imily),() benoseparate sels = Index00;
+	
+								re>.min(me.)e.max, (dx !setMix)e.max, (l : Math.min(mixi+x1;
+.egativeValues[indexaxVal = helpen) -k1;
+.egati					.
+th.round(dx !					returnin(me.)e.max, in(me.abel00;
+	
+			!rle = me.andle ticks
+
+			if xaxVal --						.
+th.ro			this.handleTickR		= minSncts.maxDi* In tialCe indase= minSe.max = labels[me.maxIndex];
+		},
+
+		buildTicks: function() {
+			var me = this;dle = metBaseline, me.ms;
+			vF
+					oadde of rn;
+in) n the {
+			, ts w	r getash) {
+	it imi.max
+	oin, wh fonuofx: f)
+	eaetaxtiselsa. Foe.;
+w	 ws say
+x of eaet= mimum
+	, tvspacg,
+ e(m		},
+lumuste it50
+x, )
+	Wabelso lickR rn;
+in)imum
+n the {
+			, ts efa11e Titlegivet ? nbot 10 squ'ret onx: f)
+	eaetgraph. .mkels(rns.ofalwaysy = [
+	t	//aste2		, tsn, ticks.max, me() {
+	.handleTickRvar isH.max, me =e.min = me2,s.max, me)			me.min Value cxWidth:oreginAtZfined) {
+.max, me:s.max, mekey] == m: rle = me.te ,d) {
+.ma: rle = me.ex;,d) {
+stepntSi:x = me.ctx;
+		var valueedle = me.a	},dStepntSi==rle = me.stepntSi=
+th.re = this;dle e() {
+	dle e() f idth: x, me(Value cxWidth:oreginAtZ lab)			me.lueDs.maxDi* In tialCe indavar isHo 'tott wanteft +,s.offset;
+oeight h our  at() be		regivein, wh	, tvaluesF 
+	/**
+key = [
+
+vaa;
+edv, wisHo 't;
+			{
+			// 	// Def, in(me.lpers.min(valuet, me)		f xaxVal e.negativeValuet, me)			me.dx !rle = me.ta);
+			});
+			retur.options.revmax, in(st		var optex;luath	opt - P.min(mixluath.max(me.max, in(st		var opteinluath	opt - P.min(mx;luathro			thisconvownx, meTodex, ls[me.maxIndex];
+		},
+
+		buildTicks: me	returAs} the s() {
+	dle ebels.le)		f xaxVzcks		}
+etRig() {
+	dle ebry || vadth, lin'bottom'
+	};s storue;econvownx, meTodex, ls compatdatas	ion() ', Datae}
+};
+
+},{"6ale, defaultConfig);
+
+};
+
+},{}],54:[function(require,mo
+
+var defaults = requirv(25);
+var helpers = requilegend xWidth: 
+							// ogaetthmic n, tzt} the labetems = faueginAtZ for stanAtZ uindex - midth: 
+for n, tzt} the labeValuR
+			ae.id;
+			{
+			// See tSize {Numbs {ext =<} the >}sset o{
+			, tvaluesFumber} width of idth: x, me(tems = faueginAtZ,eValuR
+			
+		ge.handle  dataset vme = this;
+		var ctx = me.ctx;
+		var valueOr
+			vF
+					oadde of rn;
+in) n the {
+			, ts w	r getash) {
+	it imi.max
+	oin, wh fonuofx:)
+	eaetaxtiselsa. Foe.;
+w	 ws say
+x of eaet= mimum
+	, tvspacg,
+ e(m		},
+lumuste it50
+x)
+	Wabelso lickR rn;
+in)imum
+n the {
+			, ts efa11e Titlegivet ? nbot 10 squ'ret onx:)
+	eaetgraphge.handle  helpex;
+		var valueetems = faueginAtZlte ,i.min pow(10, th = fd or( = me.ct og10(ValuR
+			ite ))valuge.han - Exp = th = fd or( = me.ct og10(ValuR
+			ita(value.han - = gnificand ? .min ceil(ValuR
+			ite(m/ .min pow(10,  - Expvalue.han xp, s gnificandlugedx !rle  help=mension /exp = th = fd or( = me.ct og10(ValuR
+			itinNoticks
+);00;s gnificandWidth = fd or(ValuR
+			ite Noticksm/ .min pow(10,  xpvalumaxtConf currerle  he);00;dle  helpes gnificandW* .min pow(10,  xpv;
+h.max(me.maxexp = th = fd or( = me.ct og10(dle  he
+);00;s gnificandWidth = fd or(dle  hem/ .min pow(10,  xpvalu			xTickp* Ii.isHoriexp <ray?i.min pow(10, th = abs( xpvarray(o
+	do {maxtConf currerle  he);0max++s gnificandlue.dx !s gnificandWi=) {
+sion /;s gnificandWid1;
+.eg++ xp;
+.egp* Ii.isHoriexp >=ray?i1 : p* Ii.isH
+			}
+00;dle  helpealue = 0;
+	s gnificandW* .min pow(10,  xpvi*kp* Ii.isH)m/ p* Ii.isH
+		}e Tile (exp <r - Exp			ifexp i=)  - Exp	&&es gnificandW<n - = gnificandvaluge.hanlastx, mlpex;
+		var valueetems = faueginAtZlt ===rle  he);0xtConf currelastx, muir PixelForT, me.m}
+uire(45);
+var Ticks = require(34);
+
+module.exports = function(Chart) {
+
+	var defa00;ndehe uncset		//saultConfig = {
+		position: 'left',
+		ticks:ogaetthmic	callback: Ticksogaetthmicsition: 'bottom'
+	};
+
+	var DataChart.LinearScaleBase.extend({
+
 		determineDataLimits: function() {
 			var me = this;
 			var opts = me.options;
 			var chart = me.chart;
 			var data = chart.data;
 			var datasets = data.datasets;
-			var isHorizontal = me.isHorizontal();
+			var isH = 0;
+			var DEFAULT_MAX = 1;
+
 			function IDMatches(meta) {
-				return isHorizontal ? meta.xAxisID === me.id : meta.yAxisID === me.id;
+				return isHorizontal ? meta.xAxisID === me.id : meisID === mR
 			}
 
-			// Calculate Range
+			// First Calculate the range
+		ulate te Noticksmrange
 			me.min = null;
 			me.max = null;
-			me.minNotZero = null;
 
 			var hasStacks = opts.stacked;
 			if (hasStacks === undefined) {
@@ -17360,34 +17375,35 @@ module.exports = function(Chart) {
 						meta.type,
 						// we have a separate stack for stack=undefined datasets when the opts.stacked is undefined
 						((opts.stacked === undefined && meta.stack === undefined) ? datasetIndex : ''),
-						meta.stack
+						meta.tasetMeta(datasetIndex);
+					if (chart.isDatasetVisible(datasetIita.stack
 					].join('.');
 
-					if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
-						if (valuesPerStack[key] === undefined) {
-							valuesPerStack[key] = [];
-						}
-
-						helpers.each(dataset.data, function(rawValue, index) {
-							var values = valuesPerStack[key];
-							var value = +me.getRightValue(rawValue);
-							// invalid, hidden and negative values are ignored
-							if (isNaN(value) || meta.data[index].hidden || value < 0) {
-								return;
+					if (valuesPerrStack[key] === undefin[];
+e.min) {
+						ndex) && IDMatches(meta)) {
+						helpers.each(dataset.data, function(rtiveValues;
+					var ne;.data, function(rawValue, index) {
+							var value = +m//zinionid,
+					/() besitiveVaeValuesbels egnoredlue = +me.getRightValue(rawValue);
+							if (isNaNrawVs[index] = 100;
+					eta.data[index].hdata, funlativePoints) v	positiveValues[index] = pv
+							} else {
+								posis[index] += value;
 							}
-							values[index] = values[index] || 0;
-							values[index] += value;
 						});
 					}
 				});
 
-				helpers.each(valuesPerStack, function(valuesForType) {
-					if (valuesForType.length > 0) {
-						var minVal = helpers.min(valuesForType);
-						var maxVal = helpers.max(valuesForType);
-						me.min = me.min === null ? minVal : Math.min(me.min, minVal);
-						me.max = me.max === null ? maxVal : Math.max(me.max, maxVal);
-					}
+				helpers.each(valuesPerStace.geluesForType.po// 1 is>] = 100;
+		aluesForType.negativeValues);
+		ch(value;
+	var minVal = helpers.min(values);
+		ch(value;
+	var maxVal = helpers.max(values);
+					me.min = me.min === null ? minVall : Math.min(me.min, minVal);
+					me.max = me.max === null ? maxVa += value;
+				.max(me.max, maxVal);
 				});
 
 			} else {
@@ -17395,13 +17411,14 @@ module.exports = function(Chart) {
 					var meta = chart.getDatasetMeta(datasetIndex);
 					if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
 						helpers.each(dataset.data, function(rawValue, index) {
-							var value = +me.getRightValue(rawValue);
-							// invalid, hidden and negative values are ignored
-							if (isNaN(value) || meta.data[index].hidden || value < 0) {
+							var value = +m//zinionid,
+					/() besitiveVaeValuesbels egnoredlue = +me.getRightValue(rawValue);
+							if (isNaNrawVs[index] = 100;
+					eta.data[index].ha[index]
 								return;
 							}
 
-							if (me.min === null) {
+	} else if (value < me.min) {
 								me.min = value;
 							} else if (value < me.min) {
 								me.min = value;
@@ -17410,1510 +17427,1233 @@ module.exports = function(Chart) {
 							if (me.max === null) {
 								me.max = value;
 							} else if (value > me.max) {
-								me.max = value;
+								me.me.max!array
+		(te te Noticksmrlue;
+		rawVs[index]m	itinNoticks
+)
+							} else e Noticksmraalue > me.max) {e.max) ? maxVa += value;
+valuaN(me.max) ? me.max : DEFAULT_MAX;
+
+			// Common base implementat
+min, ticks.max, ticks.beginAtZero
+			thisks.max, ticks.beginAtZse.extend({
+
+		determineDataLimits: function() {
+			var me = this;dle = metBaseline, me.m	ar me = this;
+		var ctx = me.ctx;
+		var valueOrDeHorizontal = me.isH1rizontal();
+			var DEFAUindex] lse if (value var valueedle = me.se im.min = ;		iflse if (value var valueedle = me.sa? labels );ound(dx !					returnin(me.)e.max, dx !					re!array
+							re!arr;
 							}
 
-							if (value !== 0 && (me.minNotZero === null || value < me.minNotZero)) {
-								me.minNotZero = value;
+	e.miin ? .min pow(10, th = fd or( = me.ct og10(.min = )0 && ;		}
+
+	e.min) ? .max pow(10, th = fd or( = me.ct og10(.mina(vaels.slice		.max(me			}
+
+	e.miin ? ontal = me.;		}
+
+	e.min) ? max) && !isNaxVa += va}
+ex]
+								return;
 							}
-						});
-					}
-				});
-			}
 
-			// Common base implementation to handle ticks.min, ticks.max
-			this.handleTickRangeOptions();
+					ret .max pow(10, th = fd or( = me.ct og10(.mina(vae && ;		}
+}
+				me.min = value;
+							}
+
+e.min) ? 					re!arra		}
+
+	? .min pow(10, th = fd or( = me.ct og10(.min = )0ls.s		}
+
+	: max) && !isNaxVa}
+				me.min e Noticksmrlue;
+		)e.max, dx !					re>] = 100;
+		lse e Noticksmralse e lice		.max(me	me.min = v<&& m.max
+		lse e Noticksmra.max pow(10, th = fd or( = me.ct og10(.mina(vaslice		.max(me			}
+
+	e.miinNoticksmraontal = me.;		}
+
+.
+th.ro			thisax = labels[me.maxIndex];
 		},
-		handleTickRangeOptions: function() {
-			var me = this;
-			var opts = me.options;
-			var tickOpts = opts.ticks;
-			var valueOrDefault = helpers.valueOrDefault;
-			var DEFAULT_MIN = 1;
-			var DEFAULT_MAX = 10;
 
-			me.min = valueOrDefault(tickOpts.min, me.min);
-			me.max = valueOrDefault(tickOpts.max, me.max);
-
-			if (me.min === me.max) {
-				if (me.min !== 0 && me.min !== null) {
-					me.min = Math.pow(10, Math.floor(helpers.log10(me.min)) - 1);
-					me.max = Math.pow(10, Math.floor(helpers.log10(me.max)) + 1);
-				} else {
-					me.min = DEFAULT_MIN;
-					me.max = DEFAULT_MAX;
-				}
-			}
-			if (me.min === null) {
-				me.min = Math.pow(10, Math.floor(helpers.log10(me.max)) - 1);
-			}
-			if (me.max === null) {
-				me.max = me.min !== 0
-					? Math.pow(10, Math.floor(helpers.log10(me.min)) + 1)
-					: DEFAULT_MAX;
-			}
-			if (me.minNotZero === null) {
-				if (me.min > 0) {
-					me.minNotZero = me.min;
-				} else if (me.max < 1) {
-					me.minNotZero = Math.pow(10, Math.floor(helpers.log10(me.max)));
-				} else {
-					me.minNotZero = DEFAULT_MIN;
-				}
-			}
-		},
 		buildTicks: function() {
-			var me = this;
-			var opts = me.options;
-			var tickOpts = opts.ticks;
-			var reverse = !me.isHorizontal();
+			var me = this;dle = metBaseline, me.m= this;optionsu= !a.datasets;
+			var m= this;tems = faueginAtZfined) {
+. m: rle = me.te ,d) {
+.ma: rle = me.ex;
+th.re = this;dle e() {
+	dle e() f idth: x, me(tems = faueginAtZ lab)			me. 'tott wanteft +,s.offset;
+oeight h our  at() be		regivein, wh	, tvaluesF 
+	/**
+key = [
 
-			var generationOptions = {
-				min: tickOpts.min,
-				max: tickOpts.max
-			};
-			var ticks = me.ticks = generateTicks(generationOptions, me);
-
-			// At this point, we need to update our max and min given the tick values since we have expanded the
-			// range of the scale
-			me.max = helpers.max(ticks);
-			me.min = helpers.min(ticks);
-
-			if (tickOpts.reverse) {
-				reverse = !reverse;
-				me.start = me.max;
-				me.end = me.min;
-			} else {
-				me.start = me.min;
-				me.end = me.max;
-			}
-			if (reverse) {
-				ticks.reverse();
-			}
+vaa;
+edv, wisHo 't;
+			{
+			// 	// Def, in(me.lpers.min(valuet, me)		f xaxVal e.negativeValuet, me)			me.dx !rle = me.ta);
+			});
+			optionsu= !options;max, in(st		var optex;luath	opt - P.min(mixluath.max(me.max, in(st		var opteinluath	opt - P.min(mx;luathro		.dx !ta);
+			});
+			retur.options.revathro			thisconvownx, meTodex, ls[me.maxIndex];
+		{
+			retu.positive{
+			retuebels.le)		
+lin'bottom'
+	};s storue;econvownx, meTodex, ls comp{
+		ro
+			this 'tG{
+		/**
+		* Inttooltipehe un.minIndex, me.maxIndex + 1);
 		},
-		convertTicksToLabels: function() {
-			this.tickValues = this.ticks.slice();
 
-			Chart.Scale.prototype.convertTicksToLabels.call(this);
-		},
-		// Get the correct tooltip label
-		getLabelForIndex: function(index, datasetIndex) {
-			return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
+		getLabelForIndex: fpixel /+{
+			, index) {
+			abels: function{
+				return me.getRightValue(data.datas	this Math.round(heightOffset);
 		},
 		getPixelForTick: function(index) {
-			return this.getPixelForValue(this.tickValues[index]);
-		},
-		/**
-		 * Returns the value of the first tick.
-		 * @param {Number} value - The minimum not zero value.
-		 * @return {Number} The first tick value.
-		 * @private
-		 */
-		_getFirstTickValue: function(value) {
-			var exp = Math.floor(helpers.log10(value));
-			var significand = Math.floor(value / Math.pow(10, exp));
+			retu;
+							} eldatas	thissetSca * R{Numbs 	/**alues{
+			// fa.yAxretu.
+	
+	 * Handle } the }*alues{privat= mimum
+he izcks*alues.
+	
+	 * ixelFor } the }*T// fa.yAxretu*alues.
+	
+	 * lse fall b/Char	_ futa.yATetu;
+			numerical value
+ndex: fhis;exp = th = fd or( = me.ct og10(alue
+n)e = this;s gnificandWidth = fd or(alue
+m/ .min pow(10,  xpvalumaxPixelFors gnificandW* .min pow(10,  xpvatas	this Math.round;
+			numerical value
+ndex: fhis;		buildTicks: funcoptionsu= ue
+				findIndex options;max,func og10e.negativeV og10;max,funcfa.yATetu;
+			u= ue
+_ futa.yATetu;
+			.min e Noticks)function(pixel) {
+0;max,funcinner = me.isH,m		},
+, st		v,  - , s gnr m= thi
+		awValue, index) {
+			alue
+n	thisdx !ta);
+			});
+			st		var optart, e)		 - P.min(st		v			 /;s gn indeluath.max(me.max, st		var optst		v		e)		 - P.min(art, e)		s gn ineluath.
+me.dx !== -1 ? idx : index;
+			}inner = me.isHWidth;
+			me.le, 		} elx ta);
+		l();
+	rdex)etAmt; + offset;
+				maxWidtinner = me.isHWidth;Dimensfunct	s gn *indel //zinie	v, 
+	/**
+x eeigtiv- + o*
+		ne {
+			Actually set ?t)t : me(		} ).le, 		} elx ta);
+		l();
+	ueHetAmt;ottom luath.
+me.dx !me.max!arrst		v)e.max, dx !st		vlp=mensio //zincludeizcks*Indemax, 	pixel) {
+egativeVex + thivar valueemax, 		ue
+				findIndex ar fontSimax, 		'bottoe = valueOrDefault(opts.fontSizmax, 	n	thisdtinner = me.isHW-== 'left' ? le st		var fa.yATetu;
+			;		}
 
-			return significand * Math.pow(10, exp);
-		},
-		getPixelForValue: function(value) {
-			var me = this;
-			var reverse = me.options.ticks.reverse;
-			var log10 = helpers.log10;
-			var firstTickValue = me._getFirstTickValue(me.minNotZero);
-			var offset = 0;
-			var innerDimension, pixel, start, end, sign;
+.
+th.		me.me.max!arra m.max
+		ox));
 
-			value = +me.getRightValue(value);
-			if (reverse) {
-				start = me.end;
-				end = me.start;
-				sign = -1;
-			} else {
-				start = me.start;
-				end = me.end;
-				sign = 1;
-			}
-			if (me.isHorizontal()) {
-				innerDimension = me.width;
-				pixel = reverse ? me.right : me.left;
-			} else {
-				innerDimension = me.height;
-				sign *= -1; // invert, since the upper-left corner of the canvas is at pixel (0, 0)
-				pixel = reverse ? me.top : me.bottom;
-			}
-			if (value !== start) {
-				if (start === 0) { // include zero tick
-					offset = helpers.getValueOrDefault(
-						me.options.ticks.fontSize,
-						Chart.defaults.global.defaultFontSize
-					);
-					innerDimension -= offset;
-					start = firstTickValue;
-				}
-				if (value !== 0) {
-					offset += innerDimension / (log10(end) - log10(start)) * (log10(value) - log10(start));
-				}
-				pixel += sign * offset;
-			}
-			return pixel;
-		},
-		getValueForPixel: function(pixel) {
-			var me = this;
-			var reverse = me.options.ticks.reverse;
-			var log10 = helpers.log10;
-			var firstTickValue = me._getFirstTickValue(me.minNotZero);
-			var innerDimension, start, end, value;
+			inner = me.isHW/ ( og10(r leg-c og10!st		v)vi*k( og10(alue
+ng-c og10!st		v)v;		}
 
-			if (reverse) {
-				start = me.end;
-				end = me.start;
-			} else {
-				start = me.start;
-				end = me.end;
-			}
-			if (me.isHorizontal()) {
-				innerDimension = me.width;
-				value = reverse ? me.right - pixel : pixel - me.left;
-			} else {
-				innerDimension = me.height;
-				value = reverse ? pixel - me.top : me.bottom - pixel;
-			}
-			if (value !== start) {
-				if (start === 0) { // include zero tick
-					var offset = helpers.getValueOrDefault(
-						me.options.ticks.fontSize,
-						Chart.defaults.global.defaultFontSize
-					);
-					value -= offset;
-					innerDimension -= offset;
-					start = firstTickValue;
-				}
-				value *= log10(end) - log10(start);
-				value /= innerDimension;
-				value = Math.pow(10, log10(start) + value);
-			}
-			return value;
+.
+th.			} el+pes gna* oreturluath.x: fpixel /		} edex], index + this.minIndex, null);
+		},
+		getValueForPixel: function(optionsu= ue
+				findIndex options;max,func og10e.negativeV og10;max,funcfa.yATetu;
+			u= ue
+_ futa.yATetu;
+			.min e Noticks)function(inner = me.isH, st		v,  - , alue > thisdx !ta);
+			});
+			st		var optart, e)		 - P.min(st		v			 /.max(me.max, st		var optst		v		e)		 - P.min(art, e)	.
+me.dx !== -1 ? idx : index;
+			}inner = me.isHWidth;
+			me.le, alue lx ta);
+		l();
+	rdex)e t		},
+ :)t : me.) / offsffset;
+				maxWidtinner = me.isHWidth;Dimensfunct	alue lx ta);
+		l()t : me.) / ueHetAmt;ottom e t		},
+luath.
+me.dx !me.max!arrst		v)e.max, dx !st		vlp=mensio //zincludeizcks*Indemax, 	ion(pixel) {
+egativeVex + thivar valueemax, 		ue
+				findIndex ar fontSimax, 		'bottoe = valueOrDefault(opts.fontSizmax, 	n	thisdtme.max-== 'left' ? le inner = me.isHW-== 'left' ? le st		var fa.yATetu;
+			;		}
+
+.
+th.	me.max*in og10(r leg-c og10!st		v)funct	alue l/=zinner = me.isH;
+ffs	alue lx .min pow(10,  og10!st		v)0lsalue
+nluath.x: fpixel /alue
+atas	ion() 
+			return this.bottom;
 		}
 	});
-	Chart.scaleService.registerScaleType('logarithmic', LogarithmicScale, defaultConfig);
+
+	Char:ogaetthmic',ksogaetthmicsitioScaleType('category', Datae34":34
+	}
+};
+
+},{"7ale, defaultConfig);
 
 };
 
-},{"34":34,"45":45}],57:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 'use strict';
 
 var defaults = require(25);
 var helpers = require(45);
 var Ticks = require(34);
 
-module.exports = function(Chart) {
+module.t;
+		var opts = me.options;
+		var glvle.exports = function(Cts = de,
+		fonthis 'tBooleang-cWheata v
+oeamimeta.titig,
+ , which o from , whientrzmaxamimeta,
+		font(Chart) {
 
-	var globalDefaults = defaults.global;
-
-	var defaultConfig = {
-		display: true,
-
-		// Boolean - Whether to animate scaling the chart from the centre
-		animate: true,
-		position: 'chartArea',
-
-		angleLines: {
-			display: true,
-			color: 'rgba(0, 0, 0, 0.1)',
-			lineWidth: 1
-		},
-
-		gridLines: {
-			circular: false
-		},
-
-		// label settings
+	vich oAreaefa00;
+		le		}
+fig = {
+ts = de,
+		font {
+	Colo
+	vrgba(0
+			} el0.1)efaultyle:false,
+1ice(me.minrid		}
+fig = {
+cirD ==ret('gloice(me.mindehe uncset		//saultConfig = {
+ 'tBooleang-cShow	 * ackdropdefa	// 	// Dehe un.mi	showdex, Backdrop,
+		fonthis )
+	S;
+			{privattFontC{
+			Acthe un* ackdrophis  ackdropCColo
+	vrgba(255,255,255,0.75)'nthis )
+	} the {privat ackdropdar offst grea &  unow		Acthe un*e(m		},
+lhis  ackdropPr offsY: 2nthis )
+	} the {privat ackdropdar offstefa	// 	idetof		Acthe un*e(m		},
+lhis  ackdropPr offsX: 2nthis 		position: 'left',
 		ticks: {
-			// Boolean - Show a backdrop to the scale label
-			showLabelBackdrop: true,
+			calnthiseft +dex, fig = {
+ 'tBooleang-cif
+		fon showteft +ueCateg= {
+ts = de,
+		fonthis )
+	} the {prPft +ueCate faram fonue(m		},
+lhis ar fontStrue,
+his )
+	F= 0;
+			-s[index -convownteft +ueCateg= {
+		position = requireCate)e.max, pixel /eCateluath.x: llback:  = 0;
+			ex + thi;
+		v(	// D)e.maxfunction() 	// D			var me = pixel /selin
+		le		}
+flts = derawVselineft +dex, f.ight, font	// D	: function{minIndex === 0 line	}k:  = 0;
+			ex Pft +dex, .foneginAtZ(	// D)e.maxfunceft +dex, eginAtZ() 	// D			var mneft +dex, f;ons;
+		var display = me.ctx;
+		var valueeeft +dex, eginAtZvar fontSize = valueOrDefault(opts.fontSize, gvbalDefaults.def = me.ctx;
+		var valueeeft +dex, eginAtZvar fotStyle = valueOrDefault(opts.fontStyle, glvalDefaults.defau = me.ctx;
+		var valueeeft +dex, eginAtZvar ftFamily = valueOrDefault(opts.fontFamily, glovalDefaufaultFontFamily);
+			var titleFont = helpers.fontString( = pixel /.max,sntStrar fontSimax,shelp:ont = helpehis atStri:rs.fontStri,his ar f:rs.fo
+h.re =}k:  = 0;
+			Update(dex, ontS( titrar fontSi eCate)e.maxie';
 
-			// String - The colour of the label backdrop
-			backdropColor: 'rgba(255,255,255,0.75)',
+			var text = eCate)
+		getPixelFor.max, w:negativeV oindatht;
+	 titr); // rei eCate)imax, e,
+ eCateex === 0*ions.toLin: rigeCateex === 0 && m* 1.50*ions.toLinuath.atas	i = pixel /.max,w:r); /Update(ht;
+	eCate);
+			mimax,htrar fontS
+h.re =}k:  = 0;
+			Chart.LincaleBa(
+		le,	}
 
-			// Number - The backdrop padding above & below the label in pixels
-			backdropPaddingY: 2,
+,m fon, n === at)e.maxie';
+		leeturniiNrawV
+		leeturniax
+		getPixelFor.max, st		v:ositi- !s zeet) {imax, r l:ositi+ !s zeet) {uath.atas	max(me	me.
+		lee<niiNrawV
+		lee>niax
+		getPixelFor.max, st		v:ositi- s zee- 5imax, r l:osituath.atas	i = pixel /.max,st		v:osit,
+x, r l:ositi+ s zee+ 5
+h.re =}k: odule.exHgativn = requiex - lina radial/ .form 	// Dewtthteft +ueCateg= /Char = requie liWtthPft +dex, Z(	// D)e.max/tSca * Rion ,(el: patibi|| po = fusffst) beBaerfset ? lo			//
+		hs goffstuieaerfSca * ivat;
+		tof		Actproblemset aerf:-exposed inst.in the charnnn 'l/696cc9c55f4b0beb8fe9Sca *Sca * R{arequi:-exposed dl.dropboxto r = tent charu/34601363/toomuchscienottgifSca *Sca * Soluequi:Sca *Sca * Wabessum	ae.id;
+diustof		Actpolygon imihalfn, wh fonuof		Actually sat fa.yASca * at  IDMh(data w	r hecke	me, wh	textablylaps.Sca *Sca * Waerfset does	 ws sues: []atV
+		lee) beBaath(data.Sca *Sca * Aft
+		 lndg,
+ , wh==rndath(datae) be
+		leeweight;
 
-			// Number - The backdrop padding to the side of the label in pixels
-			backdropPaddingX: 2,
+		e howtmuchs.offset;
+oeelse iSca * from , whshapid;
+diustto =ocause weft +uins = s by
+x of x.Sca *Sca * Wabeblya		ae.idoffse) berdex)eightancel x - mR rn;
+in)imum
+shapid;
+diustt of  get lina objecboxSca * a oinewtthteCateg.Sca *Sca * O/**
+key = [
+t of, w	r get lnd , whientrzweft +ureturn;
+ich od by
+xart.Tirn;
+xh	texts stru.isHSca * on  IDMh	ide,eelse t.Tirnao from , wh fon, halvg,
+	itd) be
+ddg,
+ , wh=ffsexts stru.isHth = m.Sca *Sca * 	malupart meangkey = [
+			hapid litet;
+oe	Actually ,eaki==rndeakiif  getbDewttht	Acthe unsSca * ) bep;
+				rolina objecmost space efficienttmannerSca *Sca * exposed dl.dropboxto r = tent charu/34601363/yeahscienottgifSca */
+maxfuncels.defauex Pft +dex, .foneginAtZ(	// D);
+his 'tG{
+	in)imum
+;
+diustof		Actpolygon. Edata vhalfn, whDimens tth us 	/**	texth = m) o vhalfn, whh = m.Scacks[in(el: px -csID === me.idox));
 
-			callback: Ticks.formatters.linear
-		},
+	the ind. - .mkels(rnsL/Rts stru.isHtis
+	t	//aste0
 
-		pointLabels: {
-			// Boolean - if true, show point labels
-			display: true,
+		uueHeissuesewtthtientrzweft +smaxfunc==rndatPosIndexR
+diust? .min = me	// Doet);
+			}2, 	// D	wset) {
+					wvalDeur[]
+	tcaleBafined) {r: 	// D	wset)faulty lifaultt: 	// Doet);
+	faultb:ra		}}			wvalDeur[]
+	tA		lesasStackction(i,*	texontSi eft +Pion() {
+	00;s// Do); // rendeels.de// re;00;s// Do_eft +dex, ontS datasetvar me = thi;
+		v =	ex + thi;
+		v(	// D);00;Arrayt)) {
+				v= thi;
+		v
+		++
+		getPeft +Pion() {() 	// D	ex Pft +Pion() {(i,c==rndatPosIndexR
+diusnluath	texontS =	Update(dex, ontS(s// Do); ,eels.de/ fon, s// Doeft +dex, f[ilues[''nluaths// Do_eft +dex, ontS [ilu=*	texontS			me. 'todd qu'rt
+		cirDl wuee ti	}degree 0 meangueHeof	cirDl 
+, 	ion(
+		leR
+diatZ() 	// D	g.getRigA		le(i)function(
+		leetnegativeVtoDegrees(
+		leR
+diatZ) % 360;max,funchcaleBafinChart.LincaleBa(
+		le,	}
+t +Pion() {.x,*	texontS.w	} el180)function(vcaleBafinChart.LincaleBa(
+		le,	}
+t +Pion() {.y,*	texontS.h, 9 el270)			me.dx !hcaleBa(st		va<Deur[]
+	tcaleBa.e)e.max, eur[]
+	tcaleBa.eetnecaleBa(st		v;max, eur[]
+	tA		lea.eetn
+		leR
+diatZluath.x	me.dx !hcaleBa( - P>Deur[]
+	tcaleBa.r)e.max, eur[]
+	tcaleBa.retnecaleBa(art, e)	 eur[]
+	tA		lea.retn
+		leR
+diatZluath.x	me.dx !vcaleBa(st		va<Deur[]
+	tcaleBa.t)e.max, eur[]
+	tcaleBa.v =	vcaleBa(st		v;max, eur[]
+	tA		lea.tetn
+		leR
+diatZluath.x	me.dx !vcaleBa( - P>Deur[]
+	tcaleBa.b)e.max, eur[]
+	tcaleBa.b =	vcaleBa(art, e)	 eur[]
+	tA		lea.betn
+		leR
+diatZluath.xth.x	me	// D	setReducinAtZ(==rndatPosIndexR
+dius,Deur[]
+	tcaleBa,Deur[]
+	tA		les)e =}k: odule.exHgativn = requiex - lina radial/ .form 	// Dewtthtnoteft +ueCateg= /Char = requie li(	// D)e.maxfunc==rndatPosIndexR
+diust? .min = me	// Doet);
+			}2, 	// D	wset) {
+					w	// D	drae.geArealpealue = 0;
+	==rndatPosIndexR
+diusnluat	// D	setCe(rotPft +(0
+			} el0)ne	}k:  = 0;
+			ex T
+			ctx.ForA		le(
+		le)e.maxie';
+		leeturn0rawV
+		leeturn180)		getPixelForate(rotation	max(me	me.
+		lee<n180)		getPixelForaar deatas	i = pixel /'rdex)'ne	}k:  = 0;
+			Height;
+	); ,e			}
+	p;
+				r,rar fontS)e.maxie';
 
-			// Number - Point label font size in pixels
-			fontSize: 10,
+			var text = 			})
+		getPfuncyndeeion() {.yfunction(spacg,
+ =N1.50*ions.toLi			me.Array(text)) {
+				v			}ex === 			fi)		y += lineHeight;
+				}[i]
+	p;
+				r.x,*y, glo		yl+pespacg,
+luath.xth.
+				maxWidlineHeight;
+				}
+	p;
+				r.x,*eion() {.yvatas	e	}k:  = 0;
+			adjus Pft +Pion() {Fordex, fset) .
+		le,*	texontSi efon() {)e.maxie';
+		leeturn90rawV
+		leeturn270)maxWideion() {.ye.top	texontS.h {
+					w	max(me	me.
+		lee>n270rawV
+		lee< 90)maxWideion() {.ye.to	texontS.hatas	e	}k:  = 0;
+			draePft +dex, Z(	// D)e.max(texlin() 	// D	lin;maxfunction() 	// D			var me = func
+		le		}
+= metBaselin
+		le		}
+me = funceft +dex, = metBaselineft +dex, f;o
+idlineyle:false =c
+		le		}
+= meeyle:false;
+idlinestroke help =c
+		le		}
+= mee	Coloetvar me outer =htance() 	// D	g.g =htanceFromCe(rotn(index) seline, me.ta);
+		l()	// D	te  :k	// D	ts );ound//rPft +udex,  F.fo
+h.funcels.defauex Pft +dex, .foneginAtZ(	// D);
+hisline	texar Lyle:fau'ueH';
+hisArray(text)) ex + thi;
+		v(	// D) -k1;xt)>) {
+		--)maxWid	me.
+		le		}
+= meeight, f)maxWidr me outerPion() {() 	// D	ex Pft +Pion() {(i,couter =htance				wislineandlePlue(				wisline=ocaToe	// DoxCe(rot, 	// D	yCe(rot				wislineyle:ToeouterPion() {.x,*outerPion() {.y				wislinestroke(				wislineclonsPlue(				wi.x	me.dx !eft +dex, = meeight, f)maxWidr//rExtra 3px*out
+					abeleCateespacg,
+xWidr me eft +dex, Pion() {() 	// D	ex Pft +Pion() {(i,couter =htancee+ 5);
+hisdr//rKeep(el: pan l
+var
+	/**
+keymaytash) {
+	set o{s shown es aerfxWidr me eft +dex, .fonCColofau = me.ctx;
+		AgetRigvar valueeeft +dex, egiFamilyCColo, iy = valueOrDefault(opts.fontCColo				wisline/ rendeels.de// re;00;idlineHeig help =ceft +dex, .fonCColo;
+hisdrion(
+		leR
+diatZ() 	// D	g.getRigA		le(i)functtion(
+		leetnegativeVtoDegrees(
+		leR
+diatZ);00;idlinet
+			ctx. =	ex T
+			ctx.ForA		le(
+		le);00;idadjus Pft +Pion() {Fordex, fset) .
+		le,*s// Do_eft +dex, ontS [il, eft +dex, Pion() {);00;idHeight;
+	); ,es// Doeft +dex, f[ilues['', eft +dex, Pion() {,eels.de/ fon				wi.xas	e	}k:  = 0;
+			draeR
+dius		}
+e	// D, nrid		}
+egiF,
+;
+diusch(dataset.da(texlin() 	// D	lin;maxlinestroke help =c = me.ctx;
+		AgetRigvar valueenrid		}
+egiFe	Coloch(datae && ;		}lineyle:false =c = me.ctx;
+		AgetRigvar valueenrid		}
+egiFeyle:falsech(datae && ;	maxie';	// D			var mnnrid		}
+f.cirD ==r)maxWid// Drae cirD ==r	sec;
+betweein, wheft +smaxslineandlePlue(				wilinesece	// DoxCe(rot, 	// D	yCe(rot,
+;
+diusch0, th = PI0*i2				wilineclonsPlue(				wilinestroke(				w	max(meaxWid// Drae stra);
+		yle:so = n In ng  IDMh(data
+	ar me = thi;
+		v =	ex + thi;
+		v(	// D);0
+me.dx != thi;
+		v =arra m.max
+	pixel 			wi.x	me.lineandlePlue(				wi me eft +Pion() {() 	// D	ex Pft +Pion() {(0,
+;
+dius				wiline=ocaToe}
+t +Pion() {.x,*}
+t +Pion() {.y)			me.Array(text)) 1
+				v= thi;
+		v
+		++
+		getPPeft +Pion() {() 	// D	ex Pft +Pion() {(i,c;
+dius				wi}lineyle:Toe}
+t +Pion() {.x,*}
+t +Pion() {.y)			wi.x	me.lineclonsPlue(				wilinestroke(				w	e	}k:  = 0;
+			n the Oricks(Handl
+		getpixel /
 
-			// Function - Used to convert point labels
-			callback: function(label) {
-				return label;
-			}
+			var t} the (Handl
+	? Handl0 line	}k: vicks.formR
+dialatters.linear
 		}
 	};
 
-	function getValueCount(scale) {
-		var opts = scale.options;
-		return opts.angleLines.display || opts.pointLabels.display ? scale.chart.data.labels.length : 0;
-	}
-
-	function getPointLabelFontOptions(scale) {
-		var pointLabelOptions = scale.options.pointLabels;
-		var fontSize = helpers.valueOrDefault(pointLabelOptions.fontSize, globalDefaults.defaultFontSize);
-		var fontStyle = helpers.valueOrDefault(pointLabelOptions.fontStyle, globalDefaults.defaultFontStyle);
-		var fontFamily = helpers.valueOrDefault(pointLabelOptions.fontFamily, globalDefaults.defaultFontFamily);
-		var font = helpers.fontString(fontSize, fontStyle, fontFamily);
-
-		return {
-			size: fontSize,
-			style: fontStyle,
-			family: fontFamily,
-			font: font
-		};
-	}
-
-	function measureLabelSize(ctx, fontSize, label) {
-		if (helpers.isArray(label)) {
-			return {
-				w: helpers.longestText(ctx, ctx.font, label),
-				h: (label.length * fontSize) + ((label.length - 1) * 1.5 * fontSize)
-			};
-		}
-
-		return {
-			w: ctx.measureText(label).width,
-			h: fontSize
-		};
-	}
-
-	function determineLimits(angle, pos, size, min, max) {
-		if (angle === min || angle === max) {
-			return {
-				start: pos - (size / 2),
-				end: pos + (size / 2)
-			};
-		} else if (angle < min || angle > max) {
-			return {
-				start: pos - size - 5,
-				end: pos
-			};
-		}
-
-		return {
-			start: pos,
-			end: pos + size + 5
-		};
-	}
-
-	/**
-	 * Helper function to fit a radial linear scale with point labels
-	 */
-	function fitWithPointLabels(scale) {
-		/*
-		 * Right, this is really confusing and there is a lot of maths going on here
-		 * The gist of the problem is here: https://gist.github.com/nnnick/696cc9c55f4b0beb8fe9
-		 *
-		 * Reaction: https://dl.dropboxusercontent.com/u/34601363/toomuchscience.gif
-		 *
-		 * Solution:
-		 *
-		 * We assume the radius of the polygon is half the size of the canvas at first
-		 * at each index we check if the text overlaps.
-		 *
-		 * Where it does, we store that angle and that index.
-		 *
-		 * After finding the largest index and angle we calculate how much we need to remove
-		 * from the shape radius to move the point inwards by that x.
-		 *
-		 * We average the left and right distances to get the maximum shape radius that can fit in the box
-		 * along with labels.
-		 *
-		 * Once we have that, we can find the centre point for the chart, by taking the x text protrusion
-		 * on each side, removing that from the size, halving it and adding the left x protrusion width.
-		 *
-		 * This will mean we have a shape fitted to the canvas, as large as it can be with the labels
-		 * and position it in the most space efficient manner
-		 *
-		 * https://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
-		 */
-
-		var plFont = getPointLabelFontOptions(scale);
-
-		// Get maximum radius of the polygon. Either half the height (minus the text width) or half the width.
-		// Use this to calculate the offset + change. - Make sure L/R protrusion is at least 0 to stop issues with centre points
-		var largestPossibleRadius = Math.min(scale.height / 2, scale.width / 2);
-		var furthestLimits = {
-			r: scale.width,
-			l: 0,
-			t: scale.height,
-			b: 0
-		};
-		var furthestAngles = {};
-		var i, textSize, pointPosition;
-
-		scale.ctx.font = plFont.font;
-		scale._pointLabelSizes = [];
-
-		var valueCount = getValueCount(scale);
-		for (i = 0; i < valueCount; i++) {
-			pointPosition = scale.getPointPosition(i, largestPossibleRadius);
-			textSize = measureLabelSize(scale.ctx, plFont.size, scale.pointLabels[i] || '');
-			scale._pointLabelSizes[i] = textSize;
-
-			// Add quarter circle to make degree 0 mean top of circle
-			var angleRadians = scale.getIndexAngle(i);
-			var angle = helpers.toDegrees(angleRadians) % 360;
-			var hLimits = determineLimits(angle, pointPosition.x, textSize.w, 0, 180);
-			var vLimits = determineLimits(angle, pointPosition.y, textSize.h, 90, 270);
-
-			if (hLimits.start < furthestLimits.l) {
-				furthestLimits.l = hLimits.start;
-				furthestAngles.l = angleRadians;
-			}
-
-			if (hLimits.end > furthestLimits.r) {
-				furthestLimits.r = hLimits.end;
-				furthestAngles.r = angleRadians;
-			}
-
-			if (vLimits.start < furthestLimits.t) {
-				furthestLimits.t = vLimits.start;
-				furthestAngles.t = angleRadians;
-			}
-
-			if (vLimits.end > furthestLimits.b) {
-				furthestLimits.b = vLimits.end;
-				furthestAngles.b = angleRadians;
-			}
-		}
-
-		scale.setReductions(largestPossibleRadius, furthestLimits, furthestAngles);
-	}
-
-	/**
-	 * Helper function to fit a radial linear scale with no point labels
-	 */
-	function fit(scale) {
-		var largestPossibleRadius = Math.min(scale.height / 2, scale.width / 2);
-		scale.drawingArea = Math.round(largestPossibleRadius);
-		scale.setCenterPoint(0, 0, 0, 0);
-	}
-
-	function getTextAlignForAngle(angle) {
-		if (angle === 0 || angle === 180) {
-			return 'center';
-		} else if (angle < 180) {
-			return 'left';
-		}
-
-		return 'right';
-	}
-
-	function fillText(ctx, text, position, fontSize) {
-		if (helpers.isArray(text)) {
-			var y = position.y;
-			var spacing = 1.5 * fontSize;
-
-			for (var i = 0; i < text.length; ++i) {
-				ctx.fillText(text[i], position.x, y);
-				y += spacing;
-			}
-		} else {
-			ctx.fillText(text, position.x, position.y);
-		}
-	}
-
-	function adjustPointPositionForLabelHeight(angle, textSize, position) {
-		if (angle === 90 || angle === 270) {
-			position.y -= (textSize.h / 2);
-		} else if (angle > 270 || angle < 90) {
-			position.y -= textSize.h;
-		}
-	}
-
-	function drawPointLabels(scale) {
-		var ctx = scale.ctx;
-		var opts = scale.options;
-		var angleLineOpts = opts.angleLines;
-		var pointLabelOpts = opts.pointLabels;
-
-		ctx.lineWidth = angleLineOpts.lineWidth;
-		ctx.strokeStyle = angleLineOpts.color;
-
-		var outerDistance = scale.getDistanceFromCenterForValue(opts.ticks.reverse ? scale.min : scale.max);
-
-		// Point Label Font
-		var plFont = getPointLabelFontOptions(scale);
-
-		ctx.textBaseline = 'top';
-
-		for (var i = getValueCount(scale) - 1; i >= 0; i--) {
-			if (angleLineOpts.display) {
-				var outerPosition = scale.getPointPosition(i, outerDistance);
-				ctx.beginPath();
-				ctx.moveTo(scale.xCenter, scale.yCenter);
-				ctx.lineTo(outerPosition.x, outerPosition.y);
-				ctx.stroke();
-				ctx.closePath();
-			}
-
-			if (pointLabelOpts.display) {
-				// Extra 3px out for some label spacing
-				var pointLabelPosition = scale.getPointPosition(i, outerDistance + 5);
-
-				// Keep this in loop since we may support array properties here
-				var pointLabelFontColor = helpers.valueAtIndexOrDefault(pointLabelOpts.fontColor, i, globalDefaults.defaultFontColor);
-				ctx.font = plFont.font;
-				ctx.fillStyle = pointLabelFontColor;
-
-				var angleRadians = scale.getIndexAngle(i);
-				var angle = helpers.toDegrees(angleRadians);
-				ctx.textAlign = getTextAlignForAngle(angle);
-				adjustPointPositionForLabelHeight(angle, scale._pointLabelSizes[i], pointLabelPosition);
-				fillText(ctx, scale.pointLabels[i] || '', pointLabelPosition, plFont.size);
-			}
-		}
-	}
-
-	function drawRadiusLine(scale, gridLineOpts, radius, index) {
-		var ctx = scale.ctx;
-		ctx.strokeStyle = helpers.valueAtIndexOrDefault(gridLineOpts.color, index - 1);
-		ctx.lineWidth = helpers.valueAtIndexOrDefault(gridLineOpts.lineWidth, index - 1);
-
-		if (scale.options.gridLines.circular) {
-			// Draw circular arcs between the points
-			ctx.beginPath();
-			ctx.arc(scale.xCenter, scale.yCenter, radius, 0, Math.PI * 2);
-			ctx.closePath();
-			ctx.stroke();
-		} else {
-			// Draw straight lines connecting each index
-			var valueCount = getValueCount(scale);
-
-			if (valueCount === 0) {
-				return;
-			}
-
-			ctx.beginPath();
-			var pointPosition = scale.getPointPosition(0, radius);
-			ctx.moveTo(pointPosition.x, pointPosition.y);
-
-			for (var i = 1; i < valueCount; i++) {
-				pointPosition = scale.getPointPosition(i, radius);
-				ctx.lineTo(pointPosition.x, pointPosition.y);
-			}
-
-			ctx.closePath();
-			ctx.stroke();
-		}
-	}
-
-	function numberOrZero(param) {
-		return helpers.isNumber(param) ? param : 0;
-	}
-
-	var LinearRadialScale = Chart.LinearScaleBase.extend({
-		setDimensions: function() {
-			var me = this;
-			var opts = me.options;
-			var tickOpts = opts.ticks;
-			// Set the unconstrained dimension before label rotation
-			me.width = me.maxWidth;
-			me.height = me.maxHeight;
-			me.xCenter = Math.round(me.width / 2);
-			me.yCenter = Math.round(me.height / 2);
-
-			var minSize = helpers.min([me.height, me.width]);
-			var tickFontSize = helpers.valueOrDefault(tickOpts.fontSize, globalDefaults.defaultFontSize);
-			me.drawingArea = opts.display ? (minSize / 2) - (tickFontSize / 2 + tickOpts.backdropPaddingY) : (minSize / 2);
-		},
-		determineDataLimits: function() {
-			var me = this;
-			var chart = me.chart;
-			var min = Number.POSITIVE_INFINITY;
-			var max = Number.NEGATIVE_INFINITY;
-
-			helpers.each(chart.data.datasets, function(dataset, datasetIndex) {
-				if (chart.isDatasetVisible(datasetIndex)) {
-					var meta = chart.getDatasetMeta(datasetIndex);
-
-					helpers.each(dataset.data, function(rawValue, index) {
-						var value = +me.getRightValue(rawValue);
-						if (isNaN(value) || meta.data[index].hidden) {
-							return;
-						}
-
-						min = Math.min(value, min);
-						max = Math.max(value, max);
-					});
-				}
-			});
-
-			me.min = (min === Number.POSITIVE_INFINITY ? 0 : min);
-			me.max = (max === Number.NEGATIVE_INFINITY ? 0 : max);
-
-			// Common base implementation to handle ticks.min, ticks.max, ticks.beginAtZero
-			me.handleTickRangeOptions();
-		},
-		getTickLimit: function() {
-			var tickOpts = this.options.ticks;
-			var tickFontSize = helpers.valueOrDefault(tickOpts.fontSize, globalDefaults.defaultFontSize);
-			return Math.min(tickOpts.maxTicksLimit ? tickOpts.maxTicksLimit : 11, Math.ceil(this.drawingArea / (1.5 * tickFontSize)));
-		},
-		convertTicksToLabels: function() {
-			var me = this;
-
-			Chart.LinearScaleBase.prototype.convertTicksToLabels.call(me);
-
-			// Point labels
-			me.pointLabels = me.chart.data.labels.map(me.options.pointLabels.callback, me);
-		},
-		getLabelForIndex: function(index, datasetIndex) {
-			return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
-		},
-		fit: function() {
-			if (this.options.pointLabels.display) {
-				fitWithPointLabels(this);
-			} else {
-				fit(this);
-			}
-		},
-		/**
-		 * Set radius reductions and determine new radius and center point
-		 * @private
-		 */
-		setReductions: function(largestPossibleRadius, furthestLimits, furthestAngles) {
-			var me = this;
-			var radiusReductionLeft = furthestLimits.l / Math.sin(furthestAngles.l);
-			var radiusReductionRight = Math.max(furthestLimits.r - me.width, 0) / Math.sin(furthestAngles.r);
-			var radiusReductionTop = -furthestLimits.t / Math.cos(furthestAngles.t);
-			var radiusReductionBottom = -Math.max(furthestLimits.b - me.height, 0) / Math.cos(furthestAngles.b);
-
-			radiusReductionLeft = numberOrZero(radiusReductionLeft);
-			radiusReductionRight = numberOrZero(radiusReductionRight);
-			radiusReductionTop = numberOrZero(radiusReductionTop);
-			radiusReductionBottom = numberOrZero(radiusReductionBottom);
-
-			me.drawingArea = Math.min(
-				Math.round(largestPossibleRadius - (radiusReductionLeft + radiusReductionRight) / 2),
-				Math.round(largestPossibleRadius - (radiusReductionTop + radiusReductionBottom) / 2));
-			me.setCenterPoint(radiusReductionLeft, radiusReductionRight, radiusReductionTop, radiusReductionBottom);
-		},
-		setCenterPoint: function(leftMovement, rightMovement, topMovement, bottomMovement) {
-			var me = this;
-			var maxRight = me.width - rightMovement - me.drawingArea;
-			var maxLeft = leftMovement + me.drawingArea;
-			var maxTop = topMovement + me.drawingArea;
-			var maxBottom = me.height - bottomMovement - me.drawingArea;
-
-			me.xCenter = Math.round(((maxLeft + maxRight) / 2) + me.left);
-			me.yCenter = Math.round(((maxTop + maxBottom) / 2) + me.top);
-		},
-
-		getIndexAngle: function(index) {
-			var angleMultiplier = (Math.PI * 2) / getValueCount(this);
-			var startAngle = this.chart.options && this.chart.options.startAngle ?
-				this.chart.options.startAngle :
-				0;
-
-			var startAngleRadians = startAngle * Math.PI * 2 / 360;
-
-			// Start from the top instead of right, so remove a quarter of the circle
-			return index * angleMultiplier + startAngleRadians;
-		},
-		getDistanceFromCenterForValue: function(value) {
-			var me = this;
-
-			if (value === null) {
-				return 0; // null always in center
-			}
-
-			// Take into account half font size + the yPadding of the top value
-			var scalingFactor = me.drawingArea / (me.max - me.min);
-			if (me.options.ticks.reverse) {
-				return (me.max - value) * scalingFactor;
-			}
-			return (value - me.min) * scalingFactor;
-		},
-		getPointPosition: function(index, distanceFromCenter) {
-			var me = this;
-			var thisAngle = me.getIndexAngle(index) - (Math.PI / 2);
-			return {
-				x: Math.round(Math.cos(thisAngle) * distanceFromCenter) + me.xCenter,
-				y: Math.round(Math.sin(thisAngle) * distanceFromCenter) + me.yCenter
-			};
-		},
-		getPointPositionForValue: function(index, value) {
-			return this.getPointPosition(index, this.getDistanceFromCenterForValue(value));
-		},
-
-		getBasePosition: function() {
-			var me = this;
-			var min = me.min;
-			var max = me.max;
-
-			return me.getPointPositionForValue(0,
-				me.beginAtZero ? 0 :
-				min < 0 && max < 0 ? max :
-				min > 0 && max > 0 ? min :
-				0);
-		},
-
-		draw: function() {
-			var me = this;
-			var opts = me.options;
-			var gridLineOpts = opts.gridLines;
-			var tickOpts = opts.ticks;
-			var valueOrDefault = helpers.valueOrDefault;
-
-			if (opts.display) {
-				var ctx = me.ctx;
-				var startAngle = this.getIndexAngle(0);
-
-				// Tick Font
-				var tickFontSize = valueOrDefault(tickOpts.fontSize, globalDefaults.defaultFontSize);
-				var tickFontStyle = valueOrDefault(tickOpts.fontStyle, globalDefaults.defaultFontStyle);
-				var tickFontFamily = valueOrDefault(tickOpts.fontFamily, globalDefaults.defaultFontFamily);
-				var tickLabelFont = helpers.fontString(tickFontSize, tickFontStyle, tickFontFamily);
-
-				helpers.each(me.ticks, function(label, index) {
-					// Don't draw a centre value (if it is minimum)
-					if (index > 0 || tickOpts.reverse) {
-						var yCenterOffset = me.getDistanceFromCenterForValue(me.ticksAsNumbers[index]);
-
-						// Draw circular lines around the scale
-						if (gridLineOpts.display && index !== 0) {
-							drawRadiusLine(me, gridLineOpts, yCenterOffset, index);
-						}
-
-						if (tickOpts.display) {
-							var tickFontColor = valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
-							ctx.font = tickLabelFont;
-
-							ctx.save();
-							ctx.translate(me.xCenter, me.yCenter);
-							ctx.rotate(startAngle);
-
-							if (tickOpts.showLabelBackdrop) {
-								var labelWidth = ctx.measureText(label).width;
-								ctx.fillStyle = tickOpts.backdropColor;
-								ctx.fillRect(
-									-labelWidth / 2 - tickOpts.backdropPaddingX,
-									-yCenterOffset - tickFontSize / 2 - tickOpts.backdropPaddingY,
-									labelWidth + tickOpts.backdropPaddingX * 2,
-									tickFontSize + tickOpts.backdropPaddingY * 2
-								);
-							}
-
-							ctx.textAlign = 'center';
-							ctx.textBaseline = 'middle';
-							ctx.fillStyle = tickFontColor;
-							ctx.fillText(label, 0, -yCenterOffset);
-							ctx.restore();
-						}
-					}
-				});
-
-				if (opts.angleLines.display || opts.pointLabels.display) {
-					drawPointLabels(me);
-				}
-			}
-		}
-	});
-	Chart.scaleService.registerScaleType('radialLinear', LinearRadialScale, defaultConfig);
-
-};
-
-},{"25":25,"34":34,"45":45}],58:[function(require,module,exports){
-/* global window: false */
-'use strict';
-
-var moment = require(6);
-moment = typeof moment === 'function' ? moment : window.moment;
-
-var defaults = require(25);
-var helpers = require(45);
-
-// Integer constants are from the ES6 spec.
-var MIN_INTEGER = Number.MIN_SAFE_INTEGER || -9007199254740991;
-var MAX_INTEGER = Number.MAX_SAFE_INTEGER || 9007199254740991;
-
-var INTERVALS = {
-	millisecond: {
-		common: true,
-		size: 1,
-		steps: [1, 2, 5, 10, 20, 50, 100, 250, 500]
-	},
-	second: {
-		common: true,
-		size: 1000,
-		steps: [1, 2, 5, 10, 30]
-	},
-	minute: {
-		common: true,
-		size: 60000,
-		steps: [1, 2, 5, 10, 30]
-	},
-	hour: {
-		common: true,
-		size: 3600000,
-		steps: [1, 2, 3, 6, 12]
-	},
-	day: {
-		common: true,
-		size: 86400000,
-		steps: [1, 2, 5]
-	},
-	week: {
-		common: false,
-		size: 604800000,
-		steps: [1, 2, 3, 4]
-	},
-	month: {
-		common: true,
-		size: 2.628e9,
-		steps: [1, 2, 3]
-	},
-	quarter: {
-		common: false,
-		size: 7.884e9,
-		steps: [1, 2, 3, 4]
-	},
-	year: {
-		common: true,
-		size: 3.154e10
-	}
-};
-
-var UNITS = Object.keys(INTERVALS);
-
-function sorter(a, b) {
-	return a - b;
-}
-
-function arrayUnique(items) {
-	var hash = {};
-	var out = [];
-	var i, ilen, item;
-
-	for (i = 0, ilen = items.length; i < ilen; ++i) {
-		item = items[i];
-		if (!hash[item]) {
-			hash[item] = true;
-			out.push(item);
-		}
-	}
-
-	return out;
-}
-
-/**
- * Returns an array of {time, pos} objects used to interpolate a specific `time` or position
- * (`pos`) on the scale, by searching entries before and after the requested value. `pos` is
- * a decimal between 0 and 1: 0 being the start of the scale (left or top) and 1 the other
- * extremity (left + width or top + height). Note that it would be more optimized to directly
- * store pre-computed pixels, but the scale dimensions are not guaranteed at the time we need
- * to create the lookup table. The table ALWAYS contains at least two items: min and max.
- *
- * @param {Number[]} timestamps - timestamps sorted from lowest to highest.
- * @param {String} distribution - If 'linear', timestamps will be spread linearly along the min
- * and max range, so basically, the table will contains only two items: {min, 0} and {max, 1}.
- * If 'series', timestamps will be positioned at the same distance from each other. In this
- * case, only timestamps that break the time linearity are registered, meaning that in the
- * best case, all timestamps are linear, the table contains only min and max.
- */
-function buildLookupTable(timestamps, min, max, distribution) {
-	if (distribution === 'linear' || !timestamps.length) {
-		return [
-			{time: min, pos: 0},
-			{time: max, pos: 1}
-		];
-	}
-
-	var table = [];
-	var items = [min];
-	var i, ilen, prev, curr, next;
-
-	for (i = 0, ilen = timestamps.length; i < ilen; ++i) {
-		curr = timestamps[i];
-		if (curr > min && curr < max) {
-			items.push(curr);
-		}
-	}
-
-	items.push(max);
-
-	for (i = 0, ilen = items.length; i < ilen; ++i) {
-		next = items[i + 1];
-		prev = items[i - 1];
-		curr = items[i];
-
-		// only add points that breaks the scale linearity
-		if (prev === undefined || next === undefined || Math.round((next + prev) / 2) !== curr) {
-			table.push({time: curr, pos: i / (ilen - 1)});
-		}
-	}
-
-	return table;
-}
-
-// @see adapted from http://www.anujgakhar.com/2014/03/01/binary-search-in-javascript/
-function lookup(table, key, value) {
-	var lo = 0;
-	var hi = table.length - 1;
-	var mid, i0, i1;
-
-	while (lo >= 0 && lo <= hi) {
-		mid = (lo + hi) >> 1;
-		i0 = table[mid - 1] || null;
-		i1 = table[mid];
-
-		if (!i0) {
-			// given value is outside table (before first item)
-			return {lo: null, hi: i1};
-		} else if (i1[key] < value) {
-			lo = mid + 1;
-		} else if (i0[key] > value) {
-			hi = mid - 1;
-		} else {
-			return {lo: i0, hi: i1};
-		}
-	}
-
-	// given value is outside table (after last item)
-	return {lo: i1, hi: null};
-}
-
-/**
- * Linearly interpolates the given source `value` using the table items `skey` values and
- * returns the associated `tkey` value. For example, interpolate(table, 'time', 42, 'pos')
- * returns the position for a timestamp equal to 42. If value is out of bounds, values at
- * index [0, 1] or [n - 1, n] are used for the interpolation.
- */
-function interpolate(table, skey, sval, tkey) {
-	var range = lookup(table, skey, sval);
-
-	// Note: the lookup table ALWAYS contains at least 2 items (min and max)
-	var prev = !range.lo ? table[0] : !range.hi ? table[table.length - 2] : range.lo;
-	var next = !range.lo ? table[1] : !range.hi ? table[table.length - 1] : range.hi;
-
-	var span = next[skey] - prev[skey];
-	var ratio = span ? (sval - prev[skey]) / span : 0;
-	var offset = (next[tkey] - prev[tkey]) * ratio;
-
-	return prev[tkey] + offset;
-}
-
-/**
- * Convert the given value to a moment object using the given time options.
- * @see http://momentjs.com/docs/#/parsing/
- */
-function momentify(value, options) {
-	var parser = options.parser;
-	var format = options.parser || options.format;
-
-	if (typeof parser === 'function') {
-		return parser(value);
-	}
-
-	if (typeof value === 'string' && typeof format === 'string') {
-		return moment(value, format);
-	}
-
-	if (!(value instanceof moment)) {
-		value = moment(value);
-	}
-
-	if (value.isValid()) {
-		return value;
-	}
-
-	// Labels are in an incompatible moment format and no `parser` has been provided.
-	// The user might still use the deprecated `format` option to convert his inputs.
-	if (typeof format === 'function') {
-		return format(value);
-	}
-
-	return value;
-}
-
-function parse(input, scale) {
-	if (helpers.isNullOrUndef(input)) {
-		return null;
-	}
-
-	var options = scale.options.time;
-	var value = momentify(scale.getRightValue(input), options);
-	if (!value.isValid()) {
-		return null;
-	}
-
-	if (options.round) {
-		value.startOf(options.round);
-	}
-
-	return value.valueOf();
-}
-
-/**
- * Returns the number of unit to skip to be able to display up to `capacity` number of ticks
- * in `unit` for the given `min` / `max` range and respecting the interval steps constraints.
- */
-function determineStepSize(min, max, unit, capacity) {
-	var range = max - min;
-	var interval = INTERVALS[unit];
-	var milliseconds = interval.size;
-	var steps = interval.steps;
-	var i, ilen, factor;
-
-	if (!steps) {
-		return Math.ceil(range / (capacity * milliseconds));
-	}
-
-	for (i = 0, ilen = steps.length; i < ilen; ++i) {
-		factor = steps[i];
-		if (Math.ceil(range / (milliseconds * factor)) <= capacity) {
-			break;
-		}
-	}
-
-	return factor;
-}
-
-/**
- * Figures out what unit results in an appropriate number of auto-generated ticks
- */
-function determineUnitForAutoTicks(minUnit, min, max, capacity) {
-	var ilen = UNITS.length;
-	var i, interval, factor;
-
-	for (i = UNITS.indexOf(minUnit); i < ilen - 1; ++i) {
-		interval = INTERVALS[UNITS[i]];
-		factor = interval.steps ? interval.steps[interval.steps.length - 1] : MAX_INTEGER;
-
-		if (interval.common && Math.ceil((max - min) / (factor * interval.size)) <= capacity) {
-			return UNITS[i];
-		}
-	}
-
-	return UNITS[ilen - 1];
-}
-
-/**
- * Figures out what unit to format a set of ticks with
- */
-function determineUnitForFormatting(ticks, minUnit, min, max) {
-	var duration = moment.duration(moment(max).diff(moment(min)));
-	var ilen = UNITS.length;
-	var i, unit;
-
-	for (i = ilen - 1; i >= UNITS.indexOf(minUnit); i--) {
-		unit = UNITS[i];
-		if (INTERVALS[unit].common && duration.as(unit) >= ticks.length) {
-			return unit;
-		}
-	}
-
-	return UNITS[minUnit ? UNITS.indexOf(minUnit) : 0];
-}
-
-function determineMajorUnit(unit) {
-	for (var i = UNITS.indexOf(unit) + 1, ilen = UNITS.length; i < ilen; ++i) {
-		if (INTERVALS[UNITS[i]].common) {
-			return UNITS[i];
-		}
-	}
-}
-
-/**
- * Generates a maximum of `capacity` timestamps between min and max, rounded to the
- * `minor` unit, aligned on the `major` unit and using the given scale time `options`.
- * Important: this method can return ticks outside the min and max range, it's the
- * responsibility of the calling code to clamp values if needed.
- */
-function generate(min, max, capacity, options) {
-	var timeOpts = options.time;
-	var minor = timeOpts.unit || determineUnitForAutoTicks(timeOpts.minUnit, min, max, capacity);
-	var major = determineMajorUnit(minor);
-	var stepSize = helpers.valueOrDefault(timeOpts.stepSize, timeOpts.unitStepSize);
-	var weekday = minor === 'week' ? timeOpts.isoWeekday : false;
-	var majorTicksEnabled = options.ticks.major.enabled;
-	var interval = INTERVALS[minor];
-	var first = moment(min);
-	var last = moment(max);
-	var ticks = [];
-	var time;
-
-	if (!stepSize) {
-		stepSize = determineStepSize(min, max, minor, capacity);
-	}
-
-	// For 'week' unit, handle the first day of week option
-	if (weekday) {
-		first = first.isoWeekday(weekday);
-		last = last.isoWeekday(weekday);
-	}
-
-	// Align first/last ticks on unit
-	first = first.startOf(weekday ? 'day' : minor);
-	last = last.startOf(weekday ? 'day' : minor);
-
-	// Make sure that the last tick include max
-	if (last < max) {
-		last.add(1, minor);
-	}
-
-	time = moment(first);
-
-	if (majorTicksEnabled && major && !weekday && !timeOpts.round) {
-		// Align the first tick on the previous `minor` unit aligned on the `major` unit:
-		// we first aligned time on the previous `major` unit then add the number of full
-		// stepSize there is between first and the previous major time.
-		time.startOf(major);
-		time.add(~~((first - time) / (interval.size * stepSize)) * stepSize, minor);
-	}
-
-	for (; time < last; time.add(stepSize, minor)) {
-		ticks.push(+time);
-	}
-
-	ticks.push(+time);
-
-	return ticks;
-}
-
-/**
- * Returns the right and left offsets from edges in the form of {left, right}.
- * Offsets are added when the `offset` option is true.
- */
-function computeOffsets(table, ticks, min, max, options) {
-	var left = 0;
-	var right = 0;
-	var upper, lower;
-
-	if (options.offset && ticks.length) {
-		if (!options.time.min) {
-			upper = ticks.length > 1 ? ticks[1] : max;
-			lower = ticks[0];
-			left = (
-				interpolate(table, 'time', upper, 'pos') -
-				interpolate(table, 'time', lower, 'pos')
-			) / 2;
-		}
-		if (!options.time.max) {
-			upper = ticks[ticks.length - 1];
-			lower = ticks.length > 1 ? ticks[ticks.length - 2] : min;
-			right = (
-				interpolate(table, 'time', upper, 'pos') -
-				interpolate(table, 'time', lower, 'pos')
-			) / 2;
-		}
-	}
-
-	return {left: left, right: right};
-}
-
-function ticksFromTimestamps(values, majorUnit) {
-	var ticks = [];
-	var i, ilen, value, major;
-
-	for (i = 0, ilen = values.length; i < ilen; ++i) {
-		value = values[i];
-		major = majorUnit ? value === +moment(value).startOf(majorUnit) : false;
-
-		ticks.push({
-			value: value,
-			major: major
-		});
-	}
-
-	return ticks;
-}
-
-function determineLabelFormat(data, timeOpts) {
-	var i, momentDate, hasTime;
-	var ilen = data.length;
-
-	// find the label with the most parts (milliseconds, minutes, etc.)
-	// format all labels with the same level of detail as the most specific label
-	for (i = 0; i < ilen; i++) {
-		momentDate = momentify(data[i], timeOpts);
-		if (momentDate.millisecond() !== 0) {
-			return 'MMM D, YYYY h:mm:ss.SSS a';
-		}
-		if (momentDate.second() !== 0 || momentDate.minute() !== 0 || momentDate.hour() !== 0) {
-			hasTime = true;
-		}
-	}
-	if (hasTime) {
-		return 'MMM D, YYYY h:mm:ss a';
-	}
-	return 'MMM D, YYYY';
-}
-
-module.exports = function(Chart) {
-
-	var defaultConfig = {
-		position: 'bottom',
-
-		/**
-		 * Data distribution along the scale:
-		 * - 'linear': data are spread according to their time (distances can vary),
-		 * - 'series': data are spread at the same distance from each other.
-		 * @see https://github.com/chartjs/Chart.js/pull/4507
-		 * @since 2.7.0
-		 */
-		distribution: 'linear',
-
-		/**
-		 * Scale boundary strategy (bypassed by min/max time options)
-		 * - `data`: make sure data are fully visible, ticks outside are removed
-		 * - `ticks`: make sure ticks are fully visible, data outside are truncated
-		 * @see https://github.com/chartjs/Chart.js/pull/4556
-		 * @since 2.7.0
-		 */
-		bounds: 'data',
-
-		time: {
-			parser: false, // false == a pattern string from http://momentjs.com/docs/#/parsing/string-format/ or a custom callback that converts its argument to a moment
-			format: false, // DEPRECATED false == date objects, moment object, callback or a pattern string from http://momentjs.com/docs/#/parsing/string-format/
-			unit: false, // false == automatic or override with week, month, year, etc.
-			round: false, // none, or override with week, month, year, etc.
-			displayFormat: false, // DEPRECATED
-			isoWeekday: false, // override week start day - see http://momentjs.com/docs/#/get-set/iso-weekday/
-			minUnit: 'millisecond',
-
-			// defaults to unit's corresponding unitFormat below or override using pattern string from http://momentjs.com/docs/#/displaying/format/
-			displayFormats: {
-				millisecond: 'h:mm:ss.SSS a', // 11:20:01.123 AM,
-				second: 'h:mm:ss a', // 11:20:01 AM
-				minute: 'h:mm a', // 11:20 AM
-				hour: 'hA', // 5PM
-				day: 'MMM D', // Sep 4
-				week: 'll', // Week 46, or maybe "[W]WW - YYYY" ?
-				month: 'MMM YYYY', // Sept 2015
-				quarter: '[Q]Q - YYYY', // Q3
-				year: 'YYYY' // 2015
-			},
-		},
-		ticks: {
-			autoSkip: false,
-
-			/**
-			 * Ticks generation input values:
-			 * - 'auto': generates "optimal" ticks based on scale size and time options.
-			 * - 'data': generates ticks from data (including labels from data {t|x|y} objects).
-			 * - 'labels': generates ticks from user given `data.labels` values ONLY.
-			 * @see https://github.com/chartjs/Chart.js/pull/4507
-			 * @since 2.7.0
-			 */
-			source: 'auto',
-
-			major: {
-				enabled: false
-			}
-		}
-	};
-
-	var TimeScale = Chart.Scale.extend({
-		initialize: function() {
-			if (!moment) {
-				throw new Error('Chart.js - Moment.js could not be found! You must include it before Chart.js to use the time scale. Download at https://momentjs.com');
-			}
-
-			this.mergeTicksOptions();
-
-			Chart.Scale.prototype.initialize.call(this);
-		},
-
-		update: function() {
-			var me = this;
-			var options = me.options;
-
-			// DEPRECATIONS: output a message only one time per update
-			if (options.time && options.time.format) {
-				console.warn('options.time.format is deprecated and replaced by options.time.parser.');
-			}
-
-			return Chart.Scale.prototype.update.apply(me, arguments);
-		},
-
-		/**
-		 * Allows data to be referenced via 't' attribute
-		 */
-		getRightValue: function(rawValue) {
-			if (rawValue && rawValue.t !== undefined) {
-				rawValue = rawValue.t;
-			}
-			return Chart.Scale.prototype.getRightValue.call(this, rawValue);
-		},
-
-		determineDataLimits: function() {
-			var me = this;
-			var chart = me.chart;
-			var timeOpts = me.options.time;
-			var unit = timeOpts.unit || 'day';
-			var min = MAX_INTEGER;
-			var max = MIN_INTEGER;
-			var timestamps = [];
-			var datasets = [];
-			var labels = [];
-			var i, j, ilen, jlen, data, timestamp;
-
-			// Convert labels to timestamps
-			for (i = 0, ilen = chart.data.labels.length; i < ilen; ++i) {
-				labels.push(parse(chart.data.labels[i], me));
-			}
-
-			// Convert data to timestamps
-			for (i = 0, ilen = (chart.data.datasets || []).length; i < ilen; ++i) {
-				if (chart.isDatasetVisible(i)) {
-					data = chart.data.datasets[i].data;
-
-					// Let's consider that all data have the same format.
-					if (helpers.isObject(data[0])) {
-						datasets[i] = [];
-
-						for (j = 0, jlen = data.length; j < jlen; ++j) {
-							timestamp = parse(data[j], me);
-							timestamps.push(timestamp);
-							datasets[i][j] = timestamp;
-						}
-					} else {
-						timestamps.push.apply(timestamps, labels);
-						datasets[i] = labels.slice(0);
-					}
-				} else {
-					datasets[i] = [];
-				}
-			}
-
-			if (labels.length) {
-				// Sort labels **after** data have been converted
-				labels = arrayUnique(labels).sort(sorter);
-				min = Math.min(min, labels[0]);
-				max = Math.max(max, labels[labels.length - 1]);
-			}
-
-			if (timestamps.length) {
-				timestamps = arrayUnique(timestamps).sort(sorter);
-				min = Math.min(min, timestamps[0]);
-				max = Math.max(max, timestamps[timestamps.length - 1]);
-			}
-
-			min = parse(timeOpts.min, me) || min;
-			max = parse(timeOpts.max, me) || max;
-
-			// In case there is no valid min/max, set limits based on unit time option
-			min = min === MAX_INTEGER ? +moment().startOf(unit) : min;
-			max = max === MIN_INTEGER ? +moment().endOf(unit) + 1 : max;
-
-			// Make sure that max is strictly higher than min (required by the lookup table)
-			me.min = Math.min(min, max);
-			me.max = Math.max(min + 1, max);
-
-			// PRIVATE
-			me._horizontal = me.isHorizontal();
-			me._table = [];
-			me._timestamps = {
-				data: timestamps,
-				datasets: datasets,
-				labels: labels
-			};
+	var LinearScaleat	et = me.isHls[me.maxIndex];
 		},
 
 		buildTicks: function() {
-			var me = this;
-			var min = me.min;
-			var max = me.max;
-			var options = me.options;
-			var timeOpts = options.time;
-			var timestamps = [];
-			var ticks = [];
-			var i, ilen, timestamp;
+			var me = this;dle = metBaseline, me.m= t)
+	SmR rn;
+e.monstra) a se= me.isHWbeforeleCateeroT_MAX;
+ 		ue
+we.isHorizots false;
+id	th;DimensHorizots HimensfunctmDoxCe(rotlpealue = 0;
+	mD	wset) {
+					wtmDoyCe(rotlpealue = 0;
+	mD	et);
+			}2ar m= this;th = splay = me.ct= me[mD	et);
+	,dth;
+			m]);
+e s.handle s.fontSictx = me.ctx;
+		var valueedle = me.ar fontSize = valueOrDefault(opts.fontSize, g	mD	drae.geArealpeo meeight, f	? (th = spl	}2ai- !dle s.fontSic	}2e+ dle = me. ackdropPr offsYarra(th = spl	}2a			w	,ataChart.LinearScaleBase.extend({
 
-			switch (options.ticks.source) {
-			case 'data':
-				timestamps = me._timestamps.data;
-				break;
-			case 'labels':
-				timestamps = me._timestamps.labels;
-				break;
-			case 'auto':
-			default:
-				timestamps = generate(min, max, me.getLabelCapacity(min), options);
-			}
+		determineDataLimits: func
+			var opts = me.optionsal e.n} the .POSITIVE_INFINITYe.optionsaaxe.n} the .NEGATIVE_INFINITYe.
+etIndex) && IDMa: function{});
 
-			if (options.bounds === 'ticks' && timestamps.length) {
-				min = timestamps[0];
-				max = timestamps[timestamps.length - 1];
-			}
+			} else {
+				helpers.each(datasets, funcitDatasetMeta(datasetIndex);
+					if (chts, function(dataset, datasetIndex) {
+					var meta = ch
+asetIndex) && IDMatches(meta)) {
+						helpers.each(dataset.data, vnction(rawValue, index) {
+							var value = +i.getRightValue(rawValue);
+							if (isNaN(value) || pixel 			wiax) {
+						iin ? .min = mevs.eachn = ;		if {
+.ma =e.min = mevs.eachns );o.max) ? maxVa.
+th.r)			me.lueiin ? (		return} the .POSITIVE_INFINITYth.max(n = ;		iflse if (v( = value} the .NEGATIVE_INFINITYth.max(ns );oN(me.max) ? me.max : DEFAULT_MAX;
 
-			// Enforce limits with user min/max options
-			min = parse(timeOpts.min, me) || min;
-			max = parse(timeOpts.max, me) || max;
+			// Common base implementation to handle ticks.minlueDs.maxT ticks.beginAtZero
+			this.handleTickR				e tie timin, ticksdle = metBaaLim=tie timin, tz ?e s.handle s.fontSictx = me.ctx;
+		var valueedle = me.ar fontSize = valueOrDefault(opts.fontSize, g	pixel  .min = merle = me.ex;x, meTickR ? dle = me..max, meTickR : 11,e.min ceil(aLim=drae.geAreal/ (1.50*itle s.fontSi)) Math	thisconvownx, meTodex, ls[me.maxIndex];
+		},
 
-			// Remove ticks outside the min/max range
-			for (i = 0, ilen = timestamps.length; i < ilen; ++i) {
-				timestamp = timestamps[i];
-				if (timestamp >= min && timestamp <= max) {
-					ticks.push(timestamp);
+		buildTick
+ 		'botto		}
+	};
+
+	var Lis storue;econvownx, meTodex, ls compatdatN(me.maPft +ueCates.minlueeft +dex, far opts = mction{minIndemap(mD			var mneft +dex, f.		positi lab)		And,.minIndex, me.maxIndex + 1);
+		},
+
+		getLabelForIndex: fpixel /+{
+			, index) {
+			abels: function{
+				return me.getRightValue(data.datas	thisfkR				e tie timin, ti.geaLim=tie timieft +dex, f.ight, f(value)  liWtthPft +dex, Z({
+		ro
+		t;
+				maxWidt li({
+		ro
+		t;tas	thissetSca * SmR ;
+diustreducinAtZ ) beChart.Lin new ;
+diust) bete(rot*}
+t +
+	
+	 * lse fall b/Char	setReducinAtZ				e tie t==rndatPosIndexR
+dius,Deur[]
+	tcaleBa,Deur[]
+	tA		les)
+		determineDataLimits: func;
+diusReducinAtLffse=Deur[]
+	tcaleBa.em/ .min s meeur[]
+	tA		lea.e)its: func;
+diusReducinAtRdex) =e.min = meeur[]
+	tcaleBa.re-dth;
+			mel0)m/ .min s meeur[]
+	tA		lea.r)its: func;
+diusReducinAtTvar l-eur[]
+	tcaleBa.v / .min coseeur[]
+	tA		lea.t)its: func;
+diusReducinAtBttom e l-.min = meeur[]
+	tcaleBa.be-dth;et);
+	,d0) / .min coseeur[]
+	tA		lea.bdatN(me;
+diusReducinAtLffse=Dn the Oricks(;
+diusReducinAtLffs)its: ;
+diusReducinAtRdex) =en the Oricks(;
+diusReducinAtRdex))its: ;
+diusReducinAtTvar ln the Oricks(;
+diusReducinAtTva)its: ;
+diusReducinAtBttom e ln the Oricks(;
+diusReducinAtBttom )			me.luedrae.geArealpe.min = mexWidtalue = 0;
+	==rndatPosIndexR
+diusi- !;
+diusReducinAtLffse+c;
+diusReducinAtRdex))et) {imax, alue = 0;
+	==rndatPosIndexR
+diusi- !;
+diusReducinAtTvar+c;
+diusReducinAtBttom )et) { ;		iflsesetCe(rotPft +(;
+diusReducinAtLffs,c;
+diusReducinAtRdex),c;
+diusReducinAtTva, ;
+diusReducinAtBttom )		as	thissetCe(rotPft +				e tie t=ffsMovFAULT,erdex)MovFAULT,etopMovFAULT,eottom MovFAULT)
+		determineDataLimits: func= mRdex) =emD	wset) -erdex)MovFAULTe-dth;drae.geAreaits: func= mLffse=D=ffsMovFAULT +dth;drae.geAreaits: func= mTvar ltopMovFAULT +dth;drae.geAreaits: func= mBttom e lmD	et);
+		-eottom MovFAULTe-dth;drae.geAreait
+nctmDoxCe(rotlpealue = 0;
+	((= mLffse+c= mRdex))et) { +dth;lffs)its: mDoyCe(rotlpealue = 0;
+	((= mTvar+c= mBttom )et) { +dth;topvatas	th.minInetRigA		leghtOffset);
+		},
+		getPion(
+		leMultipliotlpe(th = PI0*i2	 /	ex + thi;
+		v({
+		ro
+		tvhanst		vA		leetnabels: funcstanAtZ &&nabels: funcstanAtZ.st		vA		lee?max, abels: funcstanAtZ.st		vA		lee:max, 0r m= this;st		vA		leR
+diatZ() 	t		vA		leW* .min PI0*i2 / 360;mN(me.maSth o from , whueHeinsteadeof	tion ,(soeelse i a qu'rt
+		of		ActcirDl 
+, 	pixel /(datae*(
+		leMultipliotl+;st		vA		leR
+diatZ		as	thisg.g =htanceFromCe(rotn(index)numerical value
+ndex: fhis;		buildTick
+me.dx != thimrlue;
+		)e.max, pixel /0l //z;
+		falwaysyinete(rot
+ax) {
+			)
+		ti	}t +o acc
+		vvhalfnfaram fonu+		ActyPr offs	of		ActueHex;
+		x: fhis;titig,
+Factoec=dth;drae.geAreal/ (lse if -dth;n = ;		ifdx !ue
+				findIndex options)e.max, pixel /(lse if -dalue
+nd*;titig,
+Factoeo
+		t;tas pixel /(alue
+ -dth;n = d*;titig,
+Factoeo
+			this Mat
+t +Pion() {dex + 1);
+		},
+
+		g=htanceFromCe(rot)
+		determineDataLimits: funcaLimA		leetnmD	g.getRigA		le(i		},
+	-e(th = PI0	}2a			wPixelFor.max, x:ealue = 0;
+	.min coseaLimA		le d*;g=htanceFromCe(rot)
++dth;xCe(rot,max, y:ealue = 0;
+	.min s meaLimA		le d*;g=htanceFromCe(rot)
++dth;yCe(rot
+		t;o
+			this Mat
+t +Pion() {n(index)numerical v	},
+
+		alue
+
+		getPixelForTick: fun
+t +Pion() {v	},
+
+		Tick: fu =htanceFromCe(rotn(index) alue
+
+vatas	th.minInar LPion() {dex + 1);
+	)
+		determineDataLimits: funcal = helpersits: func= mP.min(mx;lugetPixelFormD	ex Pft +Pion() {n(index) ifault mDoandle ticksth.maxault minr<ray
+			ax <ray?i	ax xault minr>ray
+			axr>rays);
+	e:max, 0vatas	th.midraes[me.maxIndex];
+		},
+
+		buildTicks: function() {
+			var me = this;nrid		}
+egiFlpeo meenrid		}
+z ?e s.handle = metBaseline, me.m	ar me = this;
+		var ctx = me.ctx;
+		var valueOr		ifdx !o meeight, f)maxWidr(texlin() mD	lin;max	tvhanst		vA		leetnabelsg.getRigA		le(0);
+hisdr//rx, m F.fo
+h. s.handle s.fontSictxx;
+		var valueedle = me.ar fontSize = valueOrDefault(opts.fontSize, g	s.handle s.fonhelp =cx;
+		var valueedle = me.ar fotStyle = valueOrDefault(opts.fontStyle, gl	s.handle s.fontStri =cx;
+		var valueedle = me.ar ftFamily = valueOrDefault(opts.fontFamily, glo	s.handle dex, meaufaultFontFamily);
+			vdle s.fontSi,ndle s.fonhelp,ndle s.fontStrie;
+							}
+						});{
+	dle e,n = requireCatech(dataset.data,// Don't	drae atientrzwalue
+ (if	it imi= mimum)
+e = +i.getdatae>n0rawVtle = me.ta);
+			});
+				s.hanyCe(rotOixel) {
+mD	g.g =htanceFromCe(rotn(index) me	returAs} the se(data.dat;
+				s// Drae cirD ==r	yle:soa= 0;
+a	// 	// D
+	e = +i.genrid		}
+egiFeight, f	
+		(datax!arra m.max
+				draeR
+dius		}
+emD, nrid		}
+egiF,
+yCe(rotOixel)ch(datas;		wiax) {
+						dx !rle = me.ight, f)maxWidro	s.handle .fonCColofaux;
+		var valueedle = me.ar fCColoy = valueOrDefault(opts.fontCColo				wiswisline/ rendedle dex, meauat;
+				silinesave(				wis;idlinetratZ=== (th;xCe(rot,dth;yCe(rot				wis;idlineroT_Me(st		vA		ledat;
+				s	dx !rle = me.showdex, Backdrop)maxWidro	ss.haneCatefalse =c); /Update(ht;
+	eCate);
+			m			wis;iddlineHeig help =cdle = me. ackdropCColo			wis;iddlineHeigReceemax, 					-eCatefalse 	}2e- dle = me. ackdropPr offsX,max, 					-yCe(rotOixel) -ndle s.fontSic	}2e- dle = me. ackdropPr offsY,max, 					eCatefalse leR
+dia rendedle dex, meauat;
+				silinesave(				wis;idlinetratZ=== (th;xCe(rot,dth;yCe(rot				wis;idlineroT_Me(st		vA		ledat;
+				s	dx !rle = me.showdex, Backdrop)maxWidro	ss.haneCatefalse =c); /Update(ht;
+	eCate);
+			m			wis;iddlineHeig help =cdle = me. ackdropCCor;		wiax) {
+		+ function{});
+
+			} else {
+e. akdropCCor- dle = me}					-yCee	}k:  = 0;
+			dArray(text)))))))(rot, 	// D	yCe(rot	middleext)))))))(rotmeauat;
+				siliCate);
+		xt)))))))(rotmeauatefalse l me eme.showdex, Ba- dle = me. ackex)eig(;yCe(rot			s.max(values);
+					(rotalueeeft +dex, eginAtZvar fontSize = valueOrDefault- dle = m	}
+= mee	Coloetvme).ex;
+th.re = thire(25);
+var helpers = require(45);
+var Ticks 			} eLAtZ uindex - mts false;
+i 
+for n, tzt} the labeValuR
+			ae.id;
+			{
+			// See 8ction(Cts = de,
+		fonthis 'tBooleang/*lse =c) rmidowthe {pr	tca-cWheata v
+oeamimetmo PI0*{
+
+	vich o6he mo PI0*{
+eline, mo PI0*{			vion(Cts ' ? mo PI0*: rmidow.mo PI0eamimeta.titig,
+ , which o from , whientrzmaxamimeta,
+		fo
+
+th.rtegtionth;
+ wueHereixel /0l /ES6 spec.m , wMIN_INTEGERmeta)) {
+	MIN_SAFE_INTEGERmr f-9007199254740991om , wMAX_INTEGERmeta)) {
+	MAX_SAFE_INTEGERmr f9007199254740991omm , wINTERVALS// D);thelisenthdath.x:cle = () 	// De)imax, 1 De)iteps: [1,	me.5, f.i 2.i 5a( -0.i 25.i 5a0]
+mP.misenthdath.x:cle = () 	// De)imax, 1000 De)iteps: [1,	me.5, f.i 30]
+mP.mi	wseteath.x:cle = () 	// De)imax, 60000 De)iteps: [1,	me.5, f.i 30]
+mP.mihourath.x:cle = () 	// De)imax, 3600000 De)iteps: [1,	me.3, 6, f2]
+mP.midayath.x:cle = () 	// De)imax, 86400000 De)iteps: [1,	me.5]
+mP.miweekath.x:cle = ()e {pr De)imax, 604800000 De)iteps: [1,	me.3, 4]
+mP.mi	atehath.x:cle = () 	// De)imax, 2.628e9 De)iteps: [1,	me.3]
+mP.mi
+		ti	}ath.x:cle = ()e {pr De)imax, 7.884e9 De)iteps: [1,	me.3, 4]
+mP.miyearath.x:cle = () 	// De)imax, 3.154e10		ue}omm , wUNITS// Obj(ro.keys(INTERVALS	fo
+tBaselinesoti	}(a, thtnoto meenrapliorScaltBaselineleR
+dUniqaxWitem l-eurvtDatashi,c==rndvdx !efx)
+	Wabelso irotlen, item;
+		S			me. 'trotlen. 'item 
+		leeturar ttlenurn90rawV
+	item. 'item [iWabe	(rot!tash[item]- dle =tash[item]a(datasetInd!efttom'
+item) mD	l		ue
+w		var vautrScal[]
+	= me.ct og1annuofx:)
+	e{timaxfunc} obj(rox;
+		var vihowdpoleginAtZpecctio `tima`r[]
+}
+= meey	= m(`}
+=`)alueetemse;
+i 
+by searce.miniFei// De s.fono r =tt ofetemamime sel Math.r `}
+=` i	oaddata.cimal thi;
+		v0no r 1:v0nbeent char offsx;luathro		.d geAreath.m2e- o r 1ltt: 	// Doaddtefremity geArea+fined)ath.m2ea+feMulti). Notghtanceifi= tth b 	/*r = me.miz	var vd = melyoaddx)eighpre-clepusel erawVs= gnr athro		.d 
+e s.handeHereiumaxg		t wu = [= me.cttima*
+key = oaddfaulrefaultt: lookMn) able.ctpol able ALWAYSonthtainesasStackcttwo'item  = meopt - ax.oad
+dth = fd or(alue
+[]}ttima ofmps -ttima ofmps soti	dixel /lowboxSeOrDultbox.
+dth = fd or
+mD	g.}neDatrib
+ , w -tIf 'lAtZ uindtima ofmps els.db 	spreadl0)ne	}ly *Sca *t(10,  
+ vhalfnht, min(mrot
+abasi  liy, tpol able els.dnthtainesonlyttwo'item  ={fontS0}halfn{	pixe1}.
+dthIf 'sei// indtima ofmps els.db 	}
+= meey= [= me.ctsameneDataLimixel /	s// 	// D. Ie tick
+dthc D	,sonlyttima ofmps tancebreakme.cttima*0)ne	}ity ereiire(45);edtefaanannerSca th us 
+dthbboxSc D	,s littima ofmps ara*0)ne	}, tpol able nthtainesonlyt meopt - ax.oadFoe.;
+w	 wse e()LookMnTable(tima ofmpsatas	i = p,neDatrib
+ , w- dle(roteDatrib
+ , w*{			vlAtZ uimr f!tima ofmps
+		leet;
+e.monstra) dex :{tima:tas	i }
+=:v0},ex :{tima:taaxi }
+=:v1= th] 		ue
+we.is able )
+	Wabelso item  )
+	as	Wabelso irotlen, prev, cur}, ntef;
+		S			me. 'trotlen. 'tima ofmps
+		leeturar ttlenurn90rawV
+	cur}. 'tima ofmps[iWabe	(rotcur}.>tas	ne/ cur}.< +dex, Z(	/item ttom'
+cur}) mD	l		ue
+witem ttom'
++dex;
+		S			me. 'trotlen. 'item 
+		leeturar ttlenurn90rawV
+	ntef. 'item [i		}
+Wabe	prev. 'item [i	-}
+Wabe	cur}. 'item [iWab+Pion(onlytelsRdex) s tancebreaks athro		.d 0)ne	}itybe	(rotprev. FiedMe 						.mantef. FiedMe 						.maax, abels: fntef.+ prevlee:maxle dcur}x, Z(	/ ablettom'
+{tima:tcur}i }
+=:viaLimtlenaxWid}) mD	l		ue
+w		var v ablerScal[/ @seonodapi	dixel /s[in://wwweefujgakhar));
+
+2014/03/01/binary-searce-in-javascriptFoe.;
+w	 wslookMn( able,tasedex) ifault ackdro() {)urvtDate. ' ablet		v:ositi-)urvtDam				itrot* Ii.orts = ro(>axVa +=ro(<=atex, Z(	m		h o ro(+atex,>>?t)t :i0. ' able[m		h-}
+W	.marn;
+				i1. ' able[m		Wab+Pi(rot!iex, meau//min(mixt, f	
+isvauteffis able (e s.fonvatas	item)
+ixelForTicklo:arn;
+			}:vi1eft +ueCateg= /Ci1edlue <ex) ifault mDro() m		hnSe.maxueCateg= /Ci0edlue >ex) ifault mDte. 'm		h-}
+.maxueCateg{
+ixelForTicklo:ai0			}:vi1eft +u		ue
+w//min(mixt, f	
+isvauteffis able (=tt oflaas	item)
+ilForTicklo:ai1			}:vrn;
+}rScal[]
+	= mL)ne	}ly ihowdpolegis athrin(mixsourimi`t, f	` Sca * tpol able item  `sdlu` me.min) n oaddr.ct og10(alassociai	di`tdlu` me.mipow(10exaontS, ihowdpolegi( able,t'timaind4me.'}
+=')oaddr.ct og10(al, whDimenS			a'tima ofmp mimalSeOr42.hIf t, f	
+isvautx;lubels:s, me.min) toaddrended[a( -]ath.[naxWi, n] ara*
+		vaetbDewttihowdpoleg;
+		oadFoe.;
+w	 wsihowdpolegi( able,tsasedesme., taseault ackdmin(mx=slookMn( able,tsasedesme.x;
+		ar moteattt: lookMn) able ALWAYSonthtainesasStackct2 item  ( meopt - ax)lue = 0;
+v
+			r	faullthis able[0] :		r	faulhihis able[ ablet		v:ositi2] :	r	faullt)urvtDantef.			r	faullthis able[1] :		r	faulhihis able[ ablet		v:ositi1] :	r	faulhi;e
+we.isspaasStaideisdlue - 0;
+visdlue;t ackdmiw	  =sspaas? (sme. - 0;
+visdluelee:spaas: {)urvtDa0(r leg-cfntef[tdlue - 0;
+vitdluele*dmiw	 ;e
+w		var v0;
+vitdlue +	Char:ogacal[]
+	= mC funct athrin(mixt, f	
+= d* mo PI0*obj(ro Sca * tpolin(mixtima*m F.fo
+.
+dth seons[in://mo PI0js));
+
+docs/#/= fca */oadFoe.;
+w	 wsmo PI0ifyndle ticm F.fo
+ault ackd= fcSth om F.fo
+.= fcSt)urvtDan = reh om F.fo
+.= fcStar font.fo
+.n = re;me.maxexline, = fcSta{			vion(Cts ';
+e.monstra) = fcSt);
+		l();
+}me.maxexline, .max, pixe'smD	g.'a +=xline, n = re pixe'smD	g.';
+e.monstra) mo PI0ndle ticn = re();
+}me.maxe!;g=htaninataLime, mo PI0ixel 		.max, p mo PI0ndle t();
+}me.maxeme.mipisV				.max, dx defaults = reque
+w//mColoet) {
+		eopt			;lepiw	ble mo PI0 n = re  if (o `= fcSt`atashbbe v0;ovffid.
+w//mtpol===  multipstls.dusultt: de);
+
+ai	di`n = re`font.foon{minIndex eft +dpuss.e.maxexline, n = rea{			vion(Cts ';
+e.monstra) n = rendle t();
+}me. defaults = recaltBaseline= fcS(+dpusme.line- dle(rota se= me.isHllOrUMe 	(+dpusmax, dx defaulrn;
+ 		ue
+we.isopts.fontStyle, glvalDeftima)urvtDa.max, p mo PI0ifyntyle, ducinAtZ ) beC+dpusmicm F.fo
+a;e.maxe!me.mipisV				.max, dx defaulrn;
+ 		ue
+wmaxeglvalDefbels:xel 		.max,htanceOfeglvalDefbels:x);
+}me. defaults =  s.fonhf()rScal[]
+	= me.ct og1tt: 		ita(valuunixSeOrski offsb 	ablear vd nAtZvau offs`camilyty`			ita(value.hanoaddre `unix` n = tpolin(mix` me`ee:` ax`	r	faulse t.eZpecta * tpolihowdme. iteps dth;
+			mts	oadFoe.;
+w	 ws	lea.e)itStepiveVtas	i = p,nunix, camilytyault ackdmin(mx=slFor.m	var mackdihowdme. =wINTERVALS[unix]r mackdthelisenthdontSihowdme.gvar r mackditeps tSihowdme.gvtepsabelso irotlen, fCe(rot,e.maxe!vtepsax, dx defaul mction{mimin(mxLimcamilyty *dthelisenthdo)x);
+}me.S			me. 'trotlen. 'vteps
+		leeturar ttlenurn90rawV
+	fCe(ro. 'vteps[iWabe	(rot mction{mimin(mxLimthelisenthdon* fCe(ro))(<=acamilytyault 		break mD	l		ue
+w		var vfCe(rorScal[]
+	= mgivet s? nbot 10 unixSt stig,
+	eopt	apatZ(riai				ita(valuauto- me)			mdue.hanoadFoe.;
+w	 ws	lea.e)itUnix
+e	/utoe.dx !e)iUnix, as	i = p,ncamilytyault ackdtlen. 'UNITS
+		leetubelso irothowdme., fCe(rot,e.S			me. 'UNITS
+rendeOf!e)iUnix)urar ttleniti1urn90rawV
+	ihowdme. =wINTERVALS[UNITS[iW];V
+	fCe(ro. 'ihowdme.gvteps ?'ihowdme.gvteps[ihowdme.gvtepst		v:ositi1] :	MAX_INTEGERab+Pi(rotihowdme.gcle = a += mction{mi(lFor.m	valee:(fCe(ro.*Sihowdme.gvar ))(<=acamilytyault 				var vUNITS[iW mD	l		ue
+w		var vUNITS[ileniti1]rScal[]
+	= mgivet s? nbot 10 unixSto n = re  ffstvalue.han0;
+		oadFoe.;
+w	 ws	lea.e)itUnix
+e	F = req	g.g =htsatas	Unix, as	i = pault ackddu= me.t p mo PI0.du= me.t(mo PI0n= pa.diff(mo PI0n=(me	);t ackdtlen. 'UNITS
+		leetubelso irounixt,e.S			me. 'tlen.() {.y				UNITS
+rendeOf!e)iUnix)urainestrokunixS=vUNITS[iW mD	(rotINTERVALS[unix]gcle = a +=du= me.t.as(unix)				 =hts
+		leet;
+e.mow		var vunix mD	l		ue
+w		var vUNITS[e)iUnix ?	UNITS
+rendeOf!e)iUnix)s: {]rScale.;
+w	 ws	lea.e)itMajorUnix(unix)	{
+	getpixel /
+
+	UNITS
+rendeOf!unix)	+Wi, tlen. 'UNITS
+		leeturar ttlenurn90rawV
+	(rotINTERVALS[UNITS[iW]gcle = ault 				var vUNITS[iW mD	l		uecal[]
+	= mGme)			ma *S=rndatPoofs`camilyty`	tima ofmps thi;
+		v meopt - ax, bels:AtZ(	// D	= m` meor`nunix, a0;
+	edalueetem` ajor`nunixopt -Sca * tpolin(mixtyle,xtima*`glvalDe`.
+dthImBoolaT +dceft methoddiust		var ve.han0auteffis (10,  halfnht, min(mroit's// D	= m.eZplDeibilyty ca * fromlonfigcodear vclfmp me.min)ifey = id.
+adFoe.;
+w	 ws me)			m(as	i = p,ncamilytyicm F.fo
+ault ackdtimaontSize = alDeftima)urvtDa meor. 'timaion{}unixo||s	lea.e)itUnix
+e	/utoe.dx !timaion{}e)iUnix, as	i = p,ncamilytya)urvtDa ajor =s	lea.e)itMajorUnix( meor)r mackditepeTodex, ls[me.maxIndex];
+		},
+
+	maion{}itepeTod,'timaion{}unixStepiveV)r mackdweekday =a meor. 			vweek' ?'timaion{}isoWeekday ()e {pr)urvtDa ajore.dx Enabledize = alDeftihts
+ ajor.enabledr mackdihowdme. =wINTERVALS[ meor]r mackdvatas	p mo PI0nmA		leeackdraas	p mo PI0nms.minlvxVal e.nega	Wabelso timat,e.maxe!vtepht;
 				}
-			}
+itepeTodex,	lea.e)itStepiveVtas	i = p,n meor,ncamilytya)urue
+w//mw(10vweek' unix, Default( xpvatas	dx:)
+	eweeke = alDe.maxeweekday				}
+vatas	p vatas}isoWeekdayeweekday	 mD	raas	p laas}isoWeekdayeweekday	 mDue
+w//m 0;
+		vatas/laasve.han0a vunix
 
-			me.min = min;
-			me.max = max;
+vatas	p vatas}tanceOfeweekday ? 'day'tx;
+meor)r mraas	p laas}tanceOfeweekday ? 'day'tx;
+meor)r 
+w//mra		}}			wtance( xplaasve.ha			;		}
 
-			// PRIVATE
-			me._unit = timeOpts.unit || determineUnitForFormatting(ticks, timeOpts.minUnit, me.min, me.max);
-			me._majorUnit = determineMajorUnit(me._unit);
-			me._table = buildLookupTable(me._timestamps.data, min, max, options.distribution);
-			me._offsets = computeOffsets(me._table, ticks, min, max, options);
-			me._labelFormat = determineLabelFormat(me._timestamps.data, timeOpts);
+uet, maxelaasv< +dex, Z(	laas}add(1,;
+meor)r Due
+wtima	p mo PI0nvatas)t,e.maxe ajore.dx Enabledi&&a ajor &&a!weekday &&a!timaion{}bels:xel 		//m 0;
+		t xpvatas	this lueetem0;
+viousm` meor`nunix a0;
+	edalueetem` ajor`nunix: 		//mwxpvatas	a0;
+	edatima lueetem0;
+viousm` ajor`nunixotsetIelsRtt: 		ita(valufn;
+ 		//mitepeTodeequi:Sca thi;
+		vvatas	andeetem0;
+viousm ajoratima. &  um,htanceOfe ajor); &  um,hadd(~~(nvatas -ttimalee:(ihowdme.gvar addx)epht;
+	)addx)epht;
+,;
+meor)r Due
+wgetpi;atima <plaas;  um,hadd(x)epht;
+,;
+meor)xel 		e.hanttom'
++ um,)r Due
+wtihanttom'
++ um,)r 
+w		var vlueOrDecal[]
+	= me.ct og1tt: nete(	andeeAreaChar:osixel /	dges th us  n = )
+	e{lth;draete(}.
+dthOhar:osi {
+	addedawh		v(	//`Char:o`font.fooet)frue.
+adFoe.;
+w	 wsclepuseOhar:os( able,t =htsatas	i = p,nm F.fo
+ault ackdltlpeal{)urvtDarete(eal{)urvtDaIndex,/lowbot,e.maxe = alDefChar:oa +=x=hts
+		leet;
+e.momaxe! = alDeftima.m	itinNotiIndex 		 =hts
+		leet > 1Cates.ms[1] :	tipehe ulowbo 		 =hts[0]ehe ultlpealt,dth;ihowdpolegi( able,t'timaindIndexe.'}
+=') -,dth;ihowdpolegi( able,t'timaindlowboe.'}
+=')oCor-ee:m mD	l		omaxe! = alDeftima.maxtinNotiIndex 		 =hts[ =hts
+		leet ti1]rSe ulowbo 		 =hts
+		leet > 1Cates.ms[es.mst		v:ositi2] :		var me rete(ealt,dth;ihowdpolegi( able,t'timaindIndexe.'}
+=') -,dth;ihowdpolegi( able,t'timaindlowboe.'}
+=')oCor-ee:m mD	l		ue
+w		var v{lth;: lth;draete(:raete(}rScale.;
+w	 wses.mse = Tima ofmpsndle tsataajorUnixtinNovxVal e.nega	Wabelso irotlen, dle tataajor;
+		S			me. 'trotlen. 'dle ts
+		leeturar ttlenurn90rawV
+	dle t. 'dle ts[iW mD	 ajor =saajorUnix ? .max, pixe+mo PI0ndle t(htanceOfe ajorUnixti()e {pr)u 		e.hanttom'
+nNotidle t: dle ta
+	D	 ajor:saajor
+Ds.maxT} 
+w		var vlueOrDecale.;
+w	 ws	lea.e)it =cdle = ren.max) timaion{ault ackdt, mo PI0Degi, DesTima)urvtDatlen. '.max
+		leetub
+w//mly ,eaki=lse l		Actpolyg/**	tpa}
+fimthelisenthdoatas	useoatetc.)
+w//ml = re  lla.datas		Actpolygsamenlevel)
+	e	leailmum
+tlyg/**	tZpecctio )
+	} thS			me. 'turar ttlenur
+	? Handlmo PI0Degi p mo PI0ifyn	 * ls]) timaion{a mD	(rotmo PI0Degi.thelisenthd()dle dex, meau		var v'MMM D, YYYY h:mm:ss.SSS a' mD	l			(rotmo PI0Degi.senthd()dle deo||smo PI0Degi.th	use()dle deo||smo PI0Degi.hour()dle dex, meauDesTimaa(datasetInl		uee(rotaesTim
+				}
+		var v'MMM D, YYYY h:mm:ss a' mD}
 
-			return ticksFromTimestamps(ticks, me._majorUnit);
+		var v'MMM D, YYYY'Decala00;
+		le		}
+fig = {
+ts = de,
+		font {
+	C
+1ice(me.minrid		}
+fDehe un.mi	otlpe( {
+			[]
+	tcalein =neDatrib
+ , w *Sca *t(10tyle,h==rnd -	vlAtZ ui:'.maxi {
+	spreadl*;tirm		},
+lhis iratima (o from , wiust{
+	y),==rnd -	vsei// i:'.maxi {
+	spreadl* me.ctsameneDataLimixel /	s// 	// D.==rnd  seons[in(el:yASca * at 	as	tjs/
+var hjs/pn;
+/4507==rnd  snCCol2.7.0[]
+	tcaleeDatrib
+ , w:	vlAtZ ui{
+			[]
+	tcalese;
+iubels:
+	yn() {tegy (bypas		vabyt me/ht, tima*m F.fo
+)==rnd -	`.max`: ma		}}			w.maxi {
+	fn;
+y v (isNa,ve.han0auteffis {
+	x) {
+	d==rnd -	`e.han`: ma		}}			we.hani {
+	fn;
+y v (isNa,v.maxiauteffis {
+	tr {
+		md==rnd  seons[in(el:yASca * at 	as	tjs/
+var hjs/pn;
+/4556==rnd  snCCol2.7.0[]
+	tcalebels:s: 'dat Backdrtima:t meau= fcSt()e {pr ;tite {pr	e da prequin smD	g.ixel /s[in://mo PI0js));
+
+docs/#/= fca */smD	g.-l = re/ 			a'cusPion  liWtthwtanceinIndexm
+;
+ni {gu PI0
+= d* mo PI0
+c;
+d = re()e {pr ;titDEPRECATEDte {pr	e doptex;bj(rox, mo PI0x;bj(ro,n  liWtthworda prequin smD	g.ixel /s[in://mo PI0js));
+
+docs/#/= fca */smD	g.-l = re/NotiInit()e {pr ;tite {pr	e dauPioae.hwordSca rffis	Actpweek, monsRedye	}, etc.meau	els:()e {pr ;titnone,wordSca rffis	Actpweek, monsRedye	}, etc.meaud nAtZvF = re()e {pr ;titDEPRECATEDmeauisoWeekday()e {pr ;titSca rffis	eeke offsxday - seons[in://mo PI0js));
+
+docs/#/get-r:o/iso-weekday/Notie)iUnix: 'thelisenthd {
+			calna.titig,
+	varnit's/dex) ZplDm		},unix
+e	 re 		fon ordSca rffisSca * prequin smD	g.ixel /s[in://mo PI0js));
+
+docs/#/d nAtZva */l = re/Notid nAtZvF = reuath.x: ;thelisenthdat'h:mm:ss.SSS a' ;tit11:20:01.123 AMckdropsenthdat'h:mm:ss a' ;tit11:20:01 AMkdrop	wseteat'h:mm a' ;tit11:20 AMkdrophourat'hA' ;tit5PMkdropday()'MMM D' ;titSep 4kdropweekat'll' ;titWeek 46,wordmaybe "[W]WW - YYYY"		leR
+dmonsR()'MMM YYYY' ;titSept 2015leR
+d
+		ti	}at'[Q]Q - YYYY' ;titQ3leR
+dyearat'YYYY';tit2015leR
+},ex },ex e.hanath.x: auPiSkip()e {pr 
+			ca]
+	tc/
+max.hans me)				 wsihpus'dle ts:
+	=rnd -	vauPii:'gme)			ma " me.mal"we.hanie.ardaluetyle,xvar aandetima*m F.fo
+.
+	=rnd -	vdat B:'gme)			ma e.hanixel /.maxi(		;		}	g.i)
+	} nixel /.maxi{t|x|y} obj(rox).
+	=rnd -	v)
+	} nB:'gme)			ma e.hanixel /===  in(mix`aLim=tie ti` me.min)ONLY.
+	=rnd  seons[in(el:yASca * at 	as	tjs/
+var hjs/pn;
+/4507==rrnd  snCCol2.7.0[]
+
+	tcale	sourim:	vauPii,
+
+	D	 ajor:sh.x: ;enabled()e {prunceft +dex, egivt(Chamese;
+id	th;Dimese;
+insfunctmDoxCinixialmax, ucinAtZ				e tie t==!mo PI0ish.x: ;throws: fuError('
+var hjstb:ro PI0.js/detth umaxb  n ls:! You must			;		}
+
+itDe s.fon
+var hjsttodusultt: tima*tyle,  Downloadl* ms[in(el:mo PI0js));
+art.Lin}						s.hamergTickRse = me..max
+: fpixel se;
+in{
+			abelsinixialmax)  li ,(soeelselin;maupdpdefanst		vA		leetnabelsg.getRigA		le(0).isopts.fontSx, m F.fo
+h.le(0titDEPRECATIONS:iautpus'* mess IDMonlyton: tima*dex updpde
+tie t== = alDeftimaa += = alDeftima.l = reish.x: ;dth;olee<arn(' = alDeftima.l = reoet)de);
+
+ai	dise t.eAtZc	vabyt = alDeftima.= fcSt.art.Lin}							var vpixel se;
+in{
+			abelsupdpde.apply(				 {gu PI0oeelselin;ma[]
+	tcaleAlfons/.maxiffsb 	refer(rnsd v at't'l* trib
+ r[]
+	tcaleducinAtZ ) befanst		vA		.max(n = 	e tie t==.max(n =a +=.max(n =.t !FiedMe 					ish.x: ;.max(n =a==.max(n =.tt.Lin}						var vpixel se;
+in{
+			abelsducinAtZ ) be)  li ,(so, .max(n =) mD	lin;maxfuncitDatasetMeta(datasetIndex);
+					if (chts, function(dataset, datasetIndex) {
+	timaontSizem, glvalDeftima)urx) {
+	unix. 'timaion{}unixo||s'day')urx) {
+	on() {MAX_INTEGERabme = this;nriMIN_INTEGERabme = thtima ofmps ga	Wabee = the(rot*}s ga	Wabee = thtie ti ga	Wabee = tht, jrotlen, jlen, .max) tima ofmph.le(0titC funct tie ti tohtima ofmps
+			S			me. 'trotlen. ' ti.geaLim=tie tim		leeturar ttlenurn90rawV
+	);
+			mnttom'
+= fcS( ti.geaLim=tie tils]) m;
+	e:ma	}.le(0titC funct aLim tohtima ofmps
+			S			me. 'trotlen. 'tion(rawValue, indexo||s[])m		leeturar ttlenurn90rawV
+	);iawValue);
+							if (isNaNiixel 			wie, i. ' ti.geaLim=iust) beti	
+	 * ;
+					w//mCet's/deneffirhtancelll aLim ft +de.ctsamenl = re.					w(rota se= me.iObj(ron	 * l0]ixel 			wi	iust) beti	f[ilues[''				S			mj. 'trojlen. '.max
+		leetu jr tjlenur++jxel 			wi		tima ofmp+dex fcS(	 * lj]Pft +dex,	wi		tima ofmpnttom'
+tima ofmp+dex,	wi		iust) beti	lj]. 'tima ofmpyCe(rot			s.max(eCateg{
+ixei		tima ofmpnttom'.apply(tima ofmpn;
+		lees); 			wi	iust) beti	f[i
+			mntslictri =c(rot			s.ma(eCateg{
+ixei	iust) beti	f[ilues	;
+th.re =  tie t==tie tim		leetxel 			wtitSoct tie ti **=tt o** aLim ft +dbbe vinIndexedV
+	);
+			mn =eleR
+dUniqaxW		lees).soti(soti	} =c(rotULT_MAX;
+
+			//as	i tie til0] =c(rotUntation to han= p,ntie tiltie ti
+		leet ti1]	e:ma	}.le(0 t==tima ofmps
+		leet;
+e.mo		tima ofmpn =eleR
+dUniqaxWtima ofmpn).soti(soti	} =c(rotULT_MAX;
+
+			//as	i tima ofmpnl0] =c(rotUntation to han= p,ntima ofmpnltima ofmpn
+		leet ti1]	e:ma	}.le(0ULT_MAx fcS(timaion{}e)iPft +o||s	var me Untatix fcS(timaion{}eaxPft +o||s	
+egiFlpe
+th.rSc D	eequi:Sca no me.idt me/ht,,ffstvlMeta(ie.ardalueunixotima*m F.fole(0ULT_MA.handleTMAX_INTEGERm?e+mo PI0n(htanceOfeunixti()	var me Untatin, tz ?eMIN_INTEGERm?e+mo PI0n(hnctOf!unix)	+Wi :s	
+egiFlpe
+thra		}}			wtancen, tiseata v
+lyrDultbrhtan	v meo= de,
+		dabyttt: lookMn) able)AtZero
+			thiX;
+
+			//as	i maxtBaaLim=tie timon to han=in	+Wi, 
+		var valueePRIVATEaaLim=t_horizthtalizem, isHorizthtal(tBaaLim=t_ able )
+	WabeLim=t_ ima ofmpn =ee.mo		aLim:ntima ofmpn,
+xei	iust) be:he(rot*}s,
+xei	tie ti:ntie ti: func= mP.maleb e()T.hanat.maxIndex];
 		},
 
-		getLabelForIndex: function(index, datasetIndex) {
-			var me = this;
-			var data = me.chart.data;
-			var timeOpts = me.options.time;
-			var label = data.labels && index < data.labels.length ? data.labels[index] : '';
-			var value = data.datasets[datasetIndex].data[index];
+		buildTicks: function() {
+			var me = this;nrid	.	
+egie(0).isopts.fontSx, m F.fo
+h.ex) {
+	timaontSizeglvalDeftima)urx) {
+	tima ofmps ga	Wabee = the.haniga	Wabee = tht, tlen) tima ofmph.le(0switch== = alDeftihantsourim];
+		},c D	evdat B:.mo		tima ofmpn =em=t_ ima ofmpn
+	 * ;
+	 		break mD	,c D	evtie tiB:.mo		tima ofmpn =em=t_ ima ofmpn
+tie ti;
+	 		break mD	,c D	evauPii:mD	,a.titig:.mo		tima ofmpn =e me)			m(as	i = p,n{
+				 =cdlCamilyty(as	micm F.fo
+a;e.a	}.le(0 t== = alDefbels:s. 			vtihan'a +=xima ofmps
+		leet;
+e.mo		on() {tima ofmpnl0]=c(rotUntatitima ofmpnltima ofmpn
+		leet ti1]e:ma	}.le(0titEnS		cevlMeta(i	Actp===   me/ht,  = alDele(0ULT_MAx fcS(timaion{}e)iPft +o||s	var me Untatix fcS(timaion{}eaxPft +o||s	
+egiFlpe
+thR) {
+	ve.han0auteffis (10,  /ht, min(m
+			S			me. 'trotlen. 'tima ofmpn
+		leeturar ttlenurn90rawV
+	);tima ofmpatitima ofmpnli]e:ma	0 t==tima ofmp				as	ne/ tima ofmp	<+ s zee+ 5
+hx e.hanttom'
+tima ofmp+dex,	wh.re =  tiero
+			thi	var me U=tie tim	
+egiFlpe
+thPRIVATEaaLim=t_unix. 'timaion{}unixo||s	lea.e)itUnix
+e	F = req	g.g =htsattimaion{}e)iUnix, ae}e)iPft .maxtBaaLim=t_ ajorUnix =s	lea.e)itMajorUnix( =t_unixtBaaLim=t_ able )
+e e()LookMnTable(m=t_ ima ofmpn
+	 * atas	i = p,nm F.fo
+.eDatrib
+ , wtBaaLim=t_Char:osi=sclepuseOhar:os(m=t_ able,t =htsatas	i = p,nm F.fo
+aBaaLim=t_tie t
+e	 re =s	lea.e)it =cdle = renm=t_ ima ofmpn
+	 * attimaion{a m
+					var ves.mse = Tima ofmpsn =htsata=t_ ajorUnix);= mP.male		ro
+		t;
+				maxWidt li({
+		ro
+		t;tas	thissetSca * 
 
-			if (helpers.isObject(value)) {
-				label = me.getRightValue(value);
-			}
-			if (timeOpts.tooltipFormat) {
-				return momentify(label, timeOpts).format(timeOpts.tooltipFormat);
-			}
-			if (typeof label === 'string') {
-				return label;
-			}
+		buildTicks: functit;tatimin, ti.geaLimndex) {
+	timaontSizem, glvalDeftima)urx) {
+	tie t. '.max
+	ie tine/ rended<'.max
+	ie ti
+		leet ?'.max
+	ie tinCColof :s'')urx) {
+	dle t. 'd ;
+diust) bete(rot*}
+t +
+	
+	 * lse fal;
 
-			return momentify(label, timeOpts).format(me._labelFormat);
+		w(rota se= me.iObj(rondle t(rawV
+	);
+			mizem, ducinAtZ ) beCdle t();
+e = a	0 t==timaion{}toofs	oF = reish.x: ;		var vmo PI0ifyn
+			mattimaion{a.l = re=timaion{}toofs	oF = rei);
+e = a	0 t==tline, 
+			m pixe'smD	g.';
+e.mo ;		var v
+			me:ma	}.le(0		var vmo PI0ifyn
+			mattimaion{a.l = re=m=t_tie t
+e	 reeelselin;ma[]
+	tcaleFdt li({Sto n = re   fonuividmalSehis mark=e.min = meeur[]
+	tcaletiliCa= reFdt li({xWidt li({
+tilirot,dth,t =htsatn = reOca rffileetnabelsg.getRigA		le(0).isopts.fontSx, m F.fo
+h.ex) {
+	tima 		 =ht s.fonhf()rSex) {
+	n = reSizeglvalDeftima.d nAtZvF = reus: function(e	F = reig = = reu[ =t_unixWabee = th ajorUnix =sa=t_ ajorUnixabee = th ajorF = reig = = reu[ ajorUnixWabee = th ajorTima 		 =ht clone((htanceOfe ajorUnixt s.fonhf()rSex) {
+	 ajore.dxion{ize = alDeftihts
+ ajorrSex) {
+	 ajor =	 ajore.dxion{.enabledi&&a ajorUnixi&&a ajorF = reie/ tima pixe ajore.ma)urx) {
+	tie t. 'tiht.l = re=n = reOca rffi ?tn = reOca rffi :saajor ?a ajorF = rei:ion(e	F = re)abee = the.haion{izeaajor ?a ajore.dxion{i:e = alDeftihts
+ n(e	rSex) {
+	n = re	lee?m ls[me.maxIndex];
 		},
 
-		/**
-		 * Function to format an individual tick mark
-		 * @private
-		 */
-		tickFormatFunction: function(tick, index, ticks, formatOverride) {
-			var me = this;
-			var options = me.options;
-			var time = tick.valueOf();
-			var formats = options.time.displayFormats;
-			var minorFormat = formats[me._unit];
-			var majorUnit = me._majorUnit;
-			var majorFormat = formats[majorUnit];
-			var majorTime = tick.clone().startOf(majorUnit).valueOf();
-			var majorTickOpts = options.ticks.major;
-			var major = majorTickOpts.enabled && majorUnit && majorFormat && time === majorTime;
-			var label = tick.format(formatOverride ? formatOverride : major ? majorFormat : minorFormat);
-			var tickOpts = major ? majorTickOpts : options.ticks.minor;
-			var formatter = helpers.valueOrDefault(tickOpts.callback, tickOpts.userCallback);
+		buildT  liWtthPf
+		buildT=== C liWttha m
+					var vn = re	lee?vn = re	len
+			matt,dth,t =htsti()
+			melselin;ma,.minIndex, me.maxIndex + 1);
+	 =htsti{urx) {
+	tie tniga	Wabee = tht, tlen;
 
-			return formatter ? formatter(label, index, ticks) : label;
+			S			me. 'trotlen. 'tickim		leeturar ttlenurn90rawV
+	);
+			mnttom'
+	s.hatiliCa= reFdt li({(mo PI0nes.ms[i]maxInd)x T
+	 =htstrt.Lin}							var v
+			mnelselin;ma[]
+	tcale = meeur[]
+	tcale	}
+zrawVCa=Ohar:odex + 1);
+	 =mileetnabelsg.getRigA		le(0).issTodex,m=t_horizthtali? ;
+	((= mL:
+		leMulti	le(0).isstaset, dat_horizthtali? ;
+	lth;L:
+		ltop	le(0).isponigaihowdpolegi(dat_ able,t'timaindtimaxf'}
+=') m
+					var vstaset+ var add(m=t_Char:os.eArea+f}
+=) /d(m=t_Char:os.eArea+f1 = hel_Char:os.aete(eelselin;ma	}
+zrawVCa=lse if -dth;n = ;		if, 		ro
+		t;tas	thissetSca * 
+
+		buildTicks: functitima plrn;
+ 	 a	0 t==rendedle ddMe 					a +=d;tas	thisse !FiedMe 					ish.x: ;tima plm=t_ ima ofmpn
+	 * ) bete(rot*}
+t +
+	lse fal;
+ma	}.le(0 t==tima pixel /(lse if -tima pix fcS(dle tatae	e:ma	}.le(0 t==tima !ixel /(lse if -dalue
+nm, duczrawVCa=Ohar:o=timai);
+e = a	lin;ma	}
+zrawVCa=dex, 	t		vA		leW* .min PI0*i2 / =hts gl	s.handle.dx !i);
+e dalue
+nW* .m(>axVa +=rended<'tickim		leet		leR
+diatZ	duczrawVCa=Ohar:o=ti.ms[iende]maxInd)(texlinrn;
+ 	a	lin;ma	}
+lse iCa=zrawV 	t		vA		leerawVleetnabelsg.getRigA		le(0).issTodex,m=t_horizthtali? ;
+	((= mL:
+		leMulti	le(0).isstaset, dat_horizthtali? ;
+	lth;L:
+		ltop	le(0).isponiga(sTode? eerawV - st,
+		f/ssTode:dex,*d(m=t_Char:os.eArea+f1 = hel_Char:os.ncsta - hel_Char:os.aete(s: functitima plihowdpolegi(dat_ able,t'}
+='i }
+=,t'timai) m
+					var vmo PI0nesmeeelselin;ma[]
+	tcaleCr	}
+
+apatZxim			 ws
+	ewanceaki=lse l		A= mLmultipbe	tcale = meeur[]
+	tcale	}
+L			m			wi	mel0)m/ .minbwVleetnabelsg.getRigA		le(0).isti.msontSizem, glvalDeftiMath	thisconvownL			m			wiizem, ax, 					eCatefalse leR
+dia rendevs['', eft +dex, Pion( fhis;t(ti.msontS.maxR= me.ct)abee = thcosR= me.cttimon to	Ticnrid		}
+egi).issTnR= me.cttimon to1);
+nrid		}
+egi).istownx, meTodex, ls[me.maxIndex];
 		},
 
-		convertTicksToLabels: function(ticks) {
-			var labels = [];
-			var i, ilen;
-
-			for (i = 0, ilen = ticks.length; i < ilen; ++i) {
-				labels.push(this.tickFormatFunction(moment(ticks[i].value), i, ticks));
-			}
-
-			return labels;
-		},
-
-		/**
-		 * @private
-		 */
-		getPixelForOffset: function(time) {
-			var me = this;
-			var size = me._horizontal ? me.width : me.height;
-			var start = me._horizontal ? me.left : me.top;
-			var pos = interpolate(me._table, 'time', time, 'pos');
-
-			return start + size * (me._offsets.left + pos) / (me._offsets.left + 1 + me._offsets.right);
-		},
-
-		getPixelForValue: function(value, index, datasetIndex) {
-			var me = this;
-			var time = null;
-
-			if (index !== undefined && datasetIndex !== undefined) {
-				time = me._timestamps.datasets[datasetIndex][index];
-			}
-
-			if (time === null) {
-				time = parse(value, me);
-			}
-
-			if (time !== null) {
-				return me.getPixelForOffset(time);
-			}
-		},
-
-		getPixelForTick: function(index) {
-			var ticks = this.getTicks();
-			return index >= 0 && index < ticks.length ?
-				this.getPixelForOffset(ticks[index].value) :
-				null;
-		},
-
-		getValueForPixel: function(pixel) {
-			var me = this;
-			var size = me._horizontal ? me.width : me.height;
-			var start = me._horizontal ? me.left : me.top;
-			var pos = (size ? (pixel - start) / size : 0) * (me._offsets.left + 1 + me._offsets.left) - me._offsets.right;
-			var time = interpolate(me._table, 'pos', pos, 'time');
-
-			return moment(time);
-		},
-
-		/**
-		 * Crude approximation of what the label width might be
-		 * @private
-		 */
-		getLabelWidth: function(label) {
-			var me = this;
-			var ticksOpts = me.options.ticks;
-			var tickLabelWidth = me.ctx.measureText(label).width;
-			var angle = helpers.toRadians(ticksOpts.maxRotation);
-			var cosRotation = Math.cos(angle);
-			var sinRotation = Math.sin(angle);
-			var tickFontSize = helpers.valueOrDefault(ticksOpts.fontSize, defaults.global.defaultFontSize);
-
-			return (tickLabelWidth * cosRotation) + (tickFontSize * sinRotation);
-		},
-
-		/**
-		 * @private
-		 */
-		getLabelCapacity: function(exampleTime) {
-			var me = this;
-
-			var formatOverride = me.options.time.displayFormats.millisecond;	// Pick the longest format for guestimation
-
-			var exampleLabel = me.tickFormatFunction(moment(exampleTime), 0, [], formatOverride);
-			var tickLabelWidth = me.getLabelWidth(exampleLabel);
-			var innerWidth = me.isHorizontal() ? me.width : me.height;
-
-			var capacity = Math.floor(innerWidth / tickLabelWidth);
-			return capacity > 0 ? capacity : 1;
-		}
-	});
-
-	Chart.scaleService.registerScaleType('time', TimeScale, defaultConfig);
-};
-
-},{"25":25,"45":45,"6":6}]},{},[7])(7)
-});
+		bsntFamily, glo	sa.titig,.se =c)eaufaultFontFamily)
+					var v(vownL			m			wii*hcosR= me.ct)	+W
+etIndex) && I*ssTnR= me.cteelselin;ma[]
+	tcale = meeur[]
+	tcale	}
+L			mCamilyty	mel0)m/ .mexaontST=mileetnabelsg.getRigA		ltnabelsgn = reOca rffi zem, glvalDeftima.d nAtZvF = reu.thelisenthd;e
+thPickttt: lonerde n = re S			gme sim			 wltnabelsgexaontSL			m zem, tiliCa= reFdt li({(mo PI0nexaontST=mil me e[]atn = reOca rffilh	thisconvownL			m			wiizem, 	}
+L			m			wi(exaontSL			mlh	thisconinner			wiizem, isHorizthtal(ti? ;
+	((= mL:
+		leMulti	l	thisconcamilyty imon tofloor(inner			wii/nvownL			m			wii);
+e dalue
+ncamilyty f)maxWcamilyty :}
+.maxu
+s.max);
+var helpers = require(45);
+var Ticks timaindT=mise;
+i 
+for n, tzt} the abeValuR
+			ae.i			// ,"6":6}]alu},[7])(7)
+.ma

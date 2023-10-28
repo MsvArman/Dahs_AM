@@ -404,969 +404,794 @@ var ColReorder = function( dt, opts )
 	this.s = {
 		/**
 		 * DataTables settings object
-		 *  @property dt
-		 *  @type     Object
-		 *  @default  null
-		 */
-		"dt": null,
+		 Sanit({
+	.s *
+		 * DataTabl(s settings object
+		 San"nIsDa.s 	.stance
+	 */
+	the same t[* *);
 
-		/**
-		 * Initialisation object used for this instance
-		 *  @property init
-		 *  @type     object
-		 *  @default  {}
-		 */
-		"init": $.extend( true, {}, ColReorder.defaults, opts ),
+ai */dSan"si, i* Pi/i object which * * * * * * * * l(s setti i, i* Pi/i objectect whic' && $.isArray( file is distrirtMafnSdobjectecIngarian( ColReorder.default)	 */
+	the sameNta ==x is Search melfixent n Conowe column n( Coed) * * * * * * * * fSortsetti i, i* Pi/i intect whic' && $.is0ray( file fSortist0	 */
+	the sameNta ==x is Search melfixe into, fiConvet   Cont n Conowe column n( Coed) * * * * * * * * fSortR   Csetti i, i* Pi/i intect whic' && $.is0ray( file fSortR   Cist0	 */
+	the sameCConbackeorder =  Pi/ioy reliseintless hn, bing donh * * * * * * * * intlessCConbacksetti i, i* Pi/i order = settings object
+		 San"nIsDa.s intlessCConbackstance
+	 */
+	the same/**
+	 * @naIisable info, i* Pi/i o, wile )dragn"nIsDa.s wile ":t[0] )" whrtX":t-1,0] )" whrtY":t-1,0] )"offaTaX":t-1,0] )"offaTaY":t-1,0] )"whrget":t-1,0] )"whrgetrtBef":t-1,0] )"ConvrtBef":t-1ting	 */
+	the sameIisable info objeciso, i* Pi/i
 
-		/**
-		 * Number of columns to fix (not allow to be reordered)
-		 *  @property fixed
-		 *  @type     int
-		 *  @default  0
-		 */
-		"fixed": 0,
+	/* Ree by takment toonte sond knthe fowt tha codonvere samement t. );
 
-		/**
-		 * Number of columns to fix counting from right (not allow to be reordered)
-		 *  @property fixedRight
-		 *  @type     int
-		 *  @default  0
-		 */
-		"fixedRight": 0,
+	/of objectsARRANy tak * * * ies:setting x: x-axisi
 
-		/**
-		 * Callback function for once the reorder has been done
-		 *  @property reorderCallback
-		 *  @type     function
-		 *  @default  null
-		 */
-		"reorderCallback": null,
-
-		/**
-		 * @namespace Information used for the mouse drag
-		 */
-		"mouse": {
-			"startX": -1,
-			"startY": -1,
-			"offsetX": -1,
-			"offsetY": -1,
-			"target": -1,
-			"targetIndex": -1,
-			"fromIndex": -1
-		},
-
-		/**
-		 * Information which is used for positioning the insert cusor and knowing where to do the
-		 * insert. Array of objects with the properties:
-		 *   x: x-axis position
-		 *   to: insert point
-		 *  @property aoTargets
-		 *  @type     array
-		 *  @default  []
-		 */
-		"aoTargets": []
-	};
-
+	/* Resetting e rement tnto thi* * * * * * * * aoThrgetssetti i, i* Pi/i  layosettings object
+	[]n"nIsDa.s aoThrgets":	[]n"};
+* * * */
 
 	/**
-	 * @namespace Common and useful DOM elements for the class instance
+	 * @naCommonsond will bMove the DOM  Pi/i o,  PubliReorder instance
+	 *dom
+	this.s = {
+		/*ragge fot be an sorti * f o, wile )isimordng) * * * * * * * * dragn"nIs i, i* Pi/i t be ansettings object
+		 San"nIsDa.s dragstance
 	 */
-	this.dom = {
-		/**
-		 * Dragging element (the one the mouse is moving)
-		 *  @property drag
-		 *  @type     element
-		 *  @default  null
-		 */
-		"drag": null,
-
-		/**
-		 * The insert cursor
-		 *  @property pointer
-		 *  @type     element
-		 *  @default  null
-		 */
-		"pointer": null
-	};
-
-
-	/* Constructor logic */
-	this.s.dt = oDTSettings;
-	this.s.dt._colReorder = this;
-	this._fnConstruct();
-
-	/* Add destroy callback */
-	oDTSettings.oApi._fnCallbackReg(oDTSettings, 'aoDestroyCallback', $.proxy(this._fnDestroy, this), 'ColReorder');
-
-	return this;
-};
-
-
-
-ColReorder.prototype = {
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Public methods
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-	/**
-	 * Reset the column ordering to the original ordering that was detected on
-	 * start up.
-	 *  @return {this} Returns `this` for chaining.
-	 *
-	 *  @example
-	 *    // DataTables initialisation with ColReorder
-	 *    var table = $('#example').dataTable( {
-	 *        "sDom": 'Rlfrtip'
-	 *    } );
-	 *
-	 *    // Add click event to a button to reset the ordering
-	 *    $('#resetOrdering').click( function (e) {
-	 *        e.preventDefault();
-	 *        $.fn.dataTable.ColReorder( table ).fnReset();
-	 *    } );
-	 */
-	"fnReset": function ()
-	{
-		var a = [];
-		for ( var i=0, iLen=this.s.dt.aoColumns.length ; i<iLen ; i++ )
-		{
-			a.push( this.s.dt.aoColumns[i]._ColReorder_iOrigCol );
-		}
-
-		this._fnOrderColumns( a );
-
-		return this;
-	},
-
-	/**
-	 * `Deprecated` - Get the current order of the columns, as an array.
-	 *  @return {array} Array of column identifiers
-	 *  @deprecated `fnOrder` should be used in preference to this method.
-	 *      `fnOrder` acts as a getter/setter.
-	 */
-	"fnGetCurrentOrder": function ()
-	{
-		return this.fnOrder();
-	},
-
-	/**
-	 * Get the current order of the columns, as an array. Note that the values
-	 * given in the array are unique identifiers for each column. Currently
-	 * these are the original ordering of the columns that was detected on
-	 * start up, but this could potentially change in future.
-	 *  @return {array} Array of column identifiers
-	 *
-	 *  @example
-	 *    // Get column ordering for the table
-	 *    var order = $.fn.dataTable.ColReorder( dataTable ).fnOrder();
-	 *//**
-	 * Set the order of the columns, from the positions identified in the
-	 * ordering array given. Note that ColReorder takes a brute force approach
-	 * to reordering, so it is possible multiple reordering events will occur
-	 * before the final order is settled upon.
-	 *  @param {array} [set] Array of column identifiers in the new order. Note
-	 *    that every column must be included, uniquely, in this array.
-	 *  @return {this} Returns `this` for chaining.
-	 *
-	 *  @example
-	 *    // Swap the first and second columns
-	 *    $.fn.dataTable.ColReorder( dataTable ).fnOrder( [1, 0, 2, 3, 4] );
-	 *
-	 *  @example
-	 *    // Move the first column to the end for the table `#example`
-	 *    var curr = $.fn.dataTable.ColReorder( '#example' ).fnOrder();
-	 *    var first = curr.shift();
-	 *    curr.push( first );
-	 *    $.fn.dataTable.ColReorder( '#example' ).fnOrder( curr );
-	 *
-	 *  @example
-	 *    // Reverse the table's order
-	 *    $.fn.dataTable.ColReorder( '#example' ).fnOrder(
-	 *      $.fn.dataTable.ColReorder( '#example' ).fnOrder().reverse()
-	 *    );
-	 */
-	"fnOrder": function ( set )
-	{
-		if ( set === undefined )
-		{
-			var a = [];
-			for ( var i=0, iLen=this.s.dt.aoColumns.length ; i<iLen ; i++ )
-			{
-				a.push( this.s.dt.aoColumns[i]._ColReorder_iOrigCol );
-			}
-			return a;
-		}
-
-		this._fnOrderColumns( fnInvertKeyValues( set ) );
-
-		return this;
-	},
-
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Private methods (they are of course public in JS, but recommended as private)
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-	/**
-	 * Constructor logic
-	 *  @method  _fnConstruct
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnConstruct": function ()
-	{
-		var that = this;
-		var iLen = this.s.dt.aoColumns.length;
-		var i;
-
-		/* Columns discounted from reordering - counting left to right */
-		if ( this.s.init.iFixedColumns )
-		{
-			this.s.fixed = this.s.init.iFixedColumns;
-		}
-
-		/* Columns discounted from reordering - counting right to left */
-		this.s.fixedRight = this.s.init.iFixedColumnsRight ?
-			this.s.init.iFixedColumnsRight :
-			0;
-
-		/* Drop callback initialisation option */
-		if ( this.s.init.fnReorderCallback )
-		{
-			this.s.reorderCallback = this.s.init.fnReorderCallback;
-		}
-
-		/* Add event handlers for the drag and drop, and also mark the original column order */
-		for ( i = 0; i < iLen; i++ )
-		{
-			if ( i > this.s.fixed-1 && i < iLen - this.s.fixedRight )
-			{
-				this._fnMouseListener( i, this.s.dt.aoColumns[i].nTh );
-			}
-
-			/* Mark the original column order for later reference */
-			this.s.dt.aoColumns[i]._ColReorder_iOrigCol = i;
-		}
-
-		/* State saving */
-		this.s.dt.oApi._fnCallbackReg( this.s.dt, 'aoStateSaveParams', function (oS, oData) {
-			that._fnStateSave.call( that, oData );
-		}, "ColReorder_State" );
-
-		/* An initial column order has been specified */
-		var aiOrder = null;
-		if ( this.s.init.aiOrder )
-		{
-			aiOrder = this.s.init.aiOrder.slice();
-		}
-
-		/* State loading, overrides the column order given */
-		if ( this.s.dt.oLoadedState && typeof this.s.dt.oLoadedState.ColReorder != 'undefined' &&
-		  this.s.dt.oLoadedState.ColReorder.length == this.s.dt.aoColumns.length )
-		{
-			aiOrder = this.s.dt.oLoadedState.ColReorder;
-		}
-
-		/* If we have an order to apply - do so */
-		if ( aiOrder )
-		{
-			/* We might be called during or after the DataTables initialisation. If before, then we need
-			 * to wait until the draw is done, if after, then do what we need to do right away
-			 */
-			if ( !that.s.dt._bInitComplete )
-			{
-				var bDone = false;
-				this.s.dt.aoDrawCallback.push( {
-					"fn": function () {
-						if ( !that.s.dt._bInitComplete && !bDone )
-						{
-							bDone = true;
-							var resort = fnInvertKeyValues( aiOrder );
-							that._fnOrderColumns.call( that, resort );
-						}
-					},
-					"sName": "ColReorder_Pre"
-				} );
-			}
-			else
-			{
-				var resort = fnInvertKeyValues( aiOrder );
-				that._fnOrderColumns.call( that, resort );
-			}
-		}
-		else {
-			this._fnSetColumnIndexes();
-		}
-	},
-
-
-	/**
-	 * Set the column order from an array
-	 *  @method  _fnOrderColumns
-	 *  @param   array a An array of integers which dictate the column order that should be applied
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnOrderColumns": function ( a )
-	{
-		if ( a.length != this.s.dt.aoColumns.length )
-		{
-			this.s.dt.oInstance.oApi._fnLog( this.s.dt, 1, "ColReorder - array reorder does not "+
-				"match known number of columns. Skipping." );
-			return;
-		}
-
-		for ( var i=0, iLen=a.length ; i<iLen ; i++ )
-		{
-			var currIndex = $.inArray( i, a );
-			if ( i != currIndex )
-			{
-				/* Reorder our switching array */
-				fnArraySwitch( a, currIndex, i );
-
-				/* Do the column reorder in the table */
-				this.s.dt.oInstance.fnColReorder( currIndex, i );
-			}
-		}
-
-		/* When scrolling we need to recalculate the column sizes to allow for the shift */
-		if ( this.s.dt.oScroll.sX !== "" || this.s.dt.oScroll.sY !== "" )
-		{
-			this.s.dt.oInstance.fnAdjustColumnSizing( false );
-		}
-
-		/* Save the state */
-		this.s.dt.oInstance.oApi._fnSaveState( this.s.dt );
-
-		this._fnSetColumnIndexes();
-		
-		if ( this.s.reorderCallback !== null )
-		{
-			this.s.reorderCallback.call( this );
-		}
-	},
-
-
-	/**
-	 * Because we change the indexes of columns in the table, relative to their starting point
-	 * we need to reorder the state columns to what they are at the starting point so we can
-	 * then rearrange them again on state load!
-	 *  @method  _fnStateSave
-	 *  @param   object oState DataTables state
-	 *  @returns string JSON encoded cookie string for DataTables
-	 *  @private
-	 */
-	"_fnStateSave": function ( oState )
-	{
-		var i, iLen, aCopy, iOrigColumn;
-		var oSettings = this.s.dt;
-		var columns = oSettings.aoColumns;
-
-		oState.ColReorder = [];
-
-		/* Sorting */
-		if ( oState.aaSorting ) {
-			// 1.10.0-
-			for ( i=0 ; i<oState.aaSorting.length ; i++ ) {
-				oState.aaSorting[i][0] = columns[ oState.aaSorting[i][0] ]._ColReorder_iOrigCol;
-			}
-
-			var aSearchCopy = $.extend( true, [], oState.aoSearchCols );
-
-			for ( i=0, iLen=columns.length ; i<iLen ; i++ )
-			{
-				iOrigColumn = columns[i]._ColReorder_iOrigCol;
-
-				/* Column filter */
-				oState.aoSearchCols[ iOrigColumn ] = aSearchCopy[i];
-
-				/* Visibility */
-				oState.abVisCols[ iOrigColumn ] = columns[i].bVisible;
-
-				/* Column reordering */
-				oState.ColReorder.push( iOrigColumn );
-			}
-		}
-		else if ( oState.order ) {
-			// 1.10.1+
-			for ( i=0 ; i<oState.order.length ; i++ ) {
-				oState.order[i][0] = columns[ oState.order[i][0] ]._ColReorder_iOrigCol;
-			}
-
-			var stateColumnsCopy = $.extend( true, [], oState.columns );
-
-			for ( i=0, iLen=columns.length ; i<iLen ; i++ )
-			{
-				iOrigColumn = columns[i]._ColReorder_iOrigCol;
-
-				/* Columns */
-				oState.columns[ iOrigColumn ] = stateColumnsCopy[i];
-
-				/* Column reordering */
-				oState.ColReorder.push( iOrigColumn );
-			}
-		}
-	},
-
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Mouse drop and drag
-	 */
-
-	/**
-	 * Add a mouse down listener to a particluar TH element
-	 *  @method  _fnMouseListener
-	 *  @param   int i Column index
-	 *  @param   element nTh TH element clicked on
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnMouseListener": function ( i, nTh )
-	{
-		var that = this;
-		$(nTh).on( 'mousedown.ColReorder', function (e) {
-			e.preventDefault();
-			that._fnMouseDown.call( that, e, nTh );
-		} );
-	},
-
-
-	/**
-	 * Mouse down on a TH element in the table header
-	 *  @method  _fnMouseDown
-	 *  @param   event e Mouse event
-	 *  @param   element nTh TH element to be dragged
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnMouseDown": function ( e, nTh )
-	{
-		var that = this;
-
-		/* Store information about the mouse position */
-		var target = $(e.target).closest('th, td');
-		var offset = target.offset();
-		var idx = parseInt( $(nTh).attr('data-column-index'), 10 );
-
-		if ( idx === undefined ) {
-			return;
-		}
-
-		this.s.mouse.startX = e.pageX;
-		this.s.mouse.startY = e.pageY;
-		this.s.mouse.offsetX = e.pageX - offset.left;
-		this.s.mouse.offsetY = e.pageY - offset.top;
-		this.s.mouse.target = this.s.dt.aoColumns[ idx ].nTh;//target[0];
-		this.s.mouse.targetIndex = idx;
-		this.s.mouse.fromIndex = idx;
-
-		this._fnRegions();
-
-		/* Add event handlers to the document */
-		$(document)
-			.on( 'mousemove.ColReorder', function (e) {
-				that._fnMouseMove.call( that, e );
-			} )
-			.on( 'mouseup.ColReorder', function (e) {
-				that._fnMouseUp.call( that, e );
-			} );
-	},
-
-
-	/**
-	 * Deal with a mouse move event while dragging a node
-	 *  @method  _fnMouseMove
-	 *  @param   event e Mouse event
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnMouseMove": function ( e )
-	{
-		var that = this;
-
-		if ( this.dom.drag === null )
-		{
-			/* Only create the drag element if the mouse has moved a specific distance from the start
-			 * point - this allows the user to make small mouse movements when sorting and not have a
-			 * possibly confusing drag element showing up
-			 */
-			if ( Math.pow(
-				Math.pow(e.pageX - this.s.mouse.startX, 2) +
-				Math.pow(e.pageY - this.s.mouse.startY, 2), 0.5 ) < 5 )
-			{
-				return;
-			}
-			this._fnCreateDragNode();
-		}
-
-		/* Position the element - we respect where in the element the click occured */
-		this.dom.drag.css( {
-			left: e.pageX - this.s.mouse.offsetX,
-			top: e.pageY - this.s.mouse.offsetY
-		} );
-
-		/* Based on the current mouse position, calculate where the insert should go */
-		var bSet = false;
-		var lastToIndex = this.s.mouse.toIndex;
-
-		for ( var i=1, iLen=this.s.aoTargets.length ; i<iLen ; i++ )
-		{
-			if ( e.pageX < this.s.aoTargets[i-1].x + ((this.s.aoTargets[i].x-this.s.aoTargets[i-1].x)/2) )
-			{
-				this.dom.pointer.css( 'left', this.s.aoTargets[i-1].x );
-				this.s.mouse.toIndex = this.s.aoTargets[i-1].to;
-				bSet = true;
-				break;
-			}
-		}
-
-		// The insert element wasn't positioned in the array (less than
-		// operator), so we put it at the end
-		if ( !bSet )
-		{
-			this.dom.pointer.css( 'left', this.s.aoTargets[this.s.aoTargets.length-1].x );
-			this.s.mouse.toIndex = this.s.aoTargets[this.s.aoTargets.length-1].to;
-		}
-
-		// Perform reordering if realtime updating is on and the column has moved
-		if ( this.s.init.bRealtime && lastToIndex !== this.s.mouse.toIndex ) {
-			this.s.dt.oInstance.fnColReorder( this.s.mouse.fromIndex, this.s.mouse.toIndex );
-			this.s.mouse.fromIndex = this.s.mouse.toIndex;
-			this._fnRegions();
-		}
-	},
-
-
-	/**
-	 * Finish off the mouse drag and insert the column where needed
-	 *  @method  _fnMouseUp
-	 *  @param   event e Mouse event
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnMouseUp": function ( e )
-	{
-		var that = this;
-
-		$(document).off( 'mousemove.ColReorder mouseup.ColReorder' );
-
-		if ( this.dom.drag !== null )
-		{
-			/* Remove the guide elements */
-			this.dom.drag.remove();
-			this.dom.pointer.remove();
-			this.dom.drag = null;
-			this.dom.pointer = null;
-
-			/* Actually do the reorder */
-			this.s.dt.oInstance.fnColReorder( this.s.mouse.fromIndex, this.s.mouse.toIndex );
-			this._fnSetColumnIndexes();
-
-			/* When scrolling we need to recalculate the column sizes to allow for the shift */
-			if ( this.s.dt.oScroll.sX !== "" || this.s.dt.oScroll.sY !== "" )
-			{
-				this.s.dt.oInstance.fnAdjustColumnSizing( false );
-			}
-
-			/* Save the state */
-			this.s.dt.oInstance.oApi._fnSaveState( this.s.dt );
-
-			if ( this.s.reorderCallback !== null )
-			{
-				this.s.reorderCallback.call( this );
-			}
-		}
-	},
-
-
-	/**
-	 * Calculate a cached array with the points of the column inserts, and the
-	 * 'to' points
-	 *  @method  _fnRegions
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnRegions": function ()
-	{
-		var aoColumns = this.s.dt.aoColumns;
-
-		this.s.aoTargets.splice( 0, this.s.aoTargets.length );
-
-		this.s.aoTargets.push( {
-			"x":  $(this.s.dt.nTable).offset().left,
-			"to": 0
-		} );
-
-		var iToPoint = 0;
-		for ( var i=0, iLen=aoColumns.length ; i<iLen ; i++ )
-		{
-			/* For the column / header in question, we want it's position to remain the same if the
-			 * position is just to it's immediate left or right, so we only incremement the counter for
-			 * other columns
-			 */
-			if ( i != this.s.mouse.fromIndex )
-			{
-				iToPoint++;
-			}
-
-			if ( aoColumns[i].bVisible )
-			{
-				this.s.aoTargets.push( {
-					"x":  $(aoColumns[i].nTh).offset().left + $(aoColumns[i].nTh).outerWidth(),
-					"to": iToPoint
-				} );
-			}
-		}
-
-		/* Disallow columns for being reordered by drag and drop, counting right to left */
-		if ( this.s.fixedRight !== 0 )
-		{
-			this.s.aoTargets.splice( this.s.aoTargets.length - this.s.fixedRight );
-		}
-
-		/* Disallow columns for being reordered by drag and drop, counting left to right */
-		if ( this.s.fixed !== 0 )
-		{
-			this.s.aoTargets.splice( 0, this.s.fixed );
-		}
-	},
-
-
-	/**
-	 * Copy the TH element that is being drags so the user has the idea that they are actually
-	 * moving it around the page.
-	 *  @method  _fnCreateDragNode
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnCreateDragNode": function ()
-	{
-		var scrolling = this.s.dt.oScroll.sX !== "" || this.s.dt.oScroll.sY !== "";
-
-		var origCell = this.s.dt.aoColumns[ this.s.mouse.targetIndex ].nTh;
-		var origTr = origCell.parentNode;
-		var origThead = origTr.parentNode;
-		var origTable = origThead.parentNode;
-		var cloneCell = $(origCell).clone();
-
-		// This is a slightly odd combination of jQuery and DOM, but it is the
-		// fastest and least resource intensive way I could think of cloning
-		// the table with just a single header cell in it.
-		this.dom.drag = $(origTable.cloneNode(false))
-			.addClass( 'DTCR_clonedTable' )
-			.append(
-				$(origThead.cloneNode(false)).append(
-					$(origTr.cloneNode(false)).append(
-						cloneCell[0]
-					)
-				)
-			)
-			.css( {
-				position: 'absolute',
-				top: 0,
-				left: 0,
-				width: $(origCell).outerWidth(),
-				height: $(origCell).outerHeight()
-			} )
-			.appendTo( 'body' );
-
-		this.dom.pointer = $('<div></div>')
-			.addClass( 'DTCR_pointer' )
-			.css( {
-				position: 'absolute',
-				top: scrolling ?
-					$('div.dataTables_scroll', this.s.dt.nTableWrapper).offset().top :
-					$(this.s.dt.nTable).offset().top,
-				height : scrolling ?
-					$('div.dataTables_scroll', this.s.dt.nTableWrapper).height() :
-					$(this.s.dt.nTable).height()
-			} )
-			.appendTo( 'body' );
-	},
-
-	/**
-	 * Clean up ColReorder memory references and event handlers
-	 *  @method  _fnDestroy
-	 *  @returns void
-	 *  @private
-	 */
-	"_fnDestroy": function ()
-	{
-		var i, iLen;
-
-		for ( i=0, iLen=this.s.dt.aoDrawCallback.length ; i<iLen ; i++ )
-		{
-			if ( this.s.dt.aoDrawCallback[i].sName === 'ColReorder_Pre' )
-			{
-				this.s.dt.aoDrawCallback.splice( i, 1 );
-				break;
-			}
-		}
-
-		$(this.s.dt.nTHead).find( '*' ).off( '.ColReorder' );
-
-		$.each( this.s.dt.aoColumns, function (i, column) {
-			$(column.nTh).removeAttr('data-column-index');
-		} );
-
-		this.s.dt._colReorder = null;
-		this.s = null;
-	},
-
-
-	/**
-	 * Add a data attribute to the column headers, so we know the index of
-	 * the row to be reordered. This allows fast detection of the index, and
-	 * for this plug-in to work with FixedHeader which clones the nodes.
-	 *  @private
-	 */
-	"_fnSetColumnIndexes": function ()
-	{
-		$.each( this.s.dt.aoColumns, function (i, column) {
-			$(column.nTh).attr('data-column-index', i);
-		} );
-	}
-};
-
-
-
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Static parameters
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-
-/**
- * ColReorder default settings for initialisation
- *  @namespace
- *  @static
- */
-ColReorder.defaults = {
-	/**
-	 * Predefined ordering for the columns that will be applied automatically
-	 * on initialisation. If not specified then the order that the columns are
-	 * found to be in the HTML is the order used.
-	 *  @type array
-	 *  @default null
-	 *  @static
-	 *  @example
-	 *      // Using the `oColReorder` option in the DataTables options object
-	 *      $('#example').dataTable( {
-	 *          "sDom": 'Rlfrtip',
-	 *          "oColReorder": {
-	 *              "aiOrder": [ 4, 3, 2, 1, 0 ]
-	 *          }
-	 *      } );
-	 *
-	 *  @example
-	 *      // Using `new` constructor
-	 *      $('#example').dataTable()
-	 *
-	 *      new $.fn.dataTable.ColReorder( '#example', {
-	 *          "aiOrder": [ 4, 3, 2, 1, 0 ]
-	 *      } );
-	 */
-	aiOrder: null,
-
-	/**
-	 * Redraw the table's column ordering as the end user draws the column
-	 * (`true`) or wait until the mouse is released (`false` - default). Note
-	 * that this will perform a redraw on each reordering, which involves an
-	 * Ajax request each time if you are using server-side processing in
-	 * DataTables.
-	 *  @type boolean
-	 *  @default false
-	 *  @static
-	 *  @example
-	 *      // Using the `oColReorder` option in the DataTables options object
-	 *      $('#example').dataTable( {
-	 *          "sDom": 'Rlfrtip',
-	 *          "oColReorder": {
-	 *              "bRealtime": true
-	 *          }
-	 *      } );
-	 *
-	 *  @example
-	 *      // Using `new` constructor
-	 *      $('#example').dataTable()
-	 *
-	 *      new $.fn.dataTable.ColReorder( '#example', {
-	 *          "bRealtime": true
-	 *      } );
-	 */
-	bRealtime: false,
-
-	/**
-	 * Indicate how many columns should be fixed in position (counting from the
-	 * left). This will typically be 1 if used, but can be as high as you like.
-	 *  @type int
-	 *  @default 0
-	 *  @static
-	 *  @example
-	 *      // Using the `oColReorder` option in the DataTables options object
-	 *      $('#example').dataTable( {
-	 *          "sDom": 'Rlfrtip',
-	 *          "oColReorder": {
-	 *              "iFixedColumns": 1
-	 *          }
-	 *      } );
-	 *
-	 *  @example
-	 *      // Using `new` constructor
-	 *      $('#example').dataTable()
-	 *
-	 *      new $.fn.dataTable.ColReorder( '#example', {
-	 *          "iFixedColumns": 1
-	 *      } );
-	 */
-	iFixedColumns: 0,
-
-	/**
-	 * As `iFixedColumnsRight` but counting from the right.
-	 *  @type int
-	 *  @default 0
-	 *  @static
-	 *  @example
-	 *      // Using the `oColReorder` option in the DataTables options object
-	 *      $('#example').dataTable( {
-	 *          "sDom": 'Rlfrtip',
-	 *          "oColReorder": {
-	 *              "iFixedColumnsRight": 1
-	 *          }
-	 *      } );
-	 *
-	 *  @example
-	 *      // Using `new` constructor
-	 *      $('#example').dataTable()
-	 *
-	 *      new $.fn.dataTable.ColReorder( '#example', {
-	 *          "iFixedColumnsRight": 1
-	 *      } );
-	 */
-	iFixedColumnsRight: 0,
-
-	/**
-	 * Callback function that is fired when columns are reordered
-	 *  @type function():void
-	 *  @default null
-	 *  @static
-	 *  @example
-	 *      // Using the `oColReorder` option in the DataTables options object
-	 *      $('#example').dataTable( {
-	 *          "sDom": 'Rlfrtip',
-	 *          "oColReorder": {
-	 *              "fnReorderCallback": function () {
-	 *                  alert( 'Columns reordered' );
-	 *              }
-	 *          }
-	 *      } );
-	 *
-	 *  @example
-	 *      // Using `new` constructor
-	 *      $('#example').dataTable()
-	 *
-	 *      new $.fn.dataTable.ColReorder( '#example', {
-	 *          "fnReorderCallback": function () {
-	 *              alert( 'Columns reordered' );
-	 *          }
-	 *      } );
-	 */
-	fnReorderCallback: null
-};
-
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Constants
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-/**
- * ColReorder version
- *  @constant  version
- *  @type      String
- *  @default   As code
- */
-ColReorder.version = "1.1.3";
-
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DataTables interfaces
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-// Expose
-$.fn.dataTable.ColReorder = ColReorder;
-$.fn.DataTable.ColReorder = ColReorder;
-
-
-// Register a new feature with DataTables
-if ( typeof $.fn.dataTable == "function" &&
-     typeof $.fn.dataTableExt.fnVersionCheck == "function" &&
-     $.fn.dataTableExt.fnVersionCheck('1.9.3') )
+	the sameTtakment toonrsor * * * * * * * * to thern"nIs i, i* Pi/i t be ansettings object
+		 San"nIsDa.s to therstance
+n"};
+* * * Cer
+ * @con logicstance
+	 */. typ)
 {
-	$.fn.dataTableExt.aoFeatures.push( {
-		"fnInit": function( settings ) {
-			var table = settings.oInstance;
-
-			if ( ! settings._colReorder ) {
-				var dtInit = settings.oInit;
-				var opts = dtInit.colReorder || dtInit.oColReorder || {};
-
-				new ColReorder( settings, opts );
-			}
-			else {
-				table.oApi._fnLog( settings, 1, "ColReorder attempted to initialise twice. Ignoring second" );
-			}
-
-			return null; /* No node for DataTables to insert */
-		},
-		"cFeature": "R",
-		"sFeature": "ColReorder"
-	} );
-}
-else {
-	alert( "Warning: ColReorder requires DataTables 1.9.3 or greater - www.datatables.net/download");
-}
+	var oDTSece
+	 */. tSettings._colreIndeSece
+	 *is.oAr
+ * @c(om, iTo )ddificlity cConbackstanc
+{
+	var oDTx = this.oConbackReg(
+{
+	var oDT, 'aoDiclityoConback-re$. * xy(e
+	 *is.Diclity,eInde), 'garian( Co'om, iTo );
+eIndeSe};
+* 
+garian( Co. * to i* P	this;
+	}
 
 
-// API augmentation
-if ( $.fn.dataTable.Api ) {
-	$.fn.dataTable.Api.register( 'colReorder.reset()', function () {
-		return this.iterator( 'table', function ( ctx ) {
-			ctx._colReorder.fnReset();
-		} );
-	} );
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 *).
+ * variables
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-	$.fn.dataTable.Api.register( 'colReorder.order()', function ( set ) {
-		if ( set ) {
-			return this.iterator( 'table', function ( ctx ) {
-				ctx._colReorder.fnOrder( set );
-			} );
+	Ree ge Update then( Coal indexingot  i - in( Coal inEnsurn, detectnitia*/
+
+	 whrt up.
+ttingsTo );
+e{Inde} Rt
+ *  @`Inde` Pi/ichichs.aa
+tti
+ttingsy). For
+tting  lse {
+		// Datit[* *);
+
+ai */RRANygarian( Co
+tting  s doised oetti'#y). For' dt.eq(0).da {
+tting      "sD{
+		"'Rlf* ip'
+tting  pts || *
+tting  lse)ddih).of Fire art itbuttohe coree ge Updn( Coal 
+tting  ti'#ree gO( Coal ' dh).of(astSort, fue) {
+tting      e. *Fire Dobject();
+tting      arian = $.fn.dagarian( Co(oised otaTaRee g();
+tting  pts || *anc"TaRee g":astSort, fun ; i++ )
+	aiMappings = [];
+	for ( var i=e
+	 */. tSettings.aaoFooter.length ; i<iLen ; i++ )a		anTage
+	 */. tSettings.aoCol_garian( Co_iOt  )
+	{reIndex );e
+	 *is.O( Cotings.a( atMappinTo );
+eIndeSeng	 */ * */
+
+	`De *Fcatni` -date lculate the ts ColRfe Update ths, sources as .
+ttingsTo );
+e{s as } );
+
+	/of ate the dthel bet handngs o *Fcatni `s.O( Co`endChild shouldelempfied by rert it in).
+ * .
+tting    `s.O( Co`eactsAsourrateher/steher.|| *anc"TaateCte theO( Co":astSort, fun ; i++To );
+eInde.s.O( Co()Seng	 */ * */
+
+	ate lculate the ts ColRfe Update ths, sources as .e rows).count  the o handnt for lementsparam  ravaiiquee dthel bet unctions for eac. Cte thelyhandnentse  ravxingot  i - in( Coal iRfe Update thsinEnsurn, detectnitia*/
+
+	 whrt upta arrit incChildprown* *)l/* Sangakme fumn s.
+ttingsTo );
+e{s as } );
+
+	/of ate the dthel bet hand
+ttingsy). For
+tting  lseate ate then( Coal iPi/i o, ised 
+tting  s dos._colrearian = $.fn.dagarian( Co(o = $.fn.d ).s.O( Co()Sen *a * */
+
+	Ste lcults ColRfe Update ths, Conv* Switch the po dthel bestribute*/
+
+	n( Coal is as nt for.e rows).cougarian( ConeedsourrbrutundeThisap * ns */
+
+	ability tofor ssoich isi
+
+	rrent mectiFor lity tofor Fire svalidaocate*/
+
+	ent to (be li - in( Co isistehlestupon.
+ttingsect
+ * s as } [ste] );
+
+	/of ate the dthel bet tributettingn( Co.e row
+tting  ).couFirry ate themariabakmecluded,vaiiquelh( a
+eIndeis as .
+ttingsTo );
+e{Inde} Rt
+ *  @`Inde` Pi/ichichs.aa
+tti
+ttingsy). For
+tting  lseSwap (be lirse the seconddate ths
+tting  arian = $.fn.dagarian( Co(o = $.fn.d ).s.O( Co( [1ice( 2, 3, 4]tMaptti
+ttingsy). For
+tting  lse	/*
+	 * Mlirse ake the co * MendiPi/i o, ised  `#y). For`
+tting  s doate lrearian = $.fn.dagarian( Co(o'#y). For' ).s.O( Co()Sen *ng  s dolirse =oate  num = a.sn *ng  ate  	anTaglirse a.sn *ng  arian = $.fn.dagarian( Co(o'#y). For' ).s.O( Co( ate tMaptti
+ttingsy). For
+tting  lseRFirrsei o, ised 'sgn( Cosn *ng  arian = $.fn.dagarian( Co(o'#y). For' ).s.O( Co(
+tting    arian = $.fn.dagarian( Co(o'#y). For' ).s.O( Co().rFirrse()
+tting  s || *anc"TaO( Co":astSort, fuisteen ; i++ )
+	{steerCascument, uen ; i++ ) )
+	aiMappingss = [];
+	for ( var i=e
+	 */. tSettings.aaoFooter.length ; i<iLen ;  i++ ))a		anTage
+	 */. tSettings.aoCol_garian( Co_iOt  )
+	{reIndTo );
+ i;
+	}
+	eIndex );e
+	 *is.O( Cotings.a( pping = fnInvertKeysteentMappinTo );
+eIndeSeng	 *is;
+	}
+
+
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *riv can).
+ * v sortm  ravof aturseip *
+	 *a
+eJSta arr*Fcommende retupriv ca)
+ttinles
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+	Cer
+ * @con logic
+	 (iTo).
+ *  @is.oAr
+ * @c
+	s point
+ *  @retur	s poipriv ca|| *anc"is.oAr
+ * @c":astSort, fun ; i++ )
+	).coureIndeSec+ )
+	gth ;= e
+	 */. tSettings.aaoFooteSec+ )
+	g;ppins
+	 */
+	/* dis intopositionlity tofor -e into, filef art t   Co Footer */e
+	 */.it[*.iaSort */
+	/* n ; i++ )e
+	 */.fSort =/e
+	 */.it[*.iaSort */
+	/*eIndex );s
+	 */
+	/* dis intopositionlity tofor -e into, fit   Cotoilef a Foote
+	 */.fSortR   C =/e
+	 */.it[*.iaSort */
+	/*R   C ?++ )e
+	 */.it[*.iaSort */
+	/*R   C :set	0;ppins
+	D		obcConbacksit[* *);
+
+ai */Reordeo Footer */e
+	 */.it[*.TaRetlessCConback n ; i++ )e
+	 */.intlessCConback =/e
+	 */.it[*.TaRetlessCConbackeIndex );s
+	)ddiTables' event iPi/i o, drag the d( obje nullsoimarkvxingot  i - iate then( Co	/* Body */
+	 =/0; null th  i<iLen ; i++ )
+		{
+i > e
+	 */.fSort-1=== null th ;- e
+	 */.fSortR   C n ;  i++ ))e
+	 *is.Mile rtAttachLii,ge
+	 */. tSettings.aoColnThrom, iTo );
+		* Markvxingot  i - iate then( Co	dy */* Crified by re/* Bo	e
+	 */. tSettings.aoCol_garian( Co_iOt  )
+	{ping[idex );s
+	St cansardnga Foote
+	 */.dtx = this.oConbackReg(ge
+	 */. t, 'aoSt caSavePct
+ s'LastSort, fuoStattingdt[0] )).cohis.St caSave.cCon(	).cotatting{reIndetings, 1, "Co_St ca"{reI );s
+	)nsit[* *)iate then( Co	hn, bing this ised used
+		 *aiO( CooreIndex oter */e
+	 */.it[*.aiO( Coon ; i++ )aiO( Cooree
+	 */.it[*.aiO( Co.sArray)g[idex );s
+	St canloadfor sog =rder p Update then( Cont foro Footer */e
+	 */.dtx LoadedSt can&&lse if (e
+	 */.dtx LoadedSt caagarian( Co != 'cument, u!== n"nI(e
+	 */.dtx LoadedSt caagarian( CoaoFooter== e
+	 */. tSettings.aaoFooteon ; i++ )aiO( Cooree
+	 */.dtx LoadedSt caagarian( Cog[idex );s
+	Ifndex, so when( Conrt ipplray dossoi Footer */aiO( Coon ; i++ )s
+	What therbebcConrow uoal iR *aftll reor {
+		// Datit[* *);
+
+ai *.	Ifn insert reon In 1.10++ )
+
+	abiwach nto,li o, drawrce fonrt if*aftllt reon dosw.couIn 1.10 we dt t   CoawyosetnIsDa.sng ) {
+).co*/. tSeb t[*Co Forte n ;  i++ ))		 *bD * f=? true : Bo	e
+	 */. tSetDrawoConback		anTagi++ ))c"Ta":astSort, fungi++ ))cng ) {
+).co*/. tSeb t[*Co Forte &&l!bD * f)++ ))cni++ ))cn	bD * f=?obje;++ ))cn			 *reata tMapping = fnInvertKeyVaO( Coon;++ ))cn	).co*is.O( Cotings.a.cCon(	).cotareata tn;++ ))cn}++ ))c},++ ))c"s(dt.":ings, 1, "Co_Pre"++ ))}{reIndTo );
 		}
+ ;  i++ ))		 *reata tMapping = fnInvertKeyVaO( Coon;++ ))).co*is.O( Cotings.a.cCon(	).cotareata tn;++ )o );
+			}
+		}
+		ele
+	 *is.SteoApi._fnColenSettings(),
+* * * */
 
-		return this.context.length ?
-			this.context[0]._colReorder.fnOrder() :
-			null;
-	} );
+	S ge Update then( Cositionrces as 
+	 (iTo).
+ *  @is.O( Cotings.a
+	ySwitch
+ *  @param  	)nsa;
+
+	/of  thegnt i objecdict		// Update then( Conr.coundChild shipplied
+	s point
+ *  @retur	s poipriv ca|| *anc"is.O( Cotings.a":astSort, fuiaen ; i++ )
+	{gs.aoData!= e
+	 */. tSettings.aaoFooteon ; i++ )e
+	 */. tSettings.o{
+		this.oApi.e
+	 */. tSettings, 1, "Col-sa;
+
+	/intlesstaTabre mi"les 1	"ma*
+ *knthn nta ==x is Search. SkiInver."tn;++ ) ) {
+			return;et=[];
+	for ( var i=0aoFooter.length ; i<iLen ; i++ )s doate rtBefore$.it);
+
+	Lii,gg{reInd)
+		{
+i !=oate rtBefon ;  i++ ))	}
+	}ts ColRurarray by sw layout ar+ )
+		{
+			fnArraya,oate rtBefs[i].nT++ ))	}
+Do/ Update theintlesstini o, ised  t ar+ )e
+	 */. tSettings.o{xt.oApi.fnCo(oate rtBefs[i].nTndex );
+			}
+		Weon scrolly swIn 1.10 we *Fca
+		/* Calculate thesizeh melConowePi/i o, num =o Footer */e
+	 */.dtx Scroll.sXaoFoo""ts, e
+	 */.dtx Scroll.sYaoFoo""tn ; i++ )e
+	 */. tSettings.o{
+		dgaritings.Sizy s(? trueoreIndex );
+		Savei o, nt can upd)e
+	 */. tSettings.o{
+		this.SaveSt ca*/e
+	 */.dt].nT++ e
+	 *is.SteoApi._fnColenSettinooter */e
+	 */.intlessCConback .nTFoot !== null )e
+	 */.intlessCConback.cCon(	).is ettings(),
+* * * */
+
+	BFcale )we* Sangak takmeColenx is Searchtini o, ised tare/* ivrert iteir	 whrty swto th*/
+
+	In 1.10 we *Ftlessi o, nt can Search melw.couortm  ravcouort	 whrty swto thy indexcaa*/
+
+	reon re layngak taonrgainion st canload!
+	 (iTo).
+ *  @is.St caSave
+	Reorder
+ *  @param   ot
+	 * Update Da st ca
+	s point
+ *  @param  JSON by ode rcookie@param  control for Dat	s poipriv ca|| *anc"is.St caSave":astSort, fui ot
+	 *n ; i++false;
+	var iarigh, iOt  )
+	arcSec+ )
+	oct
+		oDTSete
+	 */.dtSec+ )
+	 Search 
+		oCol = oSettings.anT++ oSt caagarian( CoiMappin );
+		S Fixed sortter */oSt caaettings.af ( v110 ) 
+	//.0bles ner */
+	fr.lenoSt caaettings.aaoFooter.leiLengi++ ))oSt caaettings.aingFixed[ Search[ oSt caaettings.aingFixeol_garian( Co_iOt  )
+	m, iTo );
+			 *ags.aoPrepy =trirtMafnSdobject[], oSt caaeogs.aoPreSe].nT++ ener */
+	for ( i=cings.aaoFooter.length ; i<iLen ;  i++ ))iOt  )
+	arced[ Search[iol_garian( Co_iOt  )
+	m,++ ))	}
+)
+	arceorting t ar+ )oSt caaeogs.aoPreSe[ iOt  )
+	arcbj[ pags.aoPrepys.aoData))	}
+Vcolumn vist ar+ )oSt caae[iFrreSe[ iOt  )
+	arcbj[ p Search[iol[iFrom].m,++ ))	}
+)
+	arcelity tofor t ar+ )oSt caagarian( Co		anTagiOt  )
+	arcbn;++ )o );
+			}
+		}er */oSt caan( Cof ( v110 ) 
+	//.1+les ner */
+	fr.lenoSt caan( CoaoFooter.leiLengi++ ))oSt caan( CoingFixed[ Search[ oSt caan( CoingFixeol_garian( Co_iOt  )
+	m, iTo );
+			 *st catings.arepy =trirtMafnSdobject[], oSt caa Search].nT++ ener */
+	for ( i=cings.aaoFooter.length ; i<iLen ;  i++ ))iOt  )
+	arced[ Search[iol_garian( Co_iOt  )
+	m,++ ))	}
+)
+	arcs t ar+ )oSt caa Search[ iOt  )
+	arcbj[ pst catings.arepys.aoData))	}
+)
+	arcelity tofor t ar+ )oSt caagarian( Co		anTagiOt  )
+	arcbn;++ )o );
+		g	 *is;
+	}
+
+
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * Mile )drop the d(ag|| *an * * */
+
+	)ddia wile )dthn /* Sort lrt itphrtyclu	 *TH t be anse (iTo).
+ *  @is.Mile rtAttach
+	s point
+ *  @param
+)
+	arcemeCol
+	s point
+ *  @ers all eTh*TH t be anih).ofnitia*/
+
+	oint
+ *  @retur	s poipriv ca|| *anc"is.Mile rtAttach":astSort, fuii, eTh*n ; i++ )
+	).coureIndeSec+$(umns[in( 'wile dthnagarian( Co'LastSort, fuengi++ )e. *Fire Dobject();
+t))).co*is.Mile DthnacCon(	).cotae, eTh*n;
+t)pts || ,
+* * * */
+
+	Mile )dthn onso*TH t be aniini o, ised s in thse (iTo).
+ *  @is.Mile Dthn
+	s point
+ *  @eablese	Mile )eable
+	s point
+ *  @ers all eTh*TH t be ani columd(agged
+	s point
+ *  @retur	s poipriv ca|| *anc"is.Mile Dthn":astSort, fuie, eTh*n ; i++ )
+	).coureIndeSe );s
+	Stortomisable infoabououort	wile )tch the  used
+		 *whrgetoettie.whrget dh)osest('mns.tdsplit('.')offaTaureIhrget.offaTa(plit('.')			oCont
+seInt( $(umns[g );(' = $-igger( meCol'), 	if .shift();
+
+dxerCascument, uenum*1 ) ) {
+			return;e
+	 */.wile . whrtXoCoe. ageX;rn;e
+	 */.wile . whrtYoCoe. ageY;rn;e
+	 */.wile .offaTaXoCoe. ageXl-soffaTa.lef ;rn;e
+	 */.wile .offaTaYoCoe. ageYl-soffaTa.top;rn;e
+	 */.wile .whrgetoete
+	 */. tSettings.ao
+
+dxeolnTh;//whrgetttings;e
+	 */.wile .whrgetrtBefore
+dxngs;e
+	 */.wile .itiortBefore
+dxng++ e
+	 *is.Regolumn);x );s
+	)ddiTables' event irt ite(window,  used
+$(window, n ;  [in( 'wile mentagarian( Co'LastSort, fuengi++ ))).co*is.Mile 	/*
+acCon(	).cotaebn;++ )o n ;  [in( 'wile upagarian( Co'LastSort, fuengi++ ))).co*is.Mile UpacCon(	).cotaebn;++ )o n || ,
+* * * */
+
+	Deal/RRANya wile )mentiTables + 1;
+dragge foa// Tabl (iTo).
+ *  @is.Mile 	/*
+
+	s point
+ *  @eablese	Mile )eable
+	s point
+ *  @retur	s poipriv ca|| *anc"is.Mile 	/*
+":astSort, fuie*n ; i++ )
+	).coureIndeSe );er */e
+	 *dom.drag =nTFoot !== null )s
+	Onl/* re* Calculdrag t be aniifuort	wile )hn, mentdia this is  disngs.o Conv* Swi whrt
+etnIswto thy- e
+	 lConow p Updust lrt meds smConvwile )ment DOM  weon sings.a the ootx, so w
+etnIswto	rrenisibifuss.a drag t be anishthe foup
+etnIsDa.sng ) {Math.pow(++ ))Math.pow(e. ageXl-se
+	 */.wile . whrtX, 2) +++ ))Math.pow(e. ageYl-se
+	 */.wile . whrtY, 2), 0.5enu< 5en ;  i++ ))nt
+ * eIndTo );
+e
+	 *is.Cre* C*ragnt.cy)g[idex );s
+	P
+	/* Repositt be ani-ndexrethistowt thaiepositt be aniosith).of ocateed used
+e
+	 *dom.drag.cssagi++ )lef : e. ageXl-se
+	 */.wile .offaTaX,++ )top: e. ageYl-se
+	 */.wile .offaTaY
+t)pts |		}
+		}ainitialiculate the wile )tch the , ca
+		/* Cawt tha takment tondChildgo used
+		 *bSetf=? true : B		 *lastTortBeforee
+	 */.wile .wortBef;urn;et=[];
+	for 1 var i=e
+	 */.aoThrgetss.aoData.length ; i<iLen ; i++ )
+		{
+e. ageXl< e
+	 */.aoThrgets[i-1].x + ((e
+	 */.aoThrgets[i].x-e
+	 */.aoThrgets[i-1].x)/2) n ;  i++ ))e
+	 *dom.to ther.cssag'lef ', e
+	 */.aoThrgets[i-1].x n;++ ))).	 */.wile .wortBef = e
+	 */.aoThrgets[i-1].to;++ ))bSetf=?obje;++ ))bre*knTndex );
+			}
+/eTtakment tot be aniwasat wto be reposlementsparam (/* Po).cn		}
+/e * *ator)ay indexn thitvcouort	 forcng ) {
+bSetfn ; i++ )e
+	 *dom.to ther.cssag'lef ', e
+	 */.aoThrgets[e
+	 */.aoThrgetss.aoDat-1].x n;++ )).	 */.wile .wortBef = e
+	 */.aoThrgets[e
+	 */.aoThrgetss.aoDat-1].to;++ 
+			}
+/ePersablelity tofor g )re*ltime-ins cfor gs onsond lculate thehn, mentd oter */e
+	 */.it[*.bRe*ltime-&&*lastTortBefo!=ree
+	 */.wile .wortBef )gi++ )e
+	 */. tSettings.o{xt.oApi.fnCo(oe
+	 */.wile .itiortBef,ee
+	 */.wile .wortBef );++ ;e
+	 */.wile .itiortBeforee
+	 */.wile .wortBef;u	+ e
+	 *is.Regolumn);xings(),
+* * * */
+
+	Fit[shsoffuort	wile )drag the ment tolculate thewt tha1.10edbl (iTo).
+ *  @is.Mile Up
+	s point
+ *  @eablese	Mile )eable
+	s point
+ *  @retur	s poipriv ca|| *anc"is.Mile Up":astSort, fuie*n ; i++ )
+	).coureIndeSe );$(window, n.off( 'wile mentagarian( Co wile upagarian( Co' )Se );er */e
+	 *dom.drag !nTFoot !== null )s
+	R mentolculguion the DOM  *ancd
+e
+	 *dom.drag.t clae();++ )e
+	 *dom.to ther.t clae();++ )e
+	 *dom.dragoreIndex ot)e
+	 *dom.to theroreIndex = n;s
+	)ctuspecift ite(intless reord)e
+	 */. tSettings.o{xt.oApi.fnCo(oe
+	 */.wile .itiortBef,ee
+	 */.wile .wortBef );++ ;e
+	 *is.SteoApi._fnColenSett
+		}
+		Weon scrolly swIn 1.10 we *Fca
+		/* Calculate thesizeh melConowePi/i o, num =o Footter */e
+	 */.dtx Scroll.sXaoFoo""ts, e
+	 */.dtx Scroll.sYaoFoo""tn ; null ))e
+	 */. tSettings.o{
+		dgaritings.Sizy s(? trueoreInd 
+			};
+		Savei o, nt can upd))e
+	 */. tSettings.o{
+		this.SaveSt ca*/e
+	 */.dt].nT++ ter */e
+	 */.intlessCConback .nTFoot !== nnull ))e
+	 */.intlessCConback.cCon(	).is ettin)o );
+		g	 *is;
+;
+	}
+
+	/*
+	 * Caadate rowparam RRANy tak o thslRfe Update th ment ts,sond lcu
+	}
+
+Reord o thsbl (iTo).
+ *  @is.Regolum
+	s point
+ *  @retur	s poipriv ca|| *anc"is.Regolum":astSort, fun ; i++ )
+	ettings.aoete
+	 */. tSettings.anT++ e
+	 */.aoThrgetss	aArray.0, e
+	 */.aoThrgetsaoFooteonnT++ e
+	 */.aoThrgetss	anTagi++ )"f":t $(e
+	 */. tSetting).offaTa(p.lef ,0] )"wm,
+	0
+t)pts |		}
+	forTo	{
+		 =/0;rn;et=[];
+	for ( var i=0ttings.aaoFooter.length ; i<iLen ; i++ )/ls.
+ * Update th /s in thslemquesthe , In waaniit'si
+
+	/* Re we *Fmaiialise on tifuort
+etnIsi
+
+	/* Re isngariatoiit'siimwww.steilef aor t   Cay indexonl/*inc*Fmbe aniosithintoCo	dy 
+etnIsivent s Search
+etnIsDa.sng ) {i !=oe
+	 */.wile .itiortBefo== nnull ))rTo	{
+		++eInd 
+			};g ) {ettings.aoCol[iFrom].!== nnull ))e
+	 */.aoThrgetss	anTagi++ ) )"f":t $(ettings.aoColnTh).offaTa(p.lef  + $(ettings.aoColnTh).ouoCoWidth(),++ ))c"tm,
+		"iP{
+		++ ))}{reIndTo );ex );s
+	DisConowe Search]et=[bey swintlessally adrag the d( obj into, fit   Cotoilef a Footg ) {e
+	 */.fSortR   C .nTF0en ; i++ )e
+	 */.aoThrgetss	aArray.e
+	 */.aoThrgetsaoFooteo- e
+	 */.fSortR   C n; );ex );s
+	DisConowe Search]et=[bey swintlessally adrag the d( obj into, filef art t   Co Footer */e
+	 */.fSort .nTF0en ; i++ )e
+	 */.aoThrgetss	aArray.0,/e
+	 */.fSort );xings(),
+* * * */
+
+	repyiositTH t be ani e hops[bey swdrag*
+ *p Updust lhn,  takmdea t.couortm  ravcctuspec*/
+
+	mordnghitvcswitcy tak age.
+	 (iTo).
+ *  @is.ore* C*ragnt.c
+	s point
+ *  @retur	s poipriv ca|| *anc"is.ore* C*ragnt.c":astSort, fun ; i++ )
+	scrolly sw=/e
+	 */.dtx Scroll.sXaoFoo""ts, e
+	 */.dtx Scroll.sYaoFoo"" |		}
+	foot   datoete
+	 */. tSettings.ao
+e
+	 */.wile .whrgetrtBefoolnTh;		}
+	foot  Troreot   dat.der thnt.c;		}
+	foot  T in oreot  Tr.der thnt.c;		}
+	foot  Tsed oetot  T in .der thnt.c;		}
+	foclrep datoet$(ot   dat dh)onen);x );s/it
+ *
+	 lC sl   Cl/*oddihombine infoinstanceofthe DOMta arrch isiort
+ets/ifastese the etaitxret* This thensivreway IncChilde
+	nkx is lRee b
+ets/i o, ised sRRANygarian ss.ad s in thread therch.
+ )e
+	 *dom.dragore$(ot  Tsed dh)onent.cy true)n ;  [addCPubl( 'DTCR_h)onedTsed ' n ;  [ and a(++ ))$(ot  T in .h)onent.cy true)n[ and a(++ )))$(ot  Tr.h)onent.cy true)n[ and a(++ )))	clrep dat[0]++ ))))
+ ))))
+ )))
+ )).cssagi++ )	
+
+	/* Re: 'absingte',++ ))top: 0,++ ))lef : 0,++ ))width:t$(ot   dat douoCoWidth(),++ ))he   C:t$(ot   dat douoCoHe   C()
+ ))} n ;  [ and aTo( 'body'ts |		}e
+	 *dom.to therore$('<div></div>'n ;  [addCPubl( 'DTCR_to ther' )
+ )).cssagi++ )	
+
+	/* Re: 'absingte',++ ))top: scrolly sw?++ )))$('divn = $.fn.ds_scroll', e
+	 */. tSettingWr andr).offaTa(p.top :++ )))$(e
+	 */. tSetting).offaTa(p.top,++ ))he   C : scrolly sw?++ )))$('divn = $.fn.ds_scroll', e
+	 */. tSettingWr andr).he   C() :++ )))$(e
+	 */. tSetting).he   C()
+ ))} n ;  [ and aTo( 'body'ts |ng	 */ * */
+
+	Cleug-inugarian( Conmbevar fied by rs the Tables' event 
+	 (iTo).
+ *  @is.Diclity
+	s point
+ *  @retur	s poipriv ca|| *anc"is.Diclity":astSort, fun ; i++ )
+	e;
+	var;urn;et=[];r ( var i=e
+	 */. tSetDrawoConback	.aoData.length ; i<iLen ; i++ )
+		{
+e
+	 */. tSetDrawoConbackLastS(dt.erCasegs, 1, "Co_Pre'!== nnull ))e
+	 */. tSetDrawoConback		aArray.se( iF;++ ))bre*knTndex );
+			}$(e
+	 */. tSetting).fSfnSd'*' n.off( 'agarian( Co' )Se );iable
+		e
+	 */. tSettings.aLastSort, funct Searc)gi++ )$( SearclnTh).t claeA );(' = $-igger( meCol');
+t)pts |		}e
+	 */. tSettings._colreIndex 	}e
+	 */lreIndex 	g	 * * * */
+
+	)ddia 	// thte is diart lculate thehin thsay indexkalue is visiblof*/
+
+	ite(iowe column n( Coed. T
+	 lConow pfast detectinfoins is visib,sond*/
+
+	Pi/i objeo other melworksRRANyaSorttings.s objectlrep,  takl dat.r	s poipriv ca|| *anc"is.SteoApi._fnColen":astSort, fun ; i++iable
+		e
+	 */. tSettings.aLastSort, funct Searc)gi++ )$( SearclnTh).g );(' = $-igger( meCol' van;
+t)pts || e};
+* 
+] ); ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 }
 
-return ColReorder;
-}; // /factory
+
+t - a nt
+ *eterr opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop/ ] );
+};
 
 
-// Define as an AMD module if possible
-if ( typeof define === 'function' && define.amd ) {
-	define( ['jquery', 'datatables'], factory );
+/**
+ * Col object
+aTables sPi/iit[* *);
+
+ai *};
+
+	/**
+	 * @n};
+
+	/st - a optigarian( ColReorder.P	this;
+* * * *rement, uety tofor fore Update thsinEnsurlida shippliedobject - autom * * ontit[* *);
+
+ai *.	Ifnootxthis ised reon tcults ColnEnsu Update thsier */
+
+	Piitcy oabakmeu Upd{
+		 isiortlts Colle d.r	s poise ies as 
+	 (iToReorderance
+n";
+
+	/st - a ttingsy). For
+tting    lseUss.aiortl`ogarian( Co`/Reordeomeu Updrol for DalReorder@param 
+tting    ti'#y). For' dt.eq(0).da {
+tting        "sD{
+		"'Rlf* ip',
+tting        "ogarian( Co":t[0]ting            "VaO( Co":	[ 4, 3, 2Setti0 ]0]ting        }0]ting    pts || * ttingsy). For
+tting    lseUss.ai`new` der
+ * @constting    ti'#y). For' dt.eq(0).da)
+| *
+tting   ttingarian = $.fn.dagarian( Co(o'#y). For',t[0]ting        "VaO( Co":	[ 4, 3, 2Setti0 ]0]ting    pts || *ancVaO( Cotance
+	 */ * */
+
+	Redrawrto, ised 'sgate then( Cos.a tsiortlend wilr draw p Update th*/
+
+	(`obje`)aor wach nto,li o, wile )isireetaild	(` true` -dReorder).e row
+ttinnEnsu Uisvalidapersablea redrawronions flity tofor s objecinvolvrs th*/
+
+	)jaxfliquestions ftime-if you  ravass.aiilrver-g tok *  rsss.aiih*/
+
+	rol for Da.r	s poise iebooleug
+	 (iToReordera truen";
+
+	/st - a ttingsy). For
+tting    lseUss.aiortl`ogarian( Co`/Reordeomeu Updrol for DalReorder@param 
+tting    ti'#y). For' dt.eq(0).da {
+tting        "sD{
+		"'Rlf* ip',
+tting        "ogarian( Co":t[0]ting            "bRe*ltime":tobje0]ting        }0]ting    pts || * ttingsy). For
+tting    lseUss.ai`new` der
+ * @constting    ti'#y). For' dt.eq(0).da)
+| *
+tting   ttingarian = $.fn.dagarian( Co(o'#y). For',t[0]ting        "bRe*ltime":tobje0]ting    pts || *ancbRe*ltime ? true	 */ * */
+
+	Indicatn howemanydate thsindChild shfSort infrom one po into, fiConvelcu
+	}
+
+lef ). T
+	 lalidase  automd sh1-if le dta arrpoint),tsih   ,tsiyou like.r	s poise ieint
+	 (iToReordera0n";
+
+	/st - a ttingsy). For
+tting    lseUss.aiortl`ogarian( Co`/Reordeomeu Updrol for DalReorder@param 
+tting    ti'#y). For' dt.eq(0).da {
+tting        "sD{
+		"'Rlf* ip',
+tting        "ogarian( Co":t[0]ting            "iaSort */
+	/*":t10]ting        }0]ting    pts || * ttingsy). For
+tting    lseUss.ai`new` der
+ * @constting    ti'#y). For' dt.eq(0).da)
+| *
+tting   ttingarian = $.fn.dagarian( Co(o'#y). For',t[0]ting        "iaSort */
+	/*":t10]ting    pts || *anciaSort */
+	/*: 0,+ * * */
+
+	)s `iaSort */
+	/*R   C`a arrpinto, fiConvelcu t   C.r	s poise ieint
+	 (iToReordera0n";
+
+	/st - a ttingsy). For
+tting    lseUss.aiortl`ogarian( Co`/Reordeomeu Updrol for DalReorder@param 
+tting    ti'#y). For' dt.eq(0).da {
+tting        "sD{
+		"'Rlf* ip',
+tting        "ogarian( Co":t[0]ting            "iaSort */
+	/*R   C":t10]ting        }0]ting    pts || * ttingsy). For
+tting    lseUss.ai`new` der
+ * @constting    ti'#y). For' dt.eq(0).da)
+| *
+tting   ttingarian = $.fn.dagarian( Co(o'#y). For',t[0]ting        "iaSort */
+	/*R   C":t10]ting    pts || *anciaSort */
+	/*R   C: 0,+ * * */
+
+	CConbackeorder =   e hops[fisallweon ate thsier mn n( Coedr	s poise ieorder = f):retur	s poiReorderance
+n";
+
+	/st - a ttingsy). For
+tting    lseUss.aiortl`ogarian( Co`/Reordeomeu Updrol for DalReorder@param 
+tting    ti'#y). For' dt.eq(0).da {
+tting        "sD{
+		"'Rlf* ip',
+tting        "ogarian( Co":t[0]ting            "TaRetlessCConback":astSort, funt[0]ting                alert(segs, thsin n( Coed'ts || *              }0]ting        }0]ting    pts || * ttingsy). For
+tting    lseUss.ai`new` der
+ * @constting    ti'#y). For' dt.eq(0).da)
+| *
+tting   ttingarian = $.fn.dagarian( Co(o'#y). For',t[0]ting        "TaRetlessCConback":astSort, funt[0]ting            alert(segs, thsin n( Coed'ts || *          }0]ting    pts || *stenaRetlessCConbacktance
+e};
+* 
+); ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 }
-else if ( typeof exports === 'object' ) {
-    // Node/CommonJS
-    factory( require('jquery'), require('datatables') );
-}
-else if ( jQuery && !jQuery.fn.dataTable.ColReorder ) {
-	// Otherwise simply initialise as normal, stopping multiple evaluation
-	factory( jQuery, jQuery.fn.dataTable );
-}
+
+oAr
+ awo elemememememememememememememememememememememememememememememememememememememememememememememememe/] );
+};
 
 
-})(window, document);
+/**
+ * Colirrsi *};
+
+	/cAr
+ awo lirrsi *};
+
+	/ i* Pi/i  Saram 
+tings object
+		)s  ode optigarian( Colirrsi *P	t"1.1.3";
+* 
+); ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+}
+
+ {
+		// Datitterface elemememememememememememememememememememememememememememememememememememememememememememememememe/] )/ Exrome
+arian = $.fn.dagarian( CoP	tgarian( Co;
+arianD= $.fn.dagarian( CoP	tgarian( Co;
+] )/ Regosheroattingfeamn ssRRANyrol for Dat}
+	else if (arian = $.fn.dr== "stSort, "== n/i  lse if (arian = $.fn.dataTfnVrrsi *CSanit== "stSort, "== n/i  larian = $.fn.dataTfnVrrsi *CSani('1.9.3')dt, oparian = $.fn.dataTaoFeamn sss	anTagi++ "ppinic":astSort, (
+aTables s)gi++ )v doised oets*/
+	$(oSettings.onT++ ter */! sf ( oDTSettings._colReorde++ )
+	{tinicoets*/
+	$(oSettit;rde++ )
+	fault=	{tinic.ttings._col||	{tinic.ogarian( Cots, opoData))tinggarian( Co(os*/
+	$(odefault)nTndex );	}
+		}
+		el	ised {
+		this.oApi.s*/
+	$(odettings, 1, "Colattempt10 we e can't inie tab. Ignors.aisecond"oreInd 
+			};nt
+ * eIndex ); Nokl da control for Da element to*stec},++ "cFeamn s":inR",++ "sFeamn s":ingarian( Co"
+)pts |}
+}
+		}
+		alert(s"Waree b:ggarian( Cofliquisa, just as Dat1.9.3aor gre* Col-swwwn = $ised s.net/dthnload"s |}
+] )/ API auge an
+ai *}ings;
+
+	if ( $.fn.dataTable.A
+
+	if ( $.fn.dataT.regosher.triggian( Colree g()'LastSort, fu)  i++To );
+eInde.it *ator(se() ===LastSort, fu ctf )gi++ )ctfSettings._coaTaRee g();
+t)pts |)pts |		
+
+	if ( $.fn.dataT.regosher.triggian( Coln( Co()'LastSort, fuysteent{i++ )
+	{steent{i+++To );
+eInde.it *ator(se() ===LastSort, fu ctf )gi++ ))ctfSettings._coaTaO( Co(os*/bn;++ )o n || 
+			}To );
+eInde.t whexaDataSort?++ )Inde.t whexa[0]Settings._coaTaO( Co() :++ )Index
+)pts |}
+
+To );
+egarian( Co;
+}; lse/factory
+] )/ Dent,  sourceAMD module-if 
+
+	rrentt}
+	else if (ment, erCasestSort, !== (ment, .amuenum*1ment, ( ['jqnceo=La' = $ised s'], factoryts |}
+}
+		}}
+	else if (exrortserCaseparam = 'tab    lsent.c/CommonJSb    factory(fliquisa('jqnceo=),fliquisa(' = $ised s')ts |}
+}
+		}}
+	eltanceof&&l!tanceorian = $.fn.dagarian( CoPnum*1lseOent w inisimplr already in sounablel, stoInver mectiFor ethe 
+ai *}	factory(ftanceo, tanceorian = $.fn.dts |}
+
+
+})(windth,(window, s |

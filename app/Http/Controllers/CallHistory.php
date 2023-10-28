@@ -51,7 +51,7 @@ class CallHistory extends Controller
         // $calls = CallHistorydb::where('NationalCode', $NationalCode)->get();
 
 
-        $tickets = CallHistorydb::where('NationalCode', $NationalCode)->orderBy("time")->get();
+        $tickets = CallHistorydb::where('NationalCode', $NationalCode)->orderBy("time", "DESC")->get();
         // dd($ticket);
 
         // if ($calls) {

@@ -11,7 +11,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 class login extends Controller
 {
     public function user_login(Request $request){
-
         $user = users::where("email", $request->get("email"))->first();
 
         if ($user){
