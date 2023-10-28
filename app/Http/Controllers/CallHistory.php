@@ -21,6 +21,17 @@ class CallHistory extends Controller
 
     }
 
+    public function Update_Calls(){
+
+        // $users = CallHistorydb::all()->sortBy("id");
+        $users = CallHistorydb::orderBy('id')->get();
+
+        
+        return $users;
+
+
+    }
+
 
     public function Profile_Customer(Request $request){
 

@@ -89,7 +89,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('ucr') }}" method="post" role="form">
+            <form action="{{ $user ? route('ucr') : route('ccr') }}" method="post" role="form">
               <div class="card-body">
 
                 <div class="form-group">
@@ -137,7 +137,10 @@
  
               <!-- Equivalent to... -->
               {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> --}}
-              {{-- <input type="hidden" name="id" value="{{ $user->id }}" /> #چکککک --}} 
+              @if ($user)
+              <input type="hidden" name="id" value="{{ $user->id }}" />
+              @endif
+              
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">بروزرسانی مشتری</button>
               </div>
@@ -201,7 +204,7 @@
                         <div class="direct-chat-text">
                           <audio controls>
                             <source
-                              src="{{$call->voice}}"
+                              src="https://176.65.253.69/Api/DownloadRecording.php?file={{$call->voice}}"
                               type="audio/wav"
                             />
                           </audio>

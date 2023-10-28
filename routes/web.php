@@ -7,6 +7,8 @@ use App\Http\Controllers\CustomerManagement;
 use App\Http\Controllers\CallHistory;
 use App\Http\Controllers\login;
 use App\Http\Controllers\caller;
+use App\Http\Controllers\RoleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +45,11 @@ Route::post('/Update_Customer', [App\Http\Controllers\CustomerManagement::class,
 Route::get('/callhistory', [App\Http\Controllers\CallHistory::class, 'Show_Calls'])->name('callhistory')->middleware("auth");
 Route::get('/profilecustomer', [App\Http\Controllers\CallHistory::class, 'Profile_Customer'])->name('pc')->middleware("auth");
 Route::post('/updatecomment', [App\Http\Controllers\CallHistory::class, 'Comment'])->name('updatecomment');
+Route::post('/updatecalls', [App\Http\Controllers\CallHistory::class, 'Update_Calls'])->name('updatecalls');
 
 Route::post('/caller', [App\Http\Controllers\caller::class, 'caller'])->name('caller');
 Route::post("/submit_message", [MessageController::class , "submit_message"])->name("submit_message");
+Route::get('/roles', [App\Http\Controllers\RoleController::class, 'Show_Roles'])->name('roles')->middleware("auth");
+Route::post('/createrole', [App\Http\Controllers\RoleController::class, 'Create_Role'])->name('createrole');
+Route::post('/delrole', [App\Http\Controllers\RoleController::class, 'Del_Role'])->name('delrole');
+

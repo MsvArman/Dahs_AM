@@ -3,8 +3,8 @@
     <!-- Brand Logo -->
     <a href="{{ route('logout') }}" class="brand-link">
     <div class="brand-image">
-        <span>خروج</span>
-        <br>
+        {{-- <span>خروج</span> --}}
+        {{-- <br> --}}
         <i class="fa fa-sign-out" style="margin-right: 25%" aria-hidden="true"></i>
     </div>
     <span class="brand-text font-weight-light">{{auth()->user()->name}}</span>
@@ -44,12 +44,21 @@
                     <p>مدیریت کاربران</p>
                 </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                 <a href="{{ route('createuser') }}" class="nav-link">
                     <i class="fa fa-plus nav-icon"></i>
                     <p>افزودن کاربر</p>
                 </a>
-                </li>
+                </li> --}}
+                <li class="nav-item">
+                    <a href="{{ route('roles') }}" class="nav-link">
+                      <i class="nav-icon fa fa-th"></i>
+                      <p>
+                        مدیریت سمت ها
+                        {{-- <span class="right badge badge-danger">جدید</span> --}}
+                      </p>
+                    </a>
+                  </li>
             </ul>
             </li>
 

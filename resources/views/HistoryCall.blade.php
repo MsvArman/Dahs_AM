@@ -91,10 +91,10 @@ $name = "";
                 <table class="table table-hover">
                   <tr>
                     {{-- <th>شناسه</th> --}}
-                    <th>نام و نام خانوادگی </th>
+                    {{-- <th>نام و نام خانوادگی </th> --}}
                     <th>کدملی مشتری</th>
                     <th>شماره مشتری</th>
-                    <th>نام اپراتور</th>
+                    {{-- <th>نام اپراتور</th> --}}
                     <th>شماره اپراتور</th>
                     <th>تماس</th>
                     {{-- <th>وضعیت</th> --}}
@@ -106,10 +106,10 @@ $name = "";
                   @foreach ($users as $user)
                     <tr>
                       {{-- <td>{{$user->callid}}</td> --}}
-                      <td>/</td>
+                      {{-- <td>/</td> --}}
                       <td>{{$user->NationalCode}}</td>
                       <td>{{$user->mobilecustomer}}</td>
-                      <td>{{$user->mobileoperator}}</td>
+                      {{-- <td>{{$user->mobileoperator}}</td> --}}
                       <td>{{$user->mobileoperator}}</td>
 
                       <td>@if ($user->call == 'outcall')
@@ -125,7 +125,7 @@ $name = "";
                           <button onclick="PlayAudio()" class="btn btn-sm btn-primary text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
 
                             <i class="fa fa-play mx-2"></i>
-                            <audio src="https://192.168.10.10/Api/DownloadRecording.php?file={{$user->voice}}" id="Audio"></audio>
+                            <audio src="https://176.65.253.69/Api/DownloadRecording.php?file={{$user->voice}}" id="Audio"></audio>
 
                           </button>
 
@@ -143,6 +143,7 @@ $name = "";
                             <i class="fa fa-ticket" aria-hidden="true"></i>
                             </button>
                           </a> --}}
+
 
                         </div>
                       </td>
@@ -182,6 +183,15 @@ $name = "";
   function PlayAudio() {
     document.getElementById("Audio").play();
   }
+
+
+  // axios.post(`{{ url('updatecalls') }}`, {})
+  //   .then(response => {
+  //     console.log(response.data);
+  //   }).catch(error => {
+  //   console.log(error)
+  // });
+
 </script>
 
 <script src="../../plugins/jquery/jquery.min.js"></script>
