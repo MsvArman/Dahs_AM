@@ -44,7 +44,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -54,7 +54,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -67,7 +67,7 @@ class ReportsController extends Controller
                     }
                 })->toArray();
 
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime('today midnight') && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -77,7 +77,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime('today midnight') && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -91,7 +91,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime("7 day ago") && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -101,7 +101,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime("7 day ago") && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -114,7 +114,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime("1 month ago") && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -124,7 +124,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime("1 month ago") && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -138,7 +138,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime("1 year ago") && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -148,7 +148,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->where("NationalCode", $customerNationalCode)->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->where("NationalCode", $customerNationalCode)->map(function($item){
                     if($item->time > strtotime("1 year ago") && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -162,7 +162,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -172,7 +172,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -185,7 +185,7 @@ class ReportsController extends Controller
                     }
                 })->toArray();
 
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime('today midnight') && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -195,7 +195,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime('today midnight') && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -209,7 +209,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime("7 day ago") && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -219,7 +219,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime("7 day ago") && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -232,7 +232,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime("1 month ago") && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -242,7 +242,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime("1 month ago") && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -256,7 +256,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCall = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcall = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime("1 year ago") && $item->mobileoperator != ""){
                         return $item->time;
                     }
@@ -266,7 +266,7 @@ class ReportsController extends Controller
                         return $item->time;
                     }
                 })->toArray();
-                $outgoingCallDontAnswer = CallHistorydb::all()->where("call", "outgoingcall")->map(function($item){
+                $outcallDontAnswer = CallHistorydb::all()->where("call", "outcall")->map(function($item){
                     if($item->time > strtotime("1 year ago") && $item->mobileoperator == ""){
                         return $item->time;
                     }
@@ -275,7 +275,7 @@ class ReportsController extends Controller
             }
         }
 
-        return [count(array_filter($incomingCall)), count(array_filter($outgoingCall)), count(array_filter($incomingCallDontAnswer)), count(array_filter($outgoingCallDontAnswer))];
+        return [count(array_filter($incomingCall)), count(array_filter($outcall)), count(array_filter($incomingCallDontAnswer)), count(array_filter($outcallDontAnswer))];
 
     }
 }

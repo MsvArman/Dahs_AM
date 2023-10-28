@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CallHistorydb;
 use Illuminate\Http\Request;
 use App\Models\customers;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -32,11 +33,15 @@ class CustomerManagement extends Controller
                 "Amountofcapital" => $request->get("Amountofcapital"),
 
             ]);
-    
+
+            CallHistorydb::where("NationalCode", $request->get("last_ntional_code"))->update([
+                "NationalCode" => $request->get("NationalCode"),
+            ]);
+            
             return redirect()->route("customermanagement");
 
         } catch (\Exception $ex) {
-            
+
             // return redirect()->back();
             return $request;
 
@@ -75,7 +80,7 @@ class CustomerManagement extends Controller
     public function Update_Customer(Request $request){
 
         try {
-            
+
             $user = customers::find($request->get("id"));
             $user->update([
                 "NationalCode" => $request->get("NationalCode"),
@@ -86,11 +91,17 @@ class CustomerManagement extends Controller
                 "Investingin" => $request->get("Investingin"),
                 "Amountofcapital" => $request->get("Amountofcapital"),
             ]);
-    
+
+
+            CallHistorydb::where("NationalCode", $request->get("last_ntional_code"))->update([
+                "NationalCode" => $request->get("NationalCode"),
+            ]);
+
+
             return redirect()->route("customermanagement");
 
         } catch (\Exception $ex) {
-            
+
             return redirect()->back();
 
         }

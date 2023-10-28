@@ -44,8 +44,17 @@ Route::get('/updatecustomer', [App\Http\Controllers\CustomerManagement::class, '
 Route::post('/Update_Customer', [App\Http\Controllers\CustomerManagement::class, 'Update_Customer'])->name('ucr');
 
 Route::get('/callhistory', [App\Http\Controllers\CallHistory::class, 'Show_Calls'])->name('callhistory')->middleware("auth");
+
+
+// Route::get('/callhistory_refresh', [App\Http\Controllers\CallHistory::class, 'Show_Calls_refresh'])->name('callhistory_refresh')->middleware("auth");
+Route::post('/callhistory_refresh', [App\Http\Controllers\CallHistory::class, 'Show_Calls_refresh'])->name('callhistory_refresh')->middleware("auth");
+
+
+
+
 Route::get('/profilecustomer', [App\Http\Controllers\CallHistory::class, 'Profile_Customer'])->name('pc')->middleware("auth");
-Route::post('/updatecomment', [App\Http\Controllers\CallHistory::class, 'Comment'])->name('updatecomment');
+Route::post('/addticket', [App\Http\Controllers\CallHistory::class, 'addTicket'])->name('addTicket');
+// Route::get('/addticket', [App\Http\Controllers\CallHistory::class, 'addTicket'])->name('addTicket');
 Route::post('/updatecalls', [App\Http\Controllers\CallHistory::class, 'Update_Calls'])->name('updatecalls');
 
 Route::post('/caller', [App\Http\Controllers\caller::class, 'caller'])->name('caller');
