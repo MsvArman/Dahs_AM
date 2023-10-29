@@ -9,6 +9,7 @@ use App\Http\Controllers\CallHistory;
 use App\Http\Controllers\login;
 use App\Http\Controllers\caller;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\EventsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,6 @@ Route::post('/delrole', [App\Http\Controllers\RoleController::class, 'Del_Role']
 
 Route::get("/reports", [ReportsController::class, "show"])->name("reports_show")->middleware("auth");
 Route::post("/give_report", [ReportsController::class, "give_report"])->name("give_report")->middleware("auth");
+
+
+Route::post("/store_event", [App\Http\Controllers\EventsController::class, 'store'])->name("storeevent")->middleware("auth");

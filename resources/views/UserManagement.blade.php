@@ -63,10 +63,18 @@
             <div class="card">
               
               <div class="card-header">
+                @if (auth()->user()->role == 'مدیر')
                 <a href="{{ route('createuser') }}"><button type="button" class="btn btn-warning btn-sm d-flex flex-row">
                   <i class="fa fa-plus mx-1"></i>
                   <p class="mb-0 ">افزودن کاربر</p>
                 </button></a>
+                @else
+                <a href="#"><button type="button" class="btn btn-warning btn-sm d-flex flex-row" disabled>
+                  <i class="fa fa-plus mx-1"></i>
+                  <p class="mb-0 ">افزودن کاربر</p>
+                </button></a>
+                @endif
+                
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm w-100">
@@ -103,7 +111,7 @@
                       <td>
 
                         <div class="d-flex">
-
+                          @if (auth()->user()->role == 'مدیر')
                           <a href="{{ route('ur_show') }}?id={{$user->id}}"><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center">
                             <i class="fa fa-edit mx-1"></i>
                             <p class="mb-0 ">ویرایش کاربر</p>
@@ -112,6 +120,17 @@
                             <i class="fa fa-trash mx-1"></i>
                             <p class="mb-0 ">حذف کاربر</p>
                           </button></a>
+                          @else
+                          <a href="#"><button class="btn btn-sm btn-success text-light m-1 d-flex flex-row align-items-center justify-content-center text-center" disabled>
+                            <i class="fa fa-edit mx-1"></i>
+                            <p class="mb-0 ">ویرایش کاربر</p>
+                          </button></a>
+                          <a href="#"><button class="btn btn-sm btn-danger text-light m-1 d-flex flex-row align-items-center justify-content-center text-center" disabled>
+                            <i class="fa fa-trash mx-1"></i>
+                            <p class="mb-0 ">حذف کاربر</p>
+                          </button></a>
+                          @endif
+                          
 
                         </div>
 

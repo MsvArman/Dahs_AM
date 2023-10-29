@@ -12,6 +12,7 @@ class caller extends Controller
         $number = $request->get("number");
         $ext = $request->get("ext");
         $id = time();
+        // $ip = '192.168.10.10';
         $ip = '176.65.253.69';
 
         // $curl = curl_init();
@@ -36,6 +37,10 @@ class caller extends Controller
             ]
         ]);
         
+
+    
+
+
         $content = file_get_contents($url, false, $context);
         // echo $content;
         
@@ -45,11 +50,11 @@ class caller extends Controller
         
         if($content){
 
-            Alert::success('تماس موفق', 'تماس با موفقیت برقرار شد');
+            return Alert::success('تماس موفق', 'تماس با موفقیت برقرار شد');
 
         }else{
 
-            Alert::error('تماس ناموفق', 'متاسفانه در برقراری تماس مشکلی پیش آمده');
+            return Alert::error('تماس ناموفق', 'متاسفانه در برقراری تماس مشکلی پیش آمده');
 
         }
        

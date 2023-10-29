@@ -335,7 +335,29 @@
                                             @endif --}}
                                         @endforeach
 
+                                        {{-- <div class="col-md-6">
+                                            <div class="card bg-danger-gradient">
+                                              <div class="card-header">
+                                                <h3 class="card-title">رویداد #باز</h3>
+                                              </div>
+                                              <div class="card-body">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است                                              </div>
+                                              <!-- /.card-body -->
+                                            </div>
+                                            <!-- /.card -->
+                                        </div> --}}
 
+                                        <div class="col-md-6">
+                                            <div class="card bg-success-gradient">
+                                              <div class="card-header">
+                                                <h3 class="card-title">رویداد #بسته</h3>
+                                              </div>
+                                              <div class="card-body">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است                                              </div>
+                                              <!-- /.card-body -->
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
 
                                     </div>
 
@@ -359,28 +381,30 @@
                                         </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('storeevent') }}" method="POST">
                                                 <div class="form-group">
                                                     <label>اپراتور را انتخاب کنید:</label>
-                                                    <select class="form-control">
+                                                    <select name="user_id" id="operator" class="form-control">
                                                         @foreach ($operators as $operator)
-                                                        <option>{{ $operator->name }}</option> 
+                                                        <option>{{ $operator->name }} [{{$operator->role}}]</option> 
                                                         @endforeach
                                                     </select>
                                                   </div>
                                                 <div class="form-group">
                                                   <label for="message-text" class="col-form-label">متن رویداد:</label>
-                                                  <textarea class="form-control" id="message-text"></textarea>
+                                                  <textarea name="body" class="form-control" id="message-text"></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="date1" class="col-form-label">تاریخ:</label>
-                                                    <input type="text" class="form-control" id="date1" data-jdp style="z-index: 9999!important">
+                                                    <input name="date_of_validity" type="text" class="form-control" id="date1" data-jdp style="z-index: 9999!important">
                                                     
                                                 </div>
                                                 <input type="hidden" name="codemeli" value="{{ $NationalCode }}" />
-                                                <input type="hidden" name="codemeli" value="{{ $NationalCode }}" />
+                                                <input type="hidden" name="operator_id" value="{{ auth()->user()->id }}" />
 
-                                              </form>
+                                                <button id="btn_submit_event" type="submit" class="btn btn-primary rounded-0">ثبت رویداد</button>
+                                                @csrf
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">بستن</button>
