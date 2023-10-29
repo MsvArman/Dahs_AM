@@ -16,6 +16,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "@majidh1/jalalidatepicker": "^0.9.3",
         "bootstrap-icons": "^1.11.1",
         "sweetalert2": "^11.7.32"
     }

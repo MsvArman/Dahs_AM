@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CallHistorydb;
 use App\Models\customers;
+use App\Models\users;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -67,8 +68,9 @@ class CallHistory extends Controller
         // }
 
         // return $end;
+        $operators = users::orderBy('id')->get();
 
-        return view("ProfileCustomer", compact("user", "NationalCode", "tickets"));
+        return view("ProfileCustomer", compact("user", "NationalCode", "tickets","operators"));
 
 
         // اپدیت کردن کدملی در دیتابیس مکلمات

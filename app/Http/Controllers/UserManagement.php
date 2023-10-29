@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\users;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
+use App\Models\role;
 
 class UserManagement extends Controller
 {
@@ -42,6 +43,14 @@ class UserManagement extends Controller
 
     }
 
+    public function createuser(){
+
+        $roles = role::orderBy('id')->get();
+
+        return view("CreateUser", compact("roles"));
+
+    }
+
 
 
     public function destroy(Request $request)
@@ -65,7 +74,9 @@ class UserManagement extends Controller
 
 
         $user = users::find($request->get("id"));
-        return view("UpdateUser", compact("user"));
+        $roles = role::orderBy('id')->get();
+
+        return view("UpdateUser", compact("user","roles"));
 
     }
 

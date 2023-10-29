@@ -28,8 +28,13 @@ Route::get('/logout', [App\Http\Controllers\login::class, 'logout'])->name('logo
 
 Route::post('/userlogin', [App\Http\Controllers\login::class, 'user_login'])->name('user_login');
 // users
+// Route::get('/usermanagement', [App\Http\Controllers\UserManagement::class, 'Show_Users'])->name('usermanagement')->middleware("auth");
+// Route::get('/createuser', function () {return view('CreateUser');})->name('createuser')->middleware("auth");
+
 Route::get('/usermanagement', [App\Http\Controllers\UserManagement::class, 'Show_Users'])->name('usermanagement')->middleware("auth");
-Route::get('/createuser', function () {return view('CreateUser');})->name('createuser')->middleware("auth");
+Route::get('/createuser', [App\Http\Controllers\UserManagement::class, 'createuser'])->name('createuser')->middleware("auth");
+
+
 Route::post('/Create_User', [App\Http\Controllers\UserManagement::class, 'Create_User'])->name('cr');
 Route::get('/Del_User', [App\Http\Controllers\UserManagement::class, 'destroy'])->name('dr');
 Route::get('/updateuser', [App\Http\Controllers\UserManagement::class, 'Show_User'])->name('ur_show')->middleware("auth");

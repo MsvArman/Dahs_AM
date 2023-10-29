@@ -71,8 +71,9 @@
                 <div class="form-group">
                   <label >سمت</label>
                   <select name="role" id="role" class="form-control">
-                    <option>اپراتور</option>
-                    <option>کاربر</option>
+                    @foreach ($roles as $role)
+                    <option>{{ $role->role }}</option>
+                    @endforeach>
                   </select>
                 </div>
 

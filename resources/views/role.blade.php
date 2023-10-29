@@ -80,11 +80,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <main class="content z-1">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-8 ">
-            <div class="card card-success">
-              <div class="card-header">
+      <div class="container-fluid d-flex justify-content-center align-items-center my-auto h-100 w-100">
+        <div class="card w-100">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <div class="card w-50 mx-2">
+              <div class="card-header  border-0">
                 <h3 class="card-title text-center">افزودن سمت</h3>
 
                 <div class="card-tools">
@@ -98,34 +98,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <form action="{{ route('createrole') }}" method="post">
                   <div class="input-group">
                     <input type="text" name="role" placeholder="نام سمت را بنویسید ..." class="form-control">
-                    <span class="input-group-append">
-                      <button type="submit" class="btn btn-success">ارسال</button>
-                    </span>
-                  </div>
+                      <span class="input-group-append">
+                        <button type="submit" class="btn btn-success">ارسال</button>
+                      </span>
+                    </div>
                   @csrf
                 </form>
               </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-
-
-          <div class="col-md-8 justify-content-center">
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title text-center">حذف سمت</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body text-center" style="display: block;">
+              {{-- <hr> --}}
+              <div class="card-body " style="display: block;">
                 <div class="form-group">
-                  <label>انتخاب کنید</label>
+                  <label class="text-end">برای حذف سمت انخاب کنید</label>
                   <form action="{{ route('delrole') }}" method="post">
                     <select name="role" class="form-control">
                       @foreach ($roles as $role)
@@ -134,12 +117,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </select>
                     @csrf
                     <br>
-                    <button type="submit" class="btn btn-danger">حذف</button>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-danger mx-auto px-4 py-2">حذف</button>
+                    </div>
                   </form>
                 </div>
               </div>
               <!-- /.card-body -->
             </div>
+            <!-- /.card -->
+          
+
+
+{{--           
+            <div class="card w-50 mx-2">
+              <div class="card-header border-0">
+                <h3 class="card-title text-start text-danger">حذف سمت</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body " style="display: block;">
+                <div class="form-group">
+                  <label class="text-end">انتخاب کنید</label>
+                  <form action="{{ route('delrole') }}" method="post">
+                    <select name="role" class="form-control">
+                      @foreach ($roles as $role)
+                      <option>{{ $role->role }}</option>
+                      @endforeach
+                    </select>
+                    @csrf
+                    <br>
+                    <button type="submit" class="btn btn-danger mx-auto px-4 py-2">حذف</button>
+                  </form>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div> --}}
             <!-- /.card -->
           </div>
 

@@ -22,9 +22,13 @@
     <!-- template rtl version -->
     <link rel="stylesheet" href="{{ asset('dist/css/custom-style.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/customcss.css') }}">
-
+    <link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
+    
 
     <style>
+        jdp-container{
+            z-index: 10000 !important;
+        }
         .direct-chat-text.answer:after,
         .direct-chat-text.answer:before {
             border-left-color: #ff9900 !important;
@@ -339,6 +343,52 @@
 
 
                             </div>
+                            <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                 رویداد
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="#" method="POST">
+                                                <div class="form-group">
+                                                    <label>اپراتور را انتخاب کنید:</label>
+                                                    <select class="form-control">
+                                                        @foreach ($operators as $operator)
+                                                        <option>{{ $operator->name }}</option> 
+                                                        @endforeach
+                                                    </select>
+                                                  </div>
+                                                <div class="form-group">
+                                                  <label for="message-text" class="col-form-label">متن رویداد:</label>
+                                                  <textarea class="form-control" id="message-text"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="date1" class="col-form-label">تاریخ:</label>
+                                                    <input type="text" class="form-control" id="date1" data-jdp style="z-index: 9999!important">
+                                                    
+                                                </div>
+                                                <input type="hidden" name="codemeli" value="{{ $NationalCode }}" />
+                                                <input type="hidden" name="codemeli" value="{{ $NationalCode }}" />
+
+                                              </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">بستن</button>
+                                        <button id="btn_submit_event" type="button" class="btn btn-primary rounded-0">ثبت رویداد</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                             <!-- /.card -->
                         </div>
 
@@ -374,8 +424,11 @@
     <!-- ./wrapper -->
     @include('main.caller')
 
+
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    
     <!-- Bootstrap 4 -->
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Slimscroll -->
@@ -386,6 +439,14 @@
     <script src="../../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="../../dist/js/demo.js"></script> --}}
+    <script type="text/javascript" src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
+    
+    <script>
+        // $('#btn_submit_event').click(()+>{
+        // });
+        jalaliDatepicker.startWatch();
+    </script>
+
 </body>
 
 </html>
